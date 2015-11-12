@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "stdafx.h"
 
@@ -14,13 +14,13 @@ using namespace System::Diagnostics;
 namespace LilithPort {
 
 	/// <summary>
-	/// OptionForm �̊T�v
+	/// OptionForm の概要
 	///
-	/// �x��: ���̃N���X�̖��O��ύX����ꍇ�A���̃N���X���ˑ����邷�ׂĂ� .resx �t�@�C���Ɋ֘A�t����ꂽ
-	///          �}�l�[�W ���\�[�X �R���p�C�� �c�[���ɑ΂��� 'Resource File Name' �v���p�e�B��
-	///          �ύX����K�v������܂��B���̕ύX���s��Ȃ��ƁA
-	///          �f�U�C�i�ƁA���̃t�H�[���Ɋ֘A�t����ꂽ���[�J���C�Y�ς݃��\�[�X�Ƃ��A
-	///          ���������݂ɗ��p�ł��Ȃ��Ȃ�܂��B
+	/// 警告: このクラスの名前を変更する場合、このクラスが依存するすべての .resx ファイルに関連付けられた
+	///          マネージ リソース コンパイラ ツールに対して 'Resource File Name' プロパティを
+	///          変更する必要があります。この変更を行わないと、
+	///          デザイナと、このフォームに関連付けられたローカライズ済みリソースとが、
+	///          正しく相互に利用できなくなります。
 	/// </summary>
 	public ref class OptionForm : public System::Windows::Forms::Form
 	{
@@ -29,13 +29,13 @@ namespace LilithPort {
 		{
 			InitializeComponent();
 			//
-			//TODO: �����ɃR���X�g���N�^ �R�[�h��ǉ����܂�
+			//TODO: ここにコンストラクタ コードを追加します
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// �g�p���̃��\�[�X�����ׂăN���[���A�b�v���܂��B
+		/// 使用中のリソースをすべてクリーンアップします。
 		/// </summary>
 		~OptionForm()
 		{
@@ -213,14 +213,14 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 
 	private:
 		/// <summary>
-		/// �K�v�ȃf�U�C�i�ϐ��ł��B
+		/// 必要なデザイナ変数です。
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// �f�U�C�i �T�|�[�g�ɕK�v�ȃ��\�b�h�ł��B���̃��\�b�h�̓��e��
-		/// �R�[�h �G�f�B�^�ŕύX���Ȃ��ł��������B
+		/// デザイナ サポートに必要なメソッドです。このメソッドの内容を
+		/// コード エディタで変更しないでください。
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -426,7 +426,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonApply->Name = L"buttonApply";
 			this->buttonApply->Size = System::Drawing::Size(64, 24);
 			this->buttonApply->TabIndex = 8;
-			this->buttonApply->Text = L"�K�p";
+			this->buttonApply->Text = L"適用";
 			this->buttonApply->UseVisualStyleBackColor = true;
 			this->buttonApply->Click += gcnew System::EventHandler(this, &OptionForm::buttonApply_Click);
 			// 
@@ -436,13 +436,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonCancel->Name = L"buttonCancel";
 			this->buttonCancel->Size = System::Drawing::Size(64, 24);
 			this->buttonCancel->TabIndex = 9;
-			this->buttonCancel->Text = L"�L�����Z��";
+			this->buttonCancel->Text = L"キャンセル";
 			this->buttonCancel->UseVisualStyleBackColor = true;
 			this->buttonCancel->Click += gcnew System::EventHandler(this, &OptionForm::buttonCancel_Click);
 			// 
 			// folderBrowserDialog1
 			// 
-			this->folderBrowserDialog1->Description = L"���v���C�ۑ��t�H���_";
+			this->folderBrowserDialog1->Description = L"リプレイ保存フォルダ";
 			// 
 			// colorDialog1
 			// 
@@ -464,7 +464,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->tabPageSound->Padding = System::Windows::Forms::Padding(3);
 			this->tabPageSound->Size = System::Drawing::Size(369, 295);
 			this->tabPageSound->TabIndex = 3;
-			this->tabPageSound->Text = L"����";
+			this->tabPageSound->Text = L"音声";
 			this->tabPageSound->UseVisualStyleBackColor = true;
 			// 
 			// groupBoxKeywordSound
@@ -480,7 +480,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxKeywordSound->Size = System::Drawing::Size(335, 96);
 			this->groupBoxKeywordSound->TabIndex = 7;
 			this->groupBoxKeywordSound->TabStop = false;
-			this->groupBoxKeywordSound->Text = L"�L�[���[�h�ōĐ�";
+			this->groupBoxKeywordSound->Text = L"キーワードで再生";
 			// 
 			// buttonKeywordSoundPlay
 			// 
@@ -488,7 +488,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonKeywordSoundPlay->Name = L"buttonKeywordSoundPlay";
 			this->buttonKeywordSoundPlay->Size = System::Drawing::Size(65, 20);
 			this->buttonKeywordSoundPlay->TabIndex = 5;
-			this->buttonKeywordSoundPlay->Text = L"�Đ�";
+			this->buttonKeywordSoundPlay->Text = L"再生";
 			this->buttonKeywordSoundPlay->UseVisualStyleBackColor = true;
 			this->buttonKeywordSoundPlay->Click += gcnew System::EventHandler(this, &OptionForm::buttonKeywordSoundPlay_Click);
 			// 
@@ -499,7 +499,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxKeywordSound->Name = L"checkBoxKeywordSound";
 			this->checkBoxKeywordSound->Size = System::Drawing::Size(48, 16);
 			this->checkBoxKeywordSound->TabIndex = 4;
-			this->checkBoxKeywordSound->Text = L"�L��";
+			this->checkBoxKeywordSound->Text = L"有効";
 			this->checkBoxKeywordSound->UseVisualStyleBackColor = true;
 			this->checkBoxKeywordSound->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -531,7 +531,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelKeywordSound->Name = L"labelKeywordSound";
 			this->labelKeywordSound->Size = System::Drawing::Size(141, 12);
 			this->labelKeywordSound->TabIndex = 1;
-			this->labelKeywordSound->Text = L"�R���}( , )�ŕ����o�^���\";
+			this->labelKeywordSound->Text = L"コンマ( , )で複数登録が可能";
 			// 
 			// textBoxKeyword
 			// 
@@ -552,7 +552,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxSeekSound->Size = System::Drawing::Size(336, 52);
 			this->groupBoxSeekSound->TabIndex = 6;
 			this->groupBoxSeekSound->TabStop = false;
-			this->groupBoxSeekSound->Text = L"�ΐ��W�ōĐ�";
+			this->groupBoxSeekSound->Text = L"対戦募集で再生";
 			// 
 			// buttonSeekSoundPlay
 			// 
@@ -560,7 +560,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonSeekSoundPlay->Name = L"buttonSeekSoundPlay";
 			this->buttonSeekSoundPlay->Size = System::Drawing::Size(65, 20);
 			this->buttonSeekSoundPlay->TabIndex = 3;
-			this->buttonSeekSoundPlay->Text = L"�Đ�";
+			this->buttonSeekSoundPlay->Text = L"再生";
 			this->buttonSeekSoundPlay->UseVisualStyleBackColor = true;
 			this->buttonSeekSoundPlay->Click += gcnew System::EventHandler(this, &OptionForm::buttonSeekSoundPlay_Click);
 			// 
@@ -571,7 +571,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxSeekSound->Name = L"checkBoxSeekSound";
 			this->checkBoxSeekSound->Size = System::Drawing::Size(48, 16);
 			this->checkBoxSeekSound->TabIndex = 2;
-			this->checkBoxSeekSound->Text = L"�L��";
+			this->checkBoxSeekSound->Text = L"有効";
 			this->checkBoxSeekSound->UseVisualStyleBackColor = true;
 			this->checkBoxSeekSound->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -607,7 +607,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxTalkSound->Size = System::Drawing::Size(336, 52);
 			this->groupBoxTalkSound->TabIndex = 5;
 			this->groupBoxTalkSound->TabStop = false;
-			this->groupBoxTalkSound->Text = L"�����ōĐ�";
+			this->groupBoxTalkSound->Text = L"発言で再生";
 			// 
 			// buttonTalkSoundPlay
 			// 
@@ -615,7 +615,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonTalkSoundPlay->Name = L"buttonTalkSoundPlay";
 			this->buttonTalkSoundPlay->Size = System::Drawing::Size(65, 20);
 			this->buttonTalkSoundPlay->TabIndex = 3;
-			this->buttonTalkSoundPlay->Text = L"�Đ�";
+			this->buttonTalkSoundPlay->Text = L"再生";
 			this->buttonTalkSoundPlay->UseVisualStyleBackColor = true;
 			this->buttonTalkSoundPlay->Click += gcnew System::EventHandler(this, &OptionForm::buttonTalkSoundPlay_Click);
 			// 
@@ -626,7 +626,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxTalkSound->Name = L"checkBoxTalkSound";
 			this->checkBoxTalkSound->Size = System::Drawing::Size(48, 16);
 			this->checkBoxTalkSound->TabIndex = 2;
-			this->checkBoxTalkSound->Text = L"�L��";
+			this->checkBoxTalkSound->Text = L"有効";
 			this->checkBoxTalkSound->UseVisualStyleBackColor = true;
 			this->checkBoxTalkSound->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -662,7 +662,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxName->Size = System::Drawing::Size(336, 52);
 			this->groupBoxName->TabIndex = 4;
 			this->groupBoxName->TabStop = false;
-			this->groupBoxName->Text = L"�j�b�N�l�[�����Ă΂ꂽ��Đ�";
+			this->groupBoxName->Text = L"ニックネームが呼ばれたら再生";
 			// 
 			// buttonNameSoundPlay
 			// 
@@ -670,7 +670,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonNameSoundPlay->Name = L"buttonNameSoundPlay";
 			this->buttonNameSoundPlay->Size = System::Drawing::Size(65, 20);
 			this->buttonNameSoundPlay->TabIndex = 5;
-			this->buttonNameSoundPlay->Text = L"�Đ�";
+			this->buttonNameSoundPlay->Text = L"再生";
 			this->buttonNameSoundPlay->UseVisualStyleBackColor = true;
 			this->buttonNameSoundPlay->Click += gcnew System::EventHandler(this, &OptionForm::buttonNameSoundPlay_Click);
 			// 
@@ -681,7 +681,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxNameSound->Name = L"checkBoxNameSound";
 			this->checkBoxNameSound->Size = System::Drawing::Size(48, 16);
 			this->checkBoxNameSound->TabIndex = 4;
-			this->checkBoxNameSound->Text = L"�L��";
+			this->checkBoxNameSound->Text = L"有効";
 			this->checkBoxNameSound->UseVisualStyleBackColor = true;
 			this->checkBoxNameSound->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -717,7 +717,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxEnterSound->Size = System::Drawing::Size(336, 52);
 			this->groupBoxEnterSound->TabIndex = 3;
 			this->groupBoxEnterSound->TabStop = false;
-			this->groupBoxEnterSound->Text = L"�����̂��m�点";
+			this->groupBoxEnterSound->Text = L"入室のお知らせ";
 			// 
 			// buttonEnterSoundPlay
 			// 
@@ -725,7 +725,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonEnterSoundPlay->Name = L"buttonEnterSoundPlay";
 			this->buttonEnterSoundPlay->Size = System::Drawing::Size(65, 20);
 			this->buttonEnterSoundPlay->TabIndex = 4;
-			this->buttonEnterSoundPlay->Text = L"�Đ�";
+			this->buttonEnterSoundPlay->Text = L"再生";
 			this->buttonEnterSoundPlay->UseVisualStyleBackColor = true;
 			this->buttonEnterSoundPlay->Click += gcnew System::EventHandler(this, &OptionForm::buttonEnterSoundPlay_Click);
 			// 
@@ -736,7 +736,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxEnterSound->Name = L"checkBoxEnterSound";
 			this->checkBoxEnterSound->Size = System::Drawing::Size(48, 16);
 			this->checkBoxEnterSound->TabIndex = 3;
-			this->checkBoxEnterSound->Text = L"�L��";
+			this->checkBoxEnterSound->Text = L"有効";
 			this->checkBoxEnterSound->UseVisualStyleBackColor = true;
 			this->checkBoxEnterSound->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -772,7 +772,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxNoticeSound->Size = System::Drawing::Size(336, 52);
 			this->groupBoxNoticeSound->TabIndex = 2;
 			this->groupBoxNoticeSound->TabStop = false;
-			this->groupBoxNoticeSound->Text = L"���m�̂��m�点";
+			this->groupBoxNoticeSound->Text = L"告知のお知らせ";
 			// 
 			// buttonNoticeSoundPlay
 			// 
@@ -780,7 +780,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonNoticeSoundPlay->Name = L"buttonNoticeSoundPlay";
 			this->buttonNoticeSoundPlay->Size = System::Drawing::Size(65, 20);
 			this->buttonNoticeSoundPlay->TabIndex = 4;
-			this->buttonNoticeSoundPlay->Text = L"�Đ�";
+			this->buttonNoticeSoundPlay->Text = L"再生";
 			this->buttonNoticeSoundPlay->UseVisualStyleBackColor = true;
 			this->buttonNoticeSoundPlay->Click += gcnew System::EventHandler(this, &OptionForm::buttonNoticeSoundPlay_Click);
 			// 
@@ -791,7 +791,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxNoticeSound->Name = L"checkBoxNoticeSound";
 			this->checkBoxNoticeSound->Size = System::Drawing::Size(48, 16);
 			this->checkBoxNoticeSound->TabIndex = 3;
-			this->checkBoxNoticeSound->Text = L"�L��";
+			this->checkBoxNoticeSound->Text = L"有効";
 			this->checkBoxNoticeSound->UseVisualStyleBackColor = true;
 			this->checkBoxNoticeSound->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -827,7 +827,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxVSSound->Size = System::Drawing::Size(336, 52);
 			this->groupBoxVSSound->TabIndex = 1;
 			this->groupBoxVSSound->TabStop = false;
-			this->groupBoxVSSound->Text = L"�ΐ�̂��m�点";
+			this->groupBoxVSSound->Text = L"対戦のお知らせ";
 			// 
 			// buttonVSSoundPlay
 			// 
@@ -835,7 +835,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonVSSoundPlay->Name = L"buttonVSSoundPlay";
 			this->buttonVSSoundPlay->Size = System::Drawing::Size(65, 20);
 			this->buttonVSSoundPlay->TabIndex = 4;
-			this->buttonVSSoundPlay->Text = L"�Đ�";
+			this->buttonVSSoundPlay->Text = L"再生";
 			this->buttonVSSoundPlay->UseVisualStyleBackColor = true;
 			this->buttonVSSoundPlay->Click += gcnew System::EventHandler(this, &OptionForm::buttonVSSoundPlay_Click);
 			// 
@@ -846,7 +846,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxVSSound->Name = L"checkBoxVSSound";
 			this->checkBoxVSSound->Size = System::Drawing::Size(48, 16);
 			this->checkBoxVSSound->TabIndex = 3;
-			this->checkBoxVSSound->Text = L"�L��";
+			this->checkBoxVSSound->Text = L"有効";
 			this->checkBoxVSSound->UseVisualStyleBackColor = true;
 			this->checkBoxVSSound->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -884,7 +884,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->tabPagePath->Padding = System::Windows::Forms::Padding(3);
 			this->tabPagePath->Size = System::Drawing::Size(369, 295);
 			this->tabPagePath->TabIndex = 0;
-			this->tabPagePath->Text = L"��{";
+			this->tabPagePath->Text = L"基本";
 			this->tabPagePath->UseVisualStyleBackColor = true;
 			// 
 			// groupBoxProfile
@@ -901,7 +901,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxProfile->Size = System::Drawing::Size(330, 85);
 			this->groupBoxProfile->TabIndex = 4;
 			this->groupBoxProfile->TabStop = false;
-			this->groupBoxProfile->Text = L"�v���t�@�C��";
+			this->groupBoxProfile->Text = L"プロファイル";
 			// 
 			// buttonSaveProfile
 			// 
@@ -909,7 +909,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonSaveProfile->Name = L"buttonSaveProfile";
 			this->buttonSaveProfile->Size = System::Drawing::Size(45, 22);
 			this->buttonSaveProfile->TabIndex = 7;
-			this->buttonSaveProfile->Text = L"�ۑ�";
+			this->buttonSaveProfile->Text = L"保存";
 			this->buttonSaveProfile->UseVisualStyleBackColor = true;
 			this->buttonSaveProfile->Click += gcnew System::EventHandler(this, &OptionForm::buttonSaveProfile_Click);
 			// 
@@ -919,7 +919,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonAddProfile->Name = L"buttonAddProfile";
 			this->buttonAddProfile->Size = System::Drawing::Size(45, 22);
 			this->buttonAddProfile->TabIndex = 6;
-			this->buttonAddProfile->Text = L"�ǉ�";
+			this->buttonAddProfile->Text = L"追加";
 			this->buttonAddProfile->UseVisualStyleBackColor = true;
 			this->buttonAddProfile->Click += gcnew System::EventHandler(this, &OptionForm::buttonAddProfile_Click);
 			// 
@@ -930,7 +930,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelProfileName->Name = L"labelProfileName";
 			this->labelProfileName->Size = System::Drawing::Size(69, 12);
 			this->labelProfileName->TabIndex = 5;
-			this->labelProfileName->Text = L"�v���t�@�C����";
+			this->labelProfileName->Text = L"プロファイル名";
 			// 
 			// buttonDeleteProfile
 			// 
@@ -938,7 +938,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonDeleteProfile->Name = L"buttonDeleteProfile";
 			this->buttonDeleteProfile->Size = System::Drawing::Size(45, 22);
 			this->buttonDeleteProfile->TabIndex = 4;
-			this->buttonDeleteProfile->Text = L"�폜";
+			this->buttonDeleteProfile->Text = L"削除";
 			this->buttonDeleteProfile->UseVisualStyleBackColor = true;
 			this->buttonDeleteProfile->Click += gcnew System::EventHandler(this, &OptionForm::buttonDeleteProfile_Click);
 			// 
@@ -957,7 +957,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonCopyProfile->Name = L"buttonCopyProfile";
 			this->buttonCopyProfile->Size = System::Drawing::Size(45, 22);
 			this->buttonCopyProfile->TabIndex = 2;
-			this->buttonCopyProfile->Text = L"����";
+			this->buttonCopyProfile->Text = L"複製";
 			this->buttonCopyProfile->UseVisualStyleBackColor = true;
 			this->buttonCopyProfile->Click += gcnew System::EventHandler(this, &OptionForm::buttonCopyProfile_Click);
 			// 
@@ -983,7 +983,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxReplayFolder->Size = System::Drawing::Size(330, 80);
 			this->groupBoxReplayFolder->TabIndex = 2;
 			this->groupBoxReplayFolder->TabStop = false;
-			this->groupBoxReplayFolder->Text = L"���v���C�ۑ��t�H���_";
+			this->groupBoxReplayFolder->Text = L"リプレイ保存フォルダ";
 			// 
 			// textBoxReplayFolder
 			// 
@@ -1013,7 +1013,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxDivide->Name = L"checkBoxDivide";
 			this->checkBoxDivide->Size = System::Drawing::Size(168, 16);
 			this->checkBoxDivide->TabIndex = 3;
-			this->checkBoxDivide->Text = L"���v���C�t�@�C���̎����U�蕪��";
+			this->checkBoxDivide->Text = L"リプレイファイルの自動振り分け";
 			this->checkBoxDivide->UseVisualStyleBackColor = true;
 			this->checkBoxDivide->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1028,7 +1028,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxNet->Size = System::Drawing::Size(330, 80);
 			this->groupBoxNet->TabIndex = 3;
 			this->groupBoxNet->TabStop = false;
-			this->groupBoxNet->Text = L"����ݒ�";
+			this->groupBoxNet->Text = L"回線設定";
 			// 
 			// labelComment
 			// 
@@ -1037,7 +1037,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelComment->Name = L"labelComment";
 			this->labelComment->Size = System::Drawing::Size(38, 12);
 			this->labelComment->TabIndex = 0;
-			this->labelComment->Text = L"�R�����g";
+			this->labelComment->Text = L"コメント";
 			// 
 			// numericUpDownMaxConnection
 			// 
@@ -1064,7 +1064,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(65, 12);
 			this->label5->TabIndex = 0;
-			this->label5->Text = L"�ő�ڑ���";
+			this->label5->Text = L"最大接続数";
 			// 
 			// groupBoxGameExe
 			// 
@@ -1075,7 +1075,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxGameExe->Size = System::Drawing::Size(330, 52);
 			this->groupBoxGameExe->TabIndex = 1;
 			this->groupBoxGameExe->TabStop = false;
-			this->groupBoxGameExe->Text = L"���s�t�@�C���̃p�X";
+			this->groupBoxGameExe->Text = L"実行ファイルのパス";
 			// 
 			// textBoxGameExe
 			// 
@@ -1107,7 +1107,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxSave->Size = System::Drawing::Size(154, 42);
 			this->groupBoxSave->TabIndex = 4;
 			this->groupBoxSave->TabStop = false;
-			this->groupBoxSave->Text = L"���v���C�t�@�C��";
+			this->groupBoxSave->Text = L"リプレイファイル";
 			// 
 			// radioButtonReplayVersion1
 			// 
@@ -1117,7 +1117,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->radioButtonReplayVersion1->Size = System::Drawing::Size(59, 16);
 			this->radioButtonReplayVersion1->TabIndex = 2;
 			this->radioButtonReplayVersion1->TabStop = true;
-			this->radioButtonReplayVersion1->Text = L"�����k";
+			this->radioButtonReplayVersion1->Text = L"無圧縮";
 			this->radioButtonReplayVersion1->UseVisualStyleBackColor = true;
 			this->radioButtonReplayVersion1->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1129,7 +1129,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->radioButtonReplayVersion2->Size = System::Drawing::Size(66, 16);
 			this->radioButtonReplayVersion2->TabIndex = 2;
 			this->radioButtonReplayVersion2->TabStop = true;
-			this->radioButtonReplayVersion2->Text = L"���k����";
+			this->radioButtonReplayVersion2->Text = L"圧縮する";
 			this->radioButtonReplayVersion2->UseVisualStyleBackColor = true;
 			this->radioButtonReplayVersion2->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1163,7 +1163,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->tabPageGame->Padding = System::Windows::Forms::Padding(3);
 			this->tabPageGame->Size = System::Drawing::Size(369, 295);
 			this->tabPageGame->TabIndex = 4;
-			this->tabPageGame->Text = L"�Q�[��";
+			this->tabPageGame->Text = L"ゲーム";
 			this->tabPageGame->UseVisualStyleBackColor = true;
 			// 
 			// groupBoxTeamOption
@@ -1175,7 +1175,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxTeamOption->Size = System::Drawing::Size(167, 68);
 			this->groupBoxTeamOption->TabIndex = 6;
 			this->groupBoxTeamOption->TabStop = false;
-			this->groupBoxTeamOption->Text = L"�`�[���v���C�ݒ�";
+			this->groupBoxTeamOption->Text = L"チームプレイ設定";
 			// 
 			// labelTeamRoundHP
 			// 
@@ -1184,7 +1184,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelTeamRoundHP->Name = L"labelTeamRoundHP";
 			this->labelTeamRoundHP->Size = System::Drawing::Size(138, 12);
 			this->labelTeamRoundHP->TabIndex = 1;
-			this->labelTeamRoundHP->Text = L"��1vs1�ł̓I�t�ɂ��Ă�������";
+			this->labelTeamRoundHP->Text = L"※1vs1ではオフにしてください";
 			// 
 			// checkBoxTeamRoundHP
 			// 
@@ -1193,7 +1193,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxTeamRoundHP->Name = L"checkBoxTeamRoundHP";
 			this->checkBoxTeamRoundHP->Size = System::Drawing::Size(148, 16);
 			this->checkBoxTeamRoundHP->TabIndex = 0;
-			this->checkBoxTeamRoundHP->Text = L"���E���h�Ԃ�HP�������z��";
+			this->checkBoxTeamRoundHP->Text = L"ラウンド間でHPを持ち越す";
 			this->checkBoxTeamRoundHP->UseVisualStyleBackColor = true;
 			this->checkBoxTeamRoundHP->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1206,7 +1206,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxSimulate->Size = System::Drawing::Size(154, 44);
 			this->groupBoxSimulate->TabIndex = 5;
 			this->groupBoxSimulate->TabStop = false;
-			this->groupBoxSimulate->Text = L"�V�~�����[�g";
+			this->groupBoxSimulate->Text = L"シミュレート";
 			// 
 			// numericUpDownSimDelay
 			// 
@@ -1223,7 +1223,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelSimDelay->Name = L"labelSimDelay";
 			this->labelSimDelay->Size = System::Drawing::Size(40, 12);
 			this->labelSimDelay->TabIndex = 0;
-			this->labelSimDelay->Text = L"�f�B���C";
+			this->labelSimDelay->Text = L"ディレイ";
 			// 
 			// groupBoxRun
 			// 
@@ -1234,7 +1234,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxRun->Size = System::Drawing::Size(168, 68);
 			this->groupBoxRun->TabIndex = 3;
 			this->groupBoxRun->TabStop = false;
-			this->groupBoxRun->Text = L"�i�c�N";
+			this->groupBoxRun->Text = L"格ツク";
 			// 
 			// checkBoxWindowSize
 			// 
@@ -1243,7 +1243,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxWindowSize->Name = L"checkBoxWindowSize";
 			this->checkBoxWindowSize->Size = System::Drawing::Size(112, 16);
 			this->checkBoxWindowSize->TabIndex = 2;
-			this->checkBoxWindowSize->Text = L"640 x 480 �ŋN��";
+			this->checkBoxWindowSize->Text = L"640 x 480 で起動";
 			this->checkBoxWindowSize->UseVisualStyleBackColor = true;
 			this->checkBoxWindowSize->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1254,7 +1254,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxHitJudge->Name = L"checkBoxHitJudge";
 			this->checkBoxHitJudge->Size = System::Drawing::Size(111, 16);
 			this->checkBoxHitJudge->TabIndex = 1;
-			this->checkBoxHitJudge->Text = L"�����蔻��̕\��";
+			this->checkBoxHitJudge->Text = L"当たり判定の表示";
 			this->checkBoxHitJudge->UseVisualStyleBackColor = true;
 			this->checkBoxHitJudge->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1270,7 +1270,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxView->Size = System::Drawing::Size(154, 134);
 			this->groupBoxView->TabIndex = 4;
 			this->groupBoxView->TabStop = false;
-			this->groupBoxView->Text = L"�^�C�g���o�[";
+			this->groupBoxView->Text = L"タイトルバー";
 			// 
 			// checkBoxVersus
 			// 
@@ -1279,7 +1279,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxVersus->Name = L"checkBoxVersus";
 			this->checkBoxVersus->Size = System::Drawing::Size(60, 16);
 			this->checkBoxVersus->TabIndex = 2;
-			this->checkBoxVersus->Text = L"�ΐ퐔";
+			this->checkBoxVersus->Text = L"対戦数";
 			this->checkBoxVersus->UseVisualStyleBackColor = true;
 			this->checkBoxVersus->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1290,7 +1290,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxName->Name = L"checkBoxName";
 			this->checkBoxName->Size = System::Drawing::Size(78, 16);
 			this->checkBoxName->TabIndex = 1;
-			this->checkBoxName->Text = L"�j�b�N�l�[��";
+			this->checkBoxName->Text = L"ニックネーム";
 			this->checkBoxName->UseVisualStyleBackColor = true;
 			this->checkBoxName->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1301,7 +1301,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxFramerate->Name = L"checkBoxFramerate";
 			this->checkBoxFramerate->Size = System::Drawing::Size(88, 16);
 			this->checkBoxFramerate->TabIndex = 3;
-			this->checkBoxFramerate->Text = L"�t���[�����[�g";
+			this->checkBoxFramerate->Text = L"フレームレート";
 			this->checkBoxFramerate->UseVisualStyleBackColor = true;
 			this->checkBoxFramerate->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1312,7 +1312,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxRand->Name = L"checkBoxRand";
 			this->checkBoxRand->Size = System::Drawing::Size(106, 16);
 			this->checkBoxRand->TabIndex = 4;
-			this->checkBoxRand->Text = L"�����̎g�p��";
+			this->checkBoxRand->Text = L"乱数の使用回数";
 			this->checkBoxRand->UseVisualStyleBackColor = true;
 			this->checkBoxRand->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1331,7 +1331,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxSetting->Size = System::Drawing::Size(168, 134);
 			this->groupBoxSetting->TabIndex = 1;
 			this->groupBoxSetting->TabStop = false;
-			this->groupBoxSetting->Text = L"�ΐ�ݒ�";
+			this->groupBoxSetting->Text = L"対戦設定";
 			// 
 			// numericUpDownRound
 			// 
@@ -1351,7 +1351,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelRound->Name = L"labelRound";
 			this->labelRound->Size = System::Drawing::Size(52, 12);
 			this->labelRound->TabIndex = 0;
-			this->labelRound->Text = L"���E���h��";
+			this->labelRound->Text = L"ラウンド数";
 			// 
 			// labelTimer
 			// 
@@ -1360,7 +1360,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelTimer->Name = L"labelTimer";
 			this->labelTimer->Size = System::Drawing::Size(71, 12);
 			this->labelTimer->TabIndex = 0;
-			this->labelTimer->Text = L"�Q�[���^�C�}�[";
+			this->labelTimer->Text = L"ゲームタイマー";
 			// 
 			// numericUpDownTimer
 			// 
@@ -1388,7 +1388,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelMaxStage->Name = L"labelMaxStage";
 			this->labelMaxStage->Size = System::Drawing::Size(79, 12);
 			this->labelMaxStage->TabIndex = 0;
-			this->labelMaxStage->Text = L"�ő�X�e�[�W��";
+			this->labelMaxStage->Text = L"最大ステージ数";
 			// 
 			// labelStageSelect
 			// 
@@ -1397,7 +1397,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelStageSelect->Name = L"labelStageSelect";
 			this->labelStageSelect->Size = System::Drawing::Size(67, 12);
 			this->labelStageSelect->TabIndex = 0;
-			this->labelStageSelect->Text = L"�ΐ�X�e�[�W";
+			this->labelStageSelect->Text = L"対戦ステージ";
 			// 
 			// numericUpDownStageSelect
 			// 
@@ -1418,7 +1418,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->tabPageColor->Padding = System::Windows::Forms::Padding(3);
 			this->tabPageColor->Size = System::Drawing::Size(369, 295);
 			this->tabPageColor->TabIndex = 5;
-			this->tabPageColor->Text = L"�J���[";
+			this->tabPageColor->Text = L"カラー";
 			this->tabPageColor->UseVisualStyleBackColor = true;
 			// 
 			// groupBoxMessageColor
@@ -1431,7 +1431,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxMessageColor->Size = System::Drawing::Size(168, 108);
 			this->groupBoxMessageColor->TabIndex = 3;
 			this->groupBoxMessageColor->TabStop = false;
-			this->groupBoxMessageColor->Text = L"���b�Z�[�W";
+			this->groupBoxMessageColor->Text = L"メッセージ";
 			// 
 			// buttonDebugMessage
 			// 
@@ -1440,7 +1440,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonDebugMessage->Name = L"buttonDebugMessage";
 			this->buttonDebugMessage->Size = System::Drawing::Size(136, 20);
 			this->buttonDebugMessage->TabIndex = 3;
-			this->buttonDebugMessage->Text = L"�f�o�b�O";
+			this->buttonDebugMessage->Text = L"デバッグ";
 			this->buttonDebugMessage->UseVisualStyleBackColor = false;
 			this->buttonDebugMessage->Click += gcnew System::EventHandler(this, &OptionForm::buttonDebugMessage_Click);
 			this->buttonDebugMessage->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1452,7 +1452,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonErrorMessage->Name = L"buttonErrorMessage";
 			this->buttonErrorMessage->Size = System::Drawing::Size(136, 20);
 			this->buttonErrorMessage->TabIndex = 2;
-			this->buttonErrorMessage->Text = L"�G���[";
+			this->buttonErrorMessage->Text = L"エラー";
 			this->buttonErrorMessage->UseVisualStyleBackColor = false;
 			this->buttonErrorMessage->Click += gcnew System::EventHandler(this, &OptionForm::buttonErrorMessage_Click);
 			this->buttonErrorMessage->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1464,7 +1464,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonSystemMessage->Name = L"buttonSystemMessage";
 			this->buttonSystemMessage->Size = System::Drawing::Size(136, 20);
 			this->buttonSystemMessage->TabIndex = 1;
-			this->buttonSystemMessage->Text = L"�V�X�e��";
+			this->buttonSystemMessage->Text = L"システム";
 			this->buttonSystemMessage->UseVisualStyleBackColor = false;
 			this->buttonSystemMessage->Click += gcnew System::EventHandler(this, &OptionForm::buttonSystemMessage_Click);
 			this->buttonSystemMessage->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1479,7 +1479,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxOthersColor->Size = System::Drawing::Size(168, 108);
 			this->groupBoxOthersColor->TabIndex = 4;
 			this->groupBoxOthersColor->TabStop = false;
-			this->groupBoxOthersColor->Text = L"���̑�";
+			this->groupBoxOthersColor->Text = L"その他";
 			// 
 			// buttonSecret
 			// 
@@ -1488,7 +1488,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonSecret->Name = L"buttonSecret";
 			this->buttonSecret->Size = System::Drawing::Size(136, 20);
 			this->buttonSecret->TabIndex = 3;
-			this->buttonSecret->Text = L"�H�H�H";
+			this->buttonSecret->Text = L"？？？";
 			this->buttonSecret->UseVisualStyleBackColor = false;
 			this->buttonSecret->Click += gcnew System::EventHandler(this, &OptionForm::buttonSecret_Click);
 			this->buttonSecret->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1500,7 +1500,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonCommentBack->Name = L"buttonCommentBack";
 			this->buttonCommentBack->Size = System::Drawing::Size(136, 20);
 			this->buttonCommentBack->TabIndex = 2;
-			this->buttonCommentBack->Text = L"�R�����g�̔w�i";
+			this->buttonCommentBack->Text = L"コメントの背景";
 			this->buttonCommentBack->UseVisualStyleBackColor = false;
 			this->buttonCommentBack->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonCommentBack->Click += gcnew System::EventHandler(this, &OptionForm::buttonCommentBack_Click);
@@ -1512,7 +1512,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonNoticeBack->Name = L"buttonNoticeBack";
 			this->buttonNoticeBack->Size = System::Drawing::Size(136, 20);
 			this->buttonNoticeBack->TabIndex = 1;
-			this->buttonNoticeBack->Text = L"���m���b�Z�[�W�̔w�i";
+			this->buttonNoticeBack->Text = L"告知メッセージの背景";
 			this->buttonNoticeBack->UseVisualStyleBackColor = false;
 			this->buttonNoticeBack->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonNoticeBack->Click += gcnew System::EventHandler(this, &OptionForm::buttonNoticeBack_Click);
@@ -1528,7 +1528,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxStateColor->Size = System::Drawing::Size(168, 137);
 			this->groupBoxStateColor->TabIndex = 2;
 			this->groupBoxStateColor->TabStop = false;
-			this->groupBoxStateColor->Text = L"���";
+			this->groupBoxStateColor->Text = L"状態";
 			// 
 			// buttonSeekState
 			// 
@@ -1536,7 +1536,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonSeekState->Name = L"buttonSeekState";
 			this->buttonSeekState->Size = System::Drawing::Size(136, 21);
 			this->buttonSeekState->TabIndex = 4;
-			this->buttonSeekState->Text = L"�ΐ��W��";
+			this->buttonSeekState->Text = L"対戦募集中";
 			this->buttonSeekState->UseVisualStyleBackColor = true;
 			this->buttonSeekState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonSeekState->Click += gcnew System::EventHandler(this, &OptionForm::buttonSeekState_Click);
@@ -1548,7 +1548,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonWatchState->Name = L"buttonWatchState";
 			this->buttonWatchState->Size = System::Drawing::Size(136, 20);
 			this->buttonWatchState->TabIndex = 3;
-			this->buttonWatchState->Text = L"�ϐ풆";
+			this->buttonWatchState->Text = L"観戦中";
 			this->buttonWatchState->UseVisualStyleBackColor = false;
 			this->buttonWatchState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonWatchState->Click += gcnew System::EventHandler(this, &OptionForm::buttonWatchState_Click);
@@ -1560,7 +1560,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonVSState->Name = L"buttonVSState";
 			this->buttonVSState->Size = System::Drawing::Size(136, 20);
 			this->buttonVSState->TabIndex = 2;
-			this->buttonVSState->Text = L"�ΐ풆";
+			this->buttonVSState->Text = L"対戦中";
 			this->buttonVSState->UseVisualStyleBackColor = false;
 			this->buttonVSState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonVSState->Click += gcnew System::EventHandler(this, &OptionForm::buttonVSState_Click);
@@ -1572,7 +1572,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonRestState->Name = L"buttonRestState";
 			this->buttonRestState->Size = System::Drawing::Size(136, 20);
 			this->buttonRestState->TabIndex = 1;
-			this->buttonRestState->Text = L"�x�e��";
+			this->buttonRestState->Text = L"休憩中";
 			this->buttonRestState->UseVisualStyleBackColor = false;
 			this->buttonRestState->BackColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			this->buttonRestState->Click += gcnew System::EventHandler(this, &OptionForm::buttonRestState_Click);
@@ -1587,7 +1587,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxNameColor->Size = System::Drawing::Size(168, 108);
 			this->groupBoxNameColor->TabIndex = 1;
 			this->groupBoxNameColor->TabStop = false;
-			this->groupBoxNameColor->Text = L"���O";
+			this->groupBoxNameColor->Text = L"名前";
 			// 
 			// buttonClientName
 			// 
@@ -1596,7 +1596,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonClientName->Name = L"buttonClientName";
 			this->buttonClientName->Size = System::Drawing::Size(136, 20);
 			this->buttonClientName->TabIndex = 3;
-			this->buttonClientName->Text = L"�N���C�A���g";
+			this->buttonClientName->Text = L"クライアント";
 			this->buttonClientName->UseVisualStyleBackColor = false;
 			this->buttonClientName->Click += gcnew System::EventHandler(this, &OptionForm::buttonClientName_Click);
 			this->buttonClientName->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1608,7 +1608,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonHostName->Name = L"buttonHostName";
 			this->buttonHostName->Size = System::Drawing::Size(136, 20);
 			this->buttonHostName->TabIndex = 2;
-			this->buttonHostName->Text = L"�z�X�g";
+			this->buttonHostName->Text = L"ホスト";
 			this->buttonHostName->UseVisualStyleBackColor = false;
 			this->buttonHostName->Click += gcnew System::EventHandler(this, &OptionForm::buttonHostName_Click);
 			this->buttonHostName->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1620,7 +1620,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->buttonServerName->Name = L"buttonServerName";
 			this->buttonServerName->Size = System::Drawing::Size(136, 20);
 			this->buttonServerName->TabIndex = 1;
-			this->buttonServerName->Text = L"�T�[�o";
+			this->buttonServerName->Text = L"サーバ";
 			this->buttonServerName->UseVisualStyleBackColor = false;
 			this->buttonServerName->Click += gcnew System::EventHandler(this, &OptionForm::buttonServerName_Click);
 			this->buttonServerName->ForeColorChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
@@ -1635,7 +1635,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->tabPageVolume->Padding = System::Windows::Forms::Padding(3);
 			this->tabPageVolume->Size = System::Drawing::Size(369, 295);
 			this->tabPageVolume->TabIndex = 6;
-			this->tabPageVolume->Text = L"����";
+			this->tabPageVolume->Text = L"音量";
 			this->tabPageVolume->UseVisualStyleBackColor = true;
 			// 
 			// groupBoxMidi
@@ -1647,7 +1647,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxMidi->Size = System::Drawing::Size(352, 52);
 			this->groupBoxMidi->TabIndex = 3;
 			this->groupBoxMidi->TabStop = false;
-			this->groupBoxMidi->Text = L"SW �V���Z�T�C�U";
+			this->groupBoxMidi->Text = L"SW シンセサイザ";
 			// 
 			// labelMidi
 			// 
@@ -1749,7 +1749,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->tabPageIP->Padding = System::Windows::Forms::Padding(3);
 			this->tabPageIP->Size = System::Drawing::Size(369, 295);
 			this->tabPageIP->TabIndex = 7;
-			this->tabPageIP->Text = L"IP�̕ϊ�";
+			this->tabPageIP->Text = L"IPの変換";
 			this->tabPageIP->UseVisualStyleBackColor = true;
 			// 
 			// AddPortbutton
@@ -1758,7 +1758,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->AddPortbutton->Name = L"AddPortbutton";
 			this->AddPortbutton->Size = System::Drawing::Size(103, 24);
 			this->AddPortbutton->TabIndex = 4;
-			this->AddPortbutton->Text = L"�|�[�g�t���ϊ�";
+			this->AddPortbutton->Text = L"ポート付き変換";
 			this->AddPortbutton->UseVisualStyleBackColor = true;
 			this->AddPortbutton->Click += gcnew System::EventHandler(this, &OptionForm::AddPortbutton_Click);
 			// 
@@ -1769,7 +1769,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->discriptionlabel->Name = L"discriptionlabel";
 			this->discriptionlabel->Size = System::Drawing::Size(297, 48);
 			this->discriptionlabel->TabIndex = 3;
-			this->discriptionlabel->Text = L"IP�A�h���X��ϊ����邱�ƂŁA\r\n�T�[�o�����J����ۂ̃��X�N�𑽏��y���ł��܂��B\r\n\r\n�T�[�o�����J����ۂ́A�ϊ����ꂽ�A�h���X�����J���Ă��������B";
+			this->discriptionlabel->Text = L"IPアドレスを変換することで、\r\nサーバを公開する際のリスクを多少軽減できます。\r\n\r\nサーバを公開する際は、変換されたアドレスを公開してください。";
 			// 
 			// Convertbutton
 			// 
@@ -1777,7 +1777,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->Convertbutton->Name = L"Convertbutton";
 			this->Convertbutton->Size = System::Drawing::Size(64, 24);
 			this->Convertbutton->TabIndex = 2;
-			this->Convertbutton->Text = L"�ϊ�";
+			this->Convertbutton->Text = L"変換";
 			this->Convertbutton->UseVisualStyleBackColor = true;
 			this->Convertbutton->Click += gcnew System::EventHandler(this, &OptionForm::Convertbutton_Click);
 			// 
@@ -1792,7 +1792,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->Base64groupBox->Size = System::Drawing::Size(352, 84);
 			this->Base64groupBox->TabIndex = 1;
 			this->Base64groupBox->TabStop = false;
-			this->Base64groupBox->Text = L"�ϊ���̃A�h���X";
+			this->Base64groupBox->Text = L"変換後のアドレス";
 			// 
 			// labelAddrMT
 			// 
@@ -1801,7 +1801,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelAddrMT->Name = L"labelAddrMT";
 			this->labelAddrMT->Size = System::Drawing::Size(47, 12);
 			this->labelAddrMT->TabIndex = 3;
-			this->labelAddrMT->Text = L"MTSP�p";
+			this->labelAddrMT->Text = L"MTSP用";
 			// 
 			// textBoxMTAddr
 			// 
@@ -1818,7 +1818,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->labelAddrBase64->Name = L"labelAddrBase64";
 			this->labelAddrBase64->Size = System::Drawing::Size(63, 12);
 			this->labelAddrBase64->TabIndex = 1;
-			this->labelAddrBase64->Text = L"LilithPort�p";
+			this->labelAddrBase64->Text = L"LilithPort用";
 			// 
 			// Base64textBox
 			// 
@@ -1837,7 +1837,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->IPgroupBox->Size = System::Drawing::Size(352, 52);
 			this->IPgroupBox->TabIndex = 0;
 			this->IPgroupBox->TabStop = false;
-			this->IPgroupBox->Text = L"IP�A�h���X";
+			this->IPgroupBox->Text = L"IPアドレス";
 			// 
 			// IPtextBox
 			// 
@@ -1857,7 +1857,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->tabPageDetails->Padding = System::Windows::Forms::Padding(3);
 			this->tabPageDetails->Size = System::Drawing::Size(369, 295);
 			this->tabPageDetails->TabIndex = 8;
-			this->tabPageDetails->Text = L"�ڍ�";
+			this->tabPageDetails->Text = L"詳細";
 			this->tabPageDetails->UseVisualStyleBackColor = true;
 			// 
 			// groupBoxDetails
@@ -1871,7 +1871,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->groupBoxDetails->Size = System::Drawing::Size(351, 282);
 			this->groupBoxDetails->TabIndex = 0;
 			this->groupBoxDetails->TabStop = false;
-			this->groupBoxDetails->Text = L"�ڍאݒ�";
+			this->groupBoxDetails->Text = L"詳細設定";
 			// 
 			// checkBoxShowGameOption
 			// 
@@ -1880,7 +1880,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxShowGameOption->Name = L"checkBoxShowGameOption";
 			this->checkBoxShowGameOption->Size = System::Drawing::Size(199, 16);
 			this->checkBoxShowGameOption->TabIndex = 3;
-			this->checkBoxShowGameOption->Text = L"�Q�[���N�����ɑΐ�ݒ��\������";
+			this->checkBoxShowGameOption->Text = L"ゲーム起動時に対戦設定を表示する";
 			this->checkBoxShowGameOption->UseVisualStyleBackColor = true;
 			this->checkBoxShowGameOption->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1891,7 +1891,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxNameFlash->Name = L"checkBoxNameFlash";
 			this->checkBoxNameFlash->Size = System::Drawing::Size(203, 16);
 			this->checkBoxNameFlash->TabIndex = 1;
-			this->checkBoxNameFlash->Text = L"���O���Ă΂ꂽ��E�B���h�E��_�ł���";
+			this->checkBoxNameFlash->Text = L"名前が呼ばれたらウィンドウを点滅する";
 			this->checkBoxNameFlash->UseVisualStyleBackColor = true;
 			this->checkBoxNameFlash->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1902,7 +1902,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxGetIP->Name = L"checkBoxGetIP";
 			this->checkBoxGetIP->Size = System::Drawing::Size(200, 16);
 			this->checkBoxGetIP->TabIndex = 2;
-			this->checkBoxGetIP->Text = L"Server�N������IP�A�h���X���擾����";
+			this->checkBoxGetIP->Text = L"Server起動時にIPアドレスを取得する";
 			this->checkBoxGetIP->UseVisualStyleBackColor = true;
 			this->checkBoxGetIP->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1913,7 +1913,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxTalkFlash->Name = L"checkBoxTalkFlash";
 			this->checkBoxTalkFlash->Size = System::Drawing::Size(153, 16);
 			this->checkBoxTalkFlash->TabIndex = 0;
-			this->checkBoxTalkFlash->Text = L"�����ŃE�B���h�E��_�ł���";
+			this->checkBoxTalkFlash->Text = L"発言でウィンドウを点滅する";
 			this->checkBoxTalkFlash->UseVisualStyleBackColor = true;
 			this->checkBoxTalkFlash->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1924,7 +1924,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->checkBoxShowResult->Name = L"checkBoxShowResult";
 			this->checkBoxShowResult->Size = System::Drawing::Size(72, 16);
 			this->checkBoxShowResult->TabIndex = 5;
-			this->checkBoxShowResult->Text = L"�ΐ폟�s";
+			this->checkBoxShowResult->Text = L"対戦勝敗";
 			this->checkBoxShowResult->UseVisualStyleBackColor = true;
 			this->checkBoxShowResult->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
 			// 
@@ -1943,7 +1943,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			this->MinimizeBox = false;
 			this->Name = L"OptionForm";
 			this->ShowInTaskbar = false;
-			this->Text = L"�I�v�V����";
+			this->Text = L"オプション";
 			this->Load += gcnew System::EventHandler(this, &OptionForm::OptionForm_Load);
 			this->Shown += gcnew System::EventHandler(this, &OptionForm::OptionForm_Shown);
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &OptionForm::OptionForm_FormClosed);
@@ -2025,22 +2025,22 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		DWORD MixerVolumeMin, MixerVolumeMax;
 
 		void AdviceGameExe(){
-			textBoxGameExe->Text = gcnew String("�E�̃{�^���������ăp�X��ݒ肵�Ă�������");
+			textBoxGameExe->Text = gcnew String("右のボタンを押してパスを設定してください");
 			textBoxGameExe->Focus();
 		}
 
 		void CheckStageValue(){
 			if(numericUpDownStageSelect->Value > numericUpDownMaxStage->Value){
-				labelMaxStage->Text    = gcnew String("�J�n�X�e�[�W");
-				labelStageSelect->Text = gcnew String("�I�[�X�e�[�W");
+				labelMaxStage->Text    = gcnew String("開始ステージ");
+				labelStageSelect->Text = gcnew String("終端ステージ");
 			}
 			else{
-				labelMaxStage->Text    = gcnew String("�ő�X�e�[�W��");
-				labelStageSelect->Text = gcnew String("�ΐ�X�e�[�W");
+				labelMaxStage->Text    = gcnew String("最大ステージ数");
+				labelStageSelect->Text = gcnew String("対戦ステージ");
 			}
 
 			if(numericUpDownStageSelect->Value == 0){
-				labelStageSelect->Text = gcnew String("�����_���X�e�[�W");
+				labelStageSelect->Text = gcnew String("ランダムステージ");
 			}
 		}
 
@@ -2092,7 +2092,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			textBoxKeywordSoundPath->Text = gcnew String(MTOPTION.KEYWORD_SOUND);
 			textBoxKeyword->Text          = gcnew String(MTOPTION.KEYWORD);
 
-			// �p�X�̃Z���N�V�����𖖔���
+			// パスのセレクションを末尾に
 			textBoxGameExe->SelectionStart          = textBoxGameExe->Text->Length;
 			textBoxReplayFolder->SelectionStart     = textBoxReplayFolder->Text->Length;
 			textBoxComment->SelectionStart          = textBoxComment->Text->Length;
@@ -2164,7 +2164,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			buttonCommentBack->BackColor   = Color::FromArgb(MTCOLOR.COMMENT_BACK);
 			buttonSecret->ForeColor        = Color::FromArgb(MTCOLOR.SECRET);
 
-			// SW�V���Z
+			// SWシンセ
 			try{
 				hMixer = NULL;
 				pin_ptr<HMIXER> p_hm = &hMixer;
@@ -2173,7 +2173,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 					throw gcnew Exception;
 				}
 				else{
-					// ����
+					// 準備
 					MIXERLINE line;
 					MIXERLINECONTROLS lc;
 					MIXERCONTROL ctrl;
@@ -2200,7 +2200,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 					MixerVolumeMin = ctrl.Bounds.dwMinimum;
 					MixerVolumeMax = ctrl.Bounds.dwMaximum;
 
-					// ���ʎ擾
+					// 音量取得
 					MIXERCONTROLDETAILS mcd;
 					MIXERCONTROLDETAILS_UNSIGNED vol;
 
@@ -2280,17 +2280,17 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonGameExe_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("�i���c�N�[���̎��s�t�@�C��");
+			openFileDialog1->Title  = gcnew String("格闘ツクールの実行ファイル");
 			openFileDialog1->Filter = gcnew String("exe file (*.exe)|*.exe");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(openFileDialog1->FileName);
 
-				if(info->FileDescription == "�Q�c�i���c�N�[��2nd." || info->FileDescription == "�Q�c�i���c�N�[���X�T"){
+				if(info->FileDescription == "２Ｄ格闘ツクール2nd." || info->FileDescription == "２Ｄ格闘ツクール９５"){
 					textBoxGameExe->Text = openFileDialog1->FileName;
 				}
 				else{
-					textBoxGameExe->Text = "�i���c�N�[���̎��s�t�@�C���ł͂���܂���";
+					textBoxGameExe->Text = "格闘ツクールの実行ファイルではありません";
 					textBoxGameExe->SelectAll();
 					textBoxGameExe->Focus();
 				}
@@ -2304,7 +2304,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonVSSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("�ΐ펞�ɖ炷�����t�@�C��");
+			openFileDialog1->Title  = gcnew String("対戦時に鳴らす音声ファイル");
 			openFileDialog1->Filter = gcnew String("wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2313,7 +2313,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonNoticeSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("���m��M���ɖ炷�����t�@�C��");
+			openFileDialog1->Title  = gcnew String("告知受信時に鳴らす音声ファイル");
 			openFileDialog1->Filter = gcnew String("wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2322,7 +2322,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonEnterSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("�����o�[�������ɖ炷�����t�@�C��");
+			openFileDialog1->Title  = gcnew String("メンバー入室時に鳴らす音声ファイル");
 			openFileDialog1->Filter = gcnew String("wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2331,7 +2331,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonNameSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("�j�b�N�l�[�����Ă΂ꂽ��炷�����t�@�C��");
+			openFileDialog1->Title  = gcnew String("ニックネームが呼ばれたら鳴らす音声ファイル");
 			openFileDialog1->Filter = gcnew String("wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2340,7 +2340,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonTalkSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("�����Ŗ炷�����t�@�C��");
+			openFileDialog1->Title  = gcnew String("発言で鳴らす音声ファイル");
 			openFileDialog1->Filter = gcnew String("wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2349,7 +2349,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonSeekSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("�ΐ��W�Ŗ炷�����t�@�C��");
+			openFileDialog1->Title  = gcnew String("対戦募集で鳴らす音声ファイル");
 			openFileDialog1->Filter = gcnew String("wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2358,7 +2358,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonKeywordSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String("�L�[���[�h�Ŗ炷�����t�@�C��");
+			openFileDialog1->Title  = gcnew String("キーワードで鳴らす音声ファイル");
 			openFileDialog1->Filter = gcnew String("wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2500,7 +2500,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 				String^ extension = Path::GetExtension(file[0])->ToLower();
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(file[0]);
 
-				if(extension == ".exe" && (info->FileDescription == "�Q�c�i���c�N�[��2nd." || info->FileDescription == "�Q�c�i���c�N�[���X�T")){
+				if(extension == ".exe" && (info->FileDescription == "２Ｄ格闘ツクール2nd." || info->FileDescription == "２Ｄ格闘ツクール９５")){
 					e->Effect = DragDropEffects::All;
 				}
 			}
@@ -2586,7 +2586,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			}
 		}
 
-		// �Đ��{�^��
+		// 再生ボタン
 		System::Void buttonVSSoundPlay_Click(System::Object^  sender, System::EventArgs^  e) {
 			try{
 				Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.VS_SOUND));
@@ -2644,7 +2644,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			}
 		}
 
-		// IP���̓`�F�b�N
+		// IP入力チェック
 		System::Void IPtextBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 			if(Net::IPAddress::TryParse(IPtextBox->Text, gcnew Net::IPAddress(0)) == false){
 				Convertbutton->Enabled = false;
@@ -2655,30 +2655,30 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 				AddPortbutton->Enabled = true;
 			}
 		}
-		// IP�̕ϊ�
+		// IPの変換
 		System::Void Convertbutton_Click(System::Object^  sender, System::EventArgs^  e) {
 			Base64textBox->Text = EncryptionIP(IPtextBox->Text);
 			textBoxMTAddr->Text = MTEncryptionIP(IPtextBox->Text);
 		}
-		// �|�[�g�t��IP�̕ϊ�
+		// ポート付きIPの変換
 		System::Void AddPortbutton_Click(System::Object^  sender, System::EventArgs^  e) {
 			Base64textBox->Text = String::Format("{0}:{1}", EncryptionIP(IPtextBox->Text), MTOPTION.OPEN_PORT);
 			textBoxMTAddr->Text = String::Format("{0}:{1}", MTEncryptionIP(IPtextBox->Text), MTOPTION.OPEN_PORT);
 		}
-		// �v���t�@�C���R���{�{�b�N�X�ύX
+		// プロファイルコンボボックス変更
 		System::Void comboBoxProfile_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 			String^ buf = ((ComboBox^)sender)->Text;
 			String^ bufProfile = gcnew String(MTOPTION.PROFILE);
 
 			if(buf != bufProfile){
-				// �؂�ւ�
+				// 切り替え
 				IntPtr mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(buf);
 				_tcscpy_s(MTOPTION.PROFILE, static_cast<PTCHAR>(mp.ToPointer()));
 				Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 
 				LoadMTOption();
 
-				// �v���t�@�C���Z�N�V�����̐ݒ�l���X�V
+				// プロファイルセクションの設定値を更新
 				textBoxGameExe->Text                = gcnew String(MTOPTION.GAME_EXE);
 				textBoxReplayFolder->Text           = gcnew String(MTOPTION.REPLAY_FOLDER);
 				textBoxGameExe->SelectionStart      = textBoxGameExe->Text->Length;
@@ -2710,24 +2710,24 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			buttonApply->Enabled = false;
 		}
 		System::Void buttonCopyProfile_Click(System::Object^ sender, System::EventArgs^ e) {
-			// �v���t�@�C������
+			// プロファイル複製
 			String^ mes;
 			String^ buf = comboBoxProfile->Items[comboBoxProfile->SelectedIndex]->ToString();
 			String^ bufClone = String::Format("{0}{1}", buf, "_");
 			if(buf->Length > MAX_ARRAY-1){
-				mes = "�v���t�@�C�������������܂��B\n�������s���ɂ́A�v���t�@�C������Z�����Ă��������B";
+				mes = "プロファイル名が長すぎます。\n複製を行うには、プロファイル名を短くしてください。";
 			}
 			for(int i=0; i < Profile::ProfileList->Count; i++){
 				if(Profile::ProfileList[i] == bufClone){
-					mes = "���ɕ������ꂽ�v���t�@�C�������݂��܂��B";
+					mes = "既に複製されたプロファイルが存在します。";
 				}
 			}
 			if(Profile::ProfileList->Count > 31){
-				mes = "����ȏ�v���t�@�C�����쐬�ł��܂���B";
+				mes = "これ以上プロファイルを作成できません。";
 				return;
 			}
 			if(mes != nullptr){
-				MessageBox::Show(mes, "�v���t�@�C������", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show(mes, "プロファイル複製", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 				return;
 			}
 			Profile::ProfileList->Add(bufClone);
@@ -2744,10 +2744,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 
 		}
 		System::Void buttonDeleteProfile_Click(System::Object^ sender, System::EventArgs^ e) {
-			// �v���t�@�C���폜
+			// プロファイル削除
 			int index = comboBoxProfile->SelectedIndex;
 			String^ buf = comboBoxProfile->Items[index]->ToString();
-			if(MessageBox::Show(String::Format("{0}���폜���܂��B\n��낵���ł����H", buf), "�v���t�@�C���폜", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+			if(MessageBox::Show(String::Format("{0}を削除します。\nよろしいですか？", buf), "プロファイル削除", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 				Profile::ProfileList->RemoveAt(index);
 				comboBoxProfile->Items->RemoveAt(index);
 
@@ -2759,13 +2759,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			}
 		}
 		System::Void buttonAddProfile_Click(System::Object^ sender, System::EventArgs^ e) {
-			// �v���t�@�C���ǉ�
+			// プロファイル追加
 			String^ bufText = textBoxProfileName->Text;
 			if(CheckTextProfileName(bufText)){
 				return;
 			}
 			if(Profile::ProfileList->Count > 31){
-				MessageBox::Show("����ȏ�v���t�@�C�����쐬�ł��܂���B", "�v���t�@�C���ǉ�", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show("これ以上プロファイルを作成できません。", "プロファイル追加", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 				return;
 			}
 
@@ -2777,13 +2777,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			buttonApply->Enabled = false;
 		}
 		System::Void buttonSaveProfile_Click(System::Object^ sender, System::EventArgs^ e) {
-			// �v���t�@�C���ۑ�
+			// プロファイル保存
 			String^ bufText         = textBoxProfileName->Text;
 			String^ bufSelectedItem = comboBoxProfile->SelectedItem->ToString();
 			if(CheckTextProfileName(bufText)){
 				return;
 			}
-			// �㏑��
+			// 上書き
 			if(bufText != bufSelectedItem){
 				for(int i=0; i < Profile::ProfileList->Count; i++){
 					if(Profile::ProfileList[i] == gcnew String(MTOPTION.PROFILE)){

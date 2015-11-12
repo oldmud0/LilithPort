@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "stdafx.h"
 
@@ -13,13 +13,13 @@ using namespace System::Drawing;
 namespace LilithPort {
 
 	/// <summary>
-	/// StartupForm ‚ÌŠT—v
+	/// StartupForm ã®æ¦‚è¦
 	///
-	/// Œx: ‚±‚ÌƒNƒ‰ƒX‚Ì–¼‘O‚ğ•ÏX‚·‚éê‡A‚±‚ÌƒNƒ‰ƒX‚ªˆË‘¶‚·‚é‚·‚×‚Ä‚Ì .resx ƒtƒ@ƒCƒ‹‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½
-	///          ƒ}ƒl[ƒW ƒŠƒ\[ƒX ƒRƒ“ƒpƒCƒ‰ ƒc[ƒ‹‚É‘Î‚µ‚Ä 'Resource File Name' ƒvƒƒpƒeƒB‚ğ
-	///          •ÏX‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B‚±‚Ì•ÏX‚ğs‚í‚È‚¢‚ÆA
-	///          ƒfƒUƒCƒi‚ÆA‚±‚ÌƒtƒH[ƒ€‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒ[ƒJƒ‰ƒCƒYÏ‚İƒŠƒ\[ƒX‚Æ‚ªA
-	///          ³‚µ‚­‘ŠŒİ‚É—˜—p‚Å‚«‚È‚­‚È‚è‚Ü‚·B
+	/// è­¦å‘Š: ã“ã®ã‚¯ãƒ©ã‚¹ã®åå‰ã‚’å¤‰æ›´ã™ã‚‹å ´åˆã€ã“ã®ã‚¯ãƒ©ã‚¹ãŒä¾å­˜ã™ã‚‹ã™ã¹ã¦ã® .resx ãƒ•ã‚¡ã‚¤ãƒ«ã«é–¢é€£ä»˜ã‘ã‚‰ã‚ŒãŸ
+	///          ãƒãƒãƒ¼ã‚¸ ãƒªã‚½ãƒ¼ã‚¹ ã‚³ãƒ³ãƒ‘ã‚¤ãƒ© ãƒ„ãƒ¼ãƒ«ã«å¯¾ã—ã¦ 'Resource File Name' ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’
+	///          å¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚ã“ã®å¤‰æ›´ã‚’è¡Œã‚ãªã„ã¨ã€
+	///          ãƒ‡ã‚¶ã‚¤ãƒŠã¨ã€ã“ã®ãƒ•ã‚©ãƒ¼ãƒ ã«é–¢é€£ä»˜ã‘ã‚‰ã‚ŒãŸãƒ­ãƒ¼ã‚«ãƒ©ã‚¤ã‚ºæ¸ˆã¿ãƒªã‚½ãƒ¼ã‚¹ã¨ãŒã€
+	///          æ­£ã—ãç›¸äº’ã«åˆ©ç”¨ã§ããªããªã‚Šã¾ã™ã€‚
 	/// </summary>
 	public ref class StartupForm : public System::Windows::Forms::Form
 	{
@@ -28,13 +28,13 @@ namespace LilithPort {
 		{
 			InitializeComponent();
 			//
-			//TODO: ‚±‚±‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^ ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ü‚·
+			//TODO: ã“ã“ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¾ã™
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// g—p’†‚ÌƒŠƒ\[ƒX‚ğ‚·‚×‚ÄƒNƒŠ[ƒ“ƒAƒbƒv‚µ‚Ü‚·B
+		/// ä½¿ç”¨ä¸­ã®ãƒªã‚½ãƒ¼ã‚¹ã‚’ã™ã¹ã¦ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—ã—ã¾ã™ã€‚
 		/// </summary>
 		~StartupForm()
 		{
@@ -69,14 +69,14 @@ namespace LilithPort {
 	private: System::Windows::Forms::RichTextBox^  textBoxWelcome;
 	private:
 		/// <summary>
-		/// •K—v‚ÈƒfƒUƒCƒi•Ï”‚Å‚·B
+		/// å¿…è¦ãªãƒ‡ã‚¶ã‚¤ãƒŠå¤‰æ•°ã§ã™ã€‚
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// ƒfƒUƒCƒi ƒTƒ|[ƒg‚É•K—v‚Èƒƒ\ƒbƒh‚Å‚·B‚±‚Ìƒƒ\ƒbƒh‚Ì“à—e‚ğ
-		/// ƒR[ƒh ƒGƒfƒBƒ^‚Å•ÏX‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+		/// ãƒ‡ã‚¶ã‚¤ãƒŠ ã‚µãƒãƒ¼ãƒˆã«å¿…è¦ãªãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®å†…å®¹ã‚’
+		/// ã‚³ãƒ¼ãƒ‰ ã‚¨ãƒ‡ã‚£ã‚¿ã§å¤‰æ›´ã—ãªã„ã§ãã ã•ã„ã€‚
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -154,7 +154,7 @@ namespace LilithPort {
 			this->labelServerName->Name = L"labelServerName";
 			this->labelServerName->Size = System::Drawing::Size(49, 12);
 			this->labelServerName->TabIndex = 0;
-			this->labelServerName->Text = L"ƒT[ƒo–¼:";
+			this->labelServerName->Text = L"ã‚µãƒ¼ãƒå:";
 			// 
 			// textBoxIP
 			// 
@@ -170,7 +170,7 @@ namespace LilithPort {
 			this->labelOpenPort->Name = L"labelOpenPort";
 			this->labelOpenPort->Size = System::Drawing::Size(59, 12);
 			this->labelOpenPort->TabIndex = 0;
-			this->labelOpenPort->Text = L"‘Òóƒ|[ƒg:";
+			this->labelOpenPort->Text = L"å¾…å—ãƒãƒ¼ãƒˆ:";
 			// 
 			// numericUpDownOpenPort
 			// 
@@ -188,7 +188,7 @@ namespace LilithPort {
 			this->buttonOK->Name = L"buttonOK";
 			this->buttonOK->Size = System::Drawing::Size(58, 24);
 			this->buttonOK->TabIndex = 6;
-			this->buttonOK->Text = L"‹N“®";
+			this->buttonOK->Text = L"èµ·å‹•";
 			this->buttonOK->UseVisualStyleBackColor = true;
 			this->buttonOK->Click += gcnew System::EventHandler(this, &StartupForm::buttonOK_Click);
 			// 
@@ -199,7 +199,7 @@ namespace LilithPort {
 			this->buttonCancel->Name = L"buttonCancel";
 			this->buttonCancel->Size = System::Drawing::Size(57, 24);
 			this->buttonCancel->TabIndex = 7;
-			this->buttonCancel->Text = L"•Â‚¶‚é";
+			this->buttonCancel->Text = L"é–‰ã˜ã‚‹";
 			this->buttonCancel->UseVisualStyleBackColor = true;
 			this->buttonCancel->Click += gcnew System::EventHandler(this, &StartupForm::buttonCancel_Click);
 			// 
@@ -217,7 +217,7 @@ namespace LilithPort {
 			this->labelComment->Name = L"labelComment";
 			this->labelComment->Size = System::Drawing::Size(40, 12);
 			this->labelComment->TabIndex = 4;
-			this->labelComment->Text = L"ƒRƒƒ“ƒg:";
+			this->labelComment->Text = L"ã‚³ãƒ¡ãƒ³ãƒˆ:";
 			// 
 			// textBoxName
 			// 
@@ -233,7 +233,7 @@ namespace LilithPort {
 			this->labelName->Name = L"labelName";
 			this->labelName->Size = System::Drawing::Size(61, 12);
 			this->labelName->TabIndex = 0;
-			this->labelName->Text = L"ƒjƒbƒNƒl[ƒ€:";
+			this->labelName->Text = L"ãƒ‹ãƒƒã‚¯ãƒãƒ¼ãƒ :";
 			// 
 			// numericUpDownPort
 			// 
@@ -261,7 +261,7 @@ namespace LilithPort {
 			this->labelMaxConnection->Name = L"labelMaxConnection";
 			this->labelMaxConnection->Size = System::Drawing::Size(79, 12);
 			this->labelMaxConnection->TabIndex = 0;
-			this->labelMaxConnection->Text = L"Å‘åÚ‘±Ò”:";
+			this->labelMaxConnection->Text = L"æœ€å¤§æ¥ç¶šè€…æ•°:";
 			// 
 			// groupBoxStartMode
 			// 
@@ -279,7 +279,7 @@ namespace LilithPort {
 			this->groupBoxStartMode->Size = System::Drawing::Size(194, 115);
 			this->groupBoxStartMode->TabIndex = 8;
 			this->groupBoxStartMode->TabStop = false;
-			this->groupBoxStartMode->Text = L"‹N“®ƒ‚[ƒh";
+			this->groupBoxStartMode->Text = L"èµ·å‹•ãƒ¢ãƒ¼ãƒ‰";
 			// 
 			// textBoxServerName
 			// 
@@ -299,7 +299,7 @@ namespace LilithPort {
 			this->groupBoxConnection->Size = System::Drawing::Size(194, 66);
 			this->groupBoxConnection->TabIndex = 9;
 			this->groupBoxConnection->TabStop = false;
-			this->groupBoxConnection->Text = L"Ú‘±æ";
+			this->groupBoxConnection->Text = L"æ¥ç¶šå…ˆ";
 			// 
 			// labelAccessPort
 			// 
@@ -308,7 +308,7 @@ namespace LilithPort {
 			this->labelAccessPort->Name = L"labelAccessPort";
 			this->labelAccessPort->Size = System::Drawing::Size(71, 12);
 			this->labelAccessPort->TabIndex = 5;
-			this->labelAccessPort->Text = L"Ú‘±æƒ|[ƒg:";
+			this->labelAccessPort->Text = L"æ¥ç¶šå…ˆãƒãƒ¼ãƒˆ:";
 			// 
 			// labelIP
 			// 
@@ -317,7 +317,7 @@ namespace LilithPort {
 			this->labelIP->Name = L"labelIP";
 			this->labelIP->Size = System::Drawing::Size(43, 12);
 			this->labelIP->TabIndex = 3;
-			this->labelIP->Text = L"ƒAƒhƒŒƒX:";
+			this->labelIP->Text = L"ã‚¢ãƒ‰ãƒ¬ã‚¹:";
 			// 
 			// groupBoxProfile
 			// 
@@ -330,7 +330,7 @@ namespace LilithPort {
 			this->groupBoxProfile->Size = System::Drawing::Size(183, 67);
 			this->groupBoxProfile->TabIndex = 10;
 			this->groupBoxProfile->TabStop = false;
-			this->groupBoxProfile->Text = L"ƒvƒƒtƒB[ƒ‹";
+			this->groupBoxProfile->Text = L"ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«";
 			// 
 			// groupBoxWelcome
 			// 
@@ -340,7 +340,7 @@ namespace LilithPort {
 			this->groupBoxWelcome->Size = System::Drawing::Size(183, 113);
 			this->groupBoxWelcome->TabIndex = 11;
 			this->groupBoxWelcome->TabStop = false;
-			this->groupBoxWelcome->Text = L"ƒT[ƒoƒƒbƒZ[ƒW";
+			this->groupBoxWelcome->Text = L"ã‚µãƒ¼ãƒãƒ¡ãƒƒã‚»ãƒ¼ã‚¸";
 			// 
 			// textBoxWelcome
 			// 
@@ -371,7 +371,7 @@ namespace LilithPort {
 			this->Name = L"StartupForm";
 			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"ƒXƒ^[ƒgƒAƒbƒv";
+			this->Text = L"ã‚¹ã‚¿ãƒ¼ãƒˆã‚¢ãƒƒãƒ—";
 			this->Load += gcnew System::EventHandler(this, &StartupForm::StartupForm_Load);
 			this->Shown += gcnew System::EventHandler(this, &StartupForm::StartupForm_Shown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->numericUpDownOpenPort))->EndInit();
@@ -439,9 +439,9 @@ namespace LilithPort {
 			if(radioButtonServer->Checked){
 				MTOPTION.CONNECTION_TYPE = CT_SERVER;
 
-				// ƒT[ƒo–¼ƒ`ƒFƒbƒN
+				// ã‚µãƒ¼ãƒåãƒã‚§ãƒƒã‚¯
 				if(textBoxServerName->Text->Length == 0){
-					MessageBox::Show("ƒT[ƒo–¼‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n\nSERVERƒ‚[ƒh‚Å‹N“®‚·‚é‚É‚ÍA\nƒT[ƒo–¼‚ğ“ü—Í‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B", "SERVERƒ‚[ƒhƒGƒ‰[", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					MessageBox::Show("ã‚µãƒ¼ãƒåã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚\n\nSERVERãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•ã™ã‚‹ã«ã¯ã€\nã‚µãƒ¼ãƒåã‚’å…¥åŠ›ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚", "SERVERãƒ¢ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					return;
 				}
 				mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxServerName->Text);
@@ -449,7 +449,7 @@ namespace LilithPort {
 				Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 				p2 = _tcschr(p1, _T(','));
 				if (p2 != NULL){
-					MessageBox::Show("ƒT[ƒo–¼‚Ég—p‚Å‚«‚È‚¢•¶š(,)‚ª‚ ‚è‚Ü‚·B\nƒT[ƒo–¼‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B", "SERVERƒ‚[ƒhƒGƒ‰[", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					MessageBox::Show("ã‚µãƒ¼ãƒåã«ä½¿ç”¨ã§ããªã„æ–‡å­—(,)ãŒã‚ã‚Šã¾ã™ã€‚\nã‚µãƒ¼ãƒåã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚", "SERVERãƒ¢ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					return;
 				}
 			}
@@ -464,22 +464,22 @@ namespace LilithPort {
 			}
 
 
-			// ƒT[ƒo–¼
+			// ã‚µãƒ¼ãƒå
 			mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxServerName->Text);
 			_tcscpy_s(MTOPTION.SERVER_NAME, static_cast<PTCHAR>(mp.ToPointer()));
 			Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 
-			// IPƒ`ƒFƒbƒN
+			// IPãƒã‚§ãƒƒã‚¯
 			if(MTOPTION.CONNECTION_TYPE == CT_HOST || MTOPTION.CONNECTION_TYPE == CT_CLIENT) {
 				if(textBoxIP->Text->Length == 0){
-					MessageBox::Show("Ú‘±æƒAƒhƒŒƒX‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B\n\nHOST, CLIENTƒ‚[ƒh‚Å‹N“®‚·‚é‚É‚ÍA\nÚ‘±æ‚ÌƒAƒhƒŒƒX‚ğ“ü—Í‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B", "HOST, CLIENTƒ‚[ƒhƒGƒ‰[", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					MessageBox::Show("æ¥ç¶šå…ˆã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚\n\nHOST, CLIENTãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•ã™ã‚‹ã«ã¯ã€\næ¥ç¶šå…ˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å…¥åŠ›ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚", "HOST, CLIENTãƒ¢ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					return;
 				}
 				mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(textBoxIP->Text);
 				_tcscpy_s(p1, static_cast<PTCHAR>(mp.ToPointer()));
 				p2 = _tcschr(p1, _T(','));
 				if (p2 != NULL){
-					MessageBox::Show("Ú‘±æƒAƒhƒŒƒX‚Ég—p‚Å‚«‚È‚¢•¶š(,)‚ª‚ ‚è‚Ü‚·B\nÚ‘±æƒAƒhƒŒƒX‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B", "HOST, CLIENTƒ‚[ƒhƒGƒ‰[", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+					MessageBox::Show("æ¥ç¶šå…ˆã‚¢ãƒ‰ãƒ¬ã‚¹ã«ä½¿ç”¨ã§ããªã„æ–‡å­—(,)ãŒã‚ã‚Šã¾ã™ã€‚\næ¥ç¶šå…ˆã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚", "HOST, CLIENTãƒ¢ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					return;
 				}
 			}
@@ -488,12 +488,12 @@ namespace LilithPort {
 			_tcscpy_s(MTOPTION.CONNECTION_IP, static_cast<PTCHAR>(mp.ToPointer()));
 			Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 
-			// –¼‘Oƒ`ƒFƒbƒN
+			// åå‰ãƒã‚§ãƒƒã‚¯
 			if(textBoxName->Text->Length == 0){
 				textBoxName->Text = gcnew String(MTOPTION.NAME);
 
 				if(textBoxName->Text->Length == 0){
-					textBoxName->Text = gcnew String("–¼–³‚µ‚³‚ñ");
+					textBoxName->Text = gcnew String("åç„¡ã—ã•ã‚“");
 				}
 			}
 
