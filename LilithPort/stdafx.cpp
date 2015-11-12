@@ -10,7 +10,7 @@ using namespace System::Collections;
 // 落ちる前にエラー内容をロギング
 void WriteErrorLog(String^ text, String^ caption)
 {
-	IO::StreamWriter^ sw = gcnew IO::StreamWriter(gcnew String(MTOPTION.PATH) + "error.log", true, Encoding::Default);
+	IO::StreamWriter^ sw = gcnew IO::StreamWriter(gcnew String(MTOPTION.PATH) + L"error.log", true, Encoding::Default);
 	try{
 		sw->WriteLine("-------------------------------------------------------------------------------");
 		sw->WriteLine("{0} {1} [{2}]", DateTime::Now.ToLongDateString(), DateTime::Now.ToLongTimeString(), caption);
@@ -35,7 +35,7 @@ void ApplicationThreadException(Object^ sender, Threading::ThreadExceptionEventA
 	MTINFO.ERRORED = true;
 
 	if(!MTINFO.SERVER_MODE){
-		MessageBox::Show("突然ですがLilithPort終了のお知らせです。", "緊急事態発生");
+		MessageBox::Show(L"An error occurred, and LilithPort must exit.\nThe exception has been written to a text file.\n"+e->Exception->ToString(), L"Unhandled thread exception");
 	}
 
 	Application::Exit();
@@ -48,7 +48,7 @@ void ApplicationUnhandledException(Object^ sender, UnhandledExceptionEventArgs^ 
 	MTINFO.ERRORED = true;
 
 	if(!MTINFO.SERVER_MODE){
-		MessageBox::Show("突然ですがLilithPort終了のお知らせです。", "例外が飛んできました");
+        MessageBox::Show(L"An error occurred, and LilithPort must exit.\nThe exception has been written to a text file.\n" + safe_cast<Exception^>(e->ExceptionObject)->ToString(), L"Unhandled exception");
 	}
 
 	Application::Exit();
@@ -96,7 +96,7 @@ void LoadMTOption()
 	GetPrivateProfileString(iniSystem, _T("SeekSound"),          _T("seek.wav"),    MTOPTION.SEEK_SOUND,    _MAX_PATH,    ini);
 	GetPrivateProfileString(iniSystem, _T("KeywordSound"),       _T("name.wav"),    MTOPTION.KEYWORD_SOUND, _MAX_PATH,    ini);
 	GetPrivateProfileString(iniSystem, _T("Keyword"),            _T(""),            MTOPTION.KEYWORD,        MAX_KEYWORD, ini);
-	GetPrivateProfileString(iniSystem, _T("Name"),               _T("名無しさん"),  MTOPTION.NAME,           MAX_NAME,    ini);
+	GetPrivateProfileString(iniSystem, _T("Name"),               _T("NamelessDude"),  MTOPTION.NAME,           MAX_NAME,    ini);
 	GetPrivateProfileString(iniSystem, _T("Comment"),            _T(""),            MTOPTION.COMMENT,        MAX_NAME,    ini);
 	MTOPTION.CONNECTION_TYPE      = GetPrivateProfileInt(iniSystem, _T("ConnectType"),          0, ini);
 	MTOPTION.PORT                 = GetPrivateProfileInt(iniSystem, _T("Port"),              7500, ini);
@@ -172,7 +172,7 @@ void LoadMTOption()
 		}
 	}
 	catch(Exception^){
-		MessageBox::Show("ブックマーク情報の読み込みに失敗しました。\n", "ブックマーク読み込み", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show(L"Could not read bookmark information.\n", L"Bookmarks", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 	}
 
 	// プロファイルリスト読み込み
@@ -380,9 +380,9 @@ void SaveMTOption()
 	String^ bufProfileList;
 	for(int i=0; i < Profile::ProfileList->Count; i++){
 		if(i > 0){
-			bufProfileList = String::Format("{0},{1}", bufProfileList, Profile::ProfileList[i]);
+			bufProfileList = String::Format(L"{0},{1}", bufProfileList, Profile::ProfileList[i]);
 		}else{
-			bufProfileList = String::Format("{0}{1}",  bufProfileList, Profile::ProfileList[i]);
+			bufProfileList = String::Format(L"{0}{1}",  bufProfileList, Profile::ProfileList[i]);
 		}
 	}
 	mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(bufProfileList);
@@ -492,9 +492,9 @@ void SaveProfileOption(){
 	String^ bufProfileList;
 	for(int i=0; i < Profile::ProfileList->Count; i++){
 		if(i > 0){
-			bufProfileList = String::Format("{0},{1}", bufProfileList, Profile::ProfileList[i]);
+			bufProfileList = String::Format(L"{0},{1}", bufProfileList, Profile::ProfileList[i]);
 		}else{
-			bufProfileList = String::Format("{0}{1}",  bufProfileList, Profile::ProfileList[i]);
+			bufProfileList = String::Format(L"{0}{1}",  bufProfileList, Profile::ProfileList[i]);
 		}
 	}
 	mp = Runtime::InteropServices::Marshal::StringToHGlobalAuto(bufProfileList);
@@ -675,10 +675,10 @@ String^ EncryptionIP(String^ ip)
 		ipString = Int64(Net::IPAddress::Parse(ip)->Address).ToString();
 	}
 	catch (ArgumentNullException^) {
-		return "変換失敗。IPぬるぽエラー";
+		return L"変換失敗。IPぬるぽエラー";
 	}
 	catch (FormatException^) {
-		return "変換失敗。IP形式エラー";
+		return L"変換失敗。IP形式エラー";
 	}
 
 	array<Byte> ^binaryData = gcnew array<Byte>(11);
@@ -689,10 +689,10 @@ String^ EncryptionIP(String^ ip)
 		ipBase64 = Convert::ToBase64String(binaryData);
 	}
 	catch (ArgumentNullException^) {
-		return "変換失敗。Base64ぬるぽエラー";
+		return L"変換失敗。Base64ぬるぽエラー";
 	}
 	catch (FormatException^) {
-		return "変換失敗。Base64形式エラー";
+		return L"変換失敗。Base64形式エラー";
 	}
 	return ipBase64;
 }
@@ -700,8 +700,8 @@ String^ EncryptionIP(String^ ip)
 String^ MTEncryptionIP(String^ ip)
 {
 	String^ result, ^buf, ^part;
-	String^ dic = "そぞただちぢっつづてでとどなにぬねのはばabcdefghijklmnopqrstuvwxyz"
-		"ABCDEFGHIJKLMNOPQRSTUVWXYGぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜ";
+	String^ dic = L"そぞただちぢっつづてでとどなにぬねのはばabcdefghijklmnopqrstuvwxyz"
+		L"ABCDEFGHIJKLMNOPQRSTUVWXYGぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜ";
 
 	try{
 		// 10桁+シード
@@ -719,7 +719,7 @@ String^ MTEncryptionIP(String^ ip)
 		return result;
 	}
 	catch(Exception^){
-		return "IPアドレスのMTSP変換に失敗しました。";
+		return L"IPアドレスのMTSP変換に失敗しました。";
 	}
 }
 
@@ -752,17 +752,17 @@ _int64 MTDecryptionIP(String^ cipher_ip)
 	String^ buf;
 	TCHAR part;
 	int index;
-	String^ dic = "そぞただちぢっつづてでとどなにぬねのはばabcdefghijklmnopqrstuvwxyz"
-		"ABCDEFGHIJKLMNOPQRSTUVWXYGぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜ";
+	String^ dic = L"そぞただちぢっつづてでとどなにぬねのはばabcdefghijklmnopqrstuvwxyz"
+		L"ABCDEFGHIJKLMNOPQRSTUVWXYGぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜ";
 
 	try{
 		for(int i=0; i < cipher_ip->Length; i++){
 			part = cipher_ip->default[i];
 			index = dic->IndexOf(part);
 			if(index < 10){
-				buf = String::Format("{0}0{1}", buf, index);
+				buf = String::Format(L"{0}0{1}", buf, index);
 			}else{
-				buf = String::Format("{0}{1}", buf, index);
+				buf = String::Format(L"{0}{1}", buf, index);
 			}
 		}
 		return ((Convert::ToInt64(buf) ^ 0xe5c06811) - 0xa68c8b5);

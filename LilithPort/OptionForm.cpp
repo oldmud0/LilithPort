@@ -10,12 +10,12 @@ void OptionForm::SaveOption(bool apply){
 	try{
 		FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(textBoxGameExe->Text);
 
-		if(info->FileDescription != "２Ｄ格闘ツクール2nd." && info->FileDescription != "２Ｄ格闘ツクール９５"){
+		if(info->FileDescription != L"２Ｄ格闘ツクール2nd." && info->FileDescription != L"２Ｄ格闘ツクール９５"){
 			throw gcnew Exception;
 		}
 	}
 	catch(Exception^){
-		textBoxGameExe->Text = gcnew String("格闘ツクールの実行ファイルではありません");
+		textBoxGameExe->Text = gcnew String(L"Invalid or non-Fighter Maker 95/2002 executable file.");
 	}
 
 	IntPtr mp;
@@ -179,23 +179,23 @@ bool OptionForm::CheckTextProfileName(String^ buf){
 		return true;
 	}
 	if(buf->Length == 0){
-		mes = "プロファイル名が空欄です。";
+		mes = L"Please enter a name for your profile.";
 	}
 	if(buf->Contains(",") || buf->Contains("[") || buf->Contains("]")){
-		mes = "プロファイル名に使用できない文字（, [ ]）が含まれています。";
+		mes = L"Profile names cannot contain the following characters: \n, [ ]";
 	}
 	for(int i=0; i < Profile::SystemSection->Length; i++){
 		if(buf == Profile::SystemSection[i]){
-			mes = "そのプロファイル名は使用できません。";
+			mes = L"This profile name cannot be used.";
 		}
 	}
 	for(int i=0; i < Profile::ProfileList->Count; i++){
 		if(buf == Profile::ProfileList[i]){
-			mes = "そのプロファイル名は既に存在します。";
+			mes = L"This profile name is already in use.";
 		}
 	}
 	if(mes != nullptr){
-		MessageBox::Show(mes, "プロファイル保存", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show(mes, L"Profile saved!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		return true;
 	}
 	return false;
