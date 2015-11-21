@@ -57,11 +57,12 @@ void MainForm::Begin()
 
 	try{
 		// 回線設定
+        //Here is where you can force in IPv6 support, however it's not recommended since then you can ONLY connect to IPv6 addresses.
 		if(MTOPTION.CONNECTION_TYPE == CT_SERVER || MTOPTION.CONNECTION_TYPE == CT_HOST){
 			UDP = gcnew UdpClient(MTOPTION.OPEN_PORT);
 		}
 		else if(MTOPTION.CONNECTION_TYPE == CT_CLIENT){
-			UDP = gcnew UdpClient;
+			UDP = gcnew UdpClient();
 		}
 	}
 	catch(SocketException^ e){
@@ -125,7 +126,7 @@ void MainForm::Begin()
 		}
 		else{
 			// クライアント
-			_int64 address;
+            IPAddress^ address = IPAddress::None;
 			int port = MTOPTION.PORT;
 			array<String^>^ host = ConnectIP->Split(gcnew array<wchar_t>{':'}, 2, StringSplitOptions::RemoveEmptyEntries);
 
@@ -140,14 +141,13 @@ void MainForm::Begin()
 			}
 
 			try{
-
 				// MTSPアドレス接続
 				if(host[0]->Length == 5){
 					try{
 						if(MTINFO.DEBUG){
 							WriteMessage(L"Converting MTSP address...\n", DebugMessageColor);
 						}
-						address = MTDecryptionIP(host[0]);
+                        address = gcnew IPAddress(MTDecryptionIP(host[0]));
 					}
 					catch(Exception^ e){
 						if(MTINFO.DEBUG){
@@ -158,12 +158,12 @@ void MainForm::Begin()
 				}
 
 				// 変換アドレス接続(ASCII)
-				if(address == 0){
+                if (address->Equals(IPAddress::None)){
 					try{
 						if(MTINFO.DEBUG){
 							WriteMessage(L"Converting ASCII address...\n", DebugMessageColor);
 						}
-						address = DecryptionIP(host[0], true);
+                        address = gcnew IPAddress(DecryptionIP(host[0], true));
 					}
 					catch(Exception^ e){
 						if(MTINFO.DEBUG){
@@ -174,29 +174,40 @@ void MainForm::Begin()
 				}
 
 				// DNS接続
-				if(address == 0){
+                if (address->Equals(IPAddress::None)){
 					try{
 						if(MTINFO.DEBUG){
 							WriteMessage(L"Resolving DNS...\n", DebugMessageColor);
 						}
-						address = Dns::GetHostEntry(host[0])->AddressList[0]->Address;
+                        IPAddress^ addr;
+                        auto addrList = Dns::GetHostEntry(host[0])->AddressList; //screw it, I'm using auto
+
+                        //Find the first IP address that is IPv4
+                        for (int i = 0; i < addrList->Length; i++)
+                            if (addrList[i]->AddressFamily == AddressFamily::InterNetwork)
+                                addr = addrList[i];
+
+                        if (MTINFO.DEBUG)
+                            WriteMessage("Got DNS address " + addr->ToString() + L"\n", DebugMessageColor);
+                        address = addr;
+                        //address = BitConverter::ToInt64(addr->GetAddressBytes(), 0);
 					}
 					catch(Exception^ e){
 						if(MTINFO.DEBUG){
 							WriteMessage(L"DNS resolution failed!\n", ErrorMessageColor);
 							WriteMessage(e->ToString() + L"\n", DebugMessageColor);
 						}
-						address = 0;
+                        address = IPAddress::None;
 					}
 				}
 
 				// 変換アドレス接続(Unicode)
-				if(address == 0){
+                if (address->Equals(IPAddress::None)){
 					try{
 						if(MTINFO.DEBUG){
 							WriteMessage(L"Converting Unicode address...\n", DebugMessageColor);
 						}
-						address = DecryptionIP(host[0], false);
+                        address = gcnew IPAddress(DecryptionIP(host[0], false));
 					}
 					catch(Exception^ e){
 						if(MTINFO.DEBUG){
@@ -225,14 +236,14 @@ void MainForm::Begin()
 				*/
 				
 
-				if(address == 0){
+				if(address->Equals(IPAddress::None)){
 					WriteMessage(L"ERROR: Could not find destination address.\n", ErrorMessageColor);
 					throw gcnew SocketException;
 				}
 
 				IPEndPoint^ ep = gcnew IPEndPoint(address, port);
 				if(MTINFO.DEBUG){
-					WriteMessage(String::Format(L"Connect > {0}\n", ep), DebugMessageColor);
+					WriteMessage(String::Format(L"Connecting to {0}...\n", ep), DebugMessageColor);
 				}
 				
 				PacketPacker^ pp = gcnew PacketPacker;
@@ -370,7 +381,7 @@ void MainForm::Begin()
 					else if(me->ID > MAX_ID){
 						WriteMessage(String::Format(L"ERROR: {0} could not issue any more player IDs.\n", ServerName), ErrorMessageColor);
 					}
-					else if(address != 0){
+                    else if (!address->Equals(IPAddress::None)){
 						WriteMessage(L"ERROR: Could not connect to the server.\nThe connection may be busy.\n", ErrorMessageColor);
 					}
 				}
