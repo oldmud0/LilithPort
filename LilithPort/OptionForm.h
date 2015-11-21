@@ -28,9 +28,6 @@ namespace LilithPort {
 		OptionForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: ここにコンストラクタ コードを追加します
-			//
 		}
 
 	protected:
@@ -444,7 +441,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // folderBrowserDialog1
             // 
-            this->folderBrowserDialog1->Description = L"リプレイ保存フォルダ";
+            this->folderBrowserDialog1->Description = L"Select replay folder";
             // 
             // colorDialog1
             // 
@@ -531,9 +528,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->labelKeywordSound->AutoSize = true;
             this->labelKeywordSound->Location = System::Drawing::Point(10, 17);
             this->labelKeywordSound->Name = L"labelKeywordSound";
-            this->labelKeywordSound->Size = System::Drawing::Size(174, 13);
+            this->labelKeywordSound->Size = System::Drawing::Size(177, 13);
             this->labelKeywordSound->TabIndex = 1;
-            this->labelKeywordSound->Text = L"Separate keywords with commas (,)";
+            this->labelKeywordSound->Text = L"Separate keywords with commas (,).";
             // 
             // textBoxKeyword
             // 
@@ -609,7 +606,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxTalkSound->Size = System::Drawing::Size(336, 56);
             this->groupBoxTalkSound->TabIndex = 5;
             this->groupBoxTalkSound->TabStop = false;
-            this->groupBoxTalkSound->Text = L"Remarks";
+            this->groupBoxTalkSound->Text = L"Chat";
             // 
             // buttonTalkSoundPlay
             // 
@@ -1106,7 +1103,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxSave->Controls->Add(this->radioButtonReplayVersion2);
             this->groupBoxSave->Location = System::Drawing::Point(195, 216);
             this->groupBoxSave->Name = L"groupBoxSave";
-            this->groupBoxSave->Size = System::Drawing::Size(154, 46);
+            this->groupBoxSave->Size = System::Drawing::Size(166, 46);
             this->groupBoxSave->TabIndex = 4;
             this->groupBoxSave->TabStop = false;
             this->groupBoxSave->Text = L"Replay file compression";
@@ -1174,7 +1171,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxTeamOption->Controls->Add(this->checkBoxTeamRoundHP);
             this->groupBoxTeamOption->Location = System::Drawing::Point(9, 268);
             this->groupBoxTeamOption->Name = L"groupBoxTeamOption";
-            this->groupBoxTeamOption->Size = System::Drawing::Size(341, 65);
+            this->groupBoxTeamOption->Size = System::Drawing::Size(353, 65);
             this->groupBoxTeamOption->TabIndex = 6;
             this->groupBoxTeamOption->TabStop = false;
             this->groupBoxTeamOption->Text = L"Team play";
@@ -1205,7 +1202,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxSimulate->Controls->Add(this->labelSimDelay);
             this->groupBoxSimulate->Location = System::Drawing::Point(195, 161);
             this->groupBoxSimulate->Name = L"groupBoxSimulate";
-            this->groupBoxSimulate->Size = System::Drawing::Size(154, 48);
+            this->groupBoxSimulate->Size = System::Drawing::Size(166, 48);
             this->groupBoxSimulate->TabIndex = 5;
             this->groupBoxSimulate->TabStop = false;
             this->groupBoxSimulate->Text = L"Simulation";
@@ -1269,7 +1266,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxView->Controls->Add(this->checkBoxRand);
             this->groupBoxView->Location = System::Drawing::Point(195, 9);
             this->groupBoxView->Name = L"groupBoxView";
-            this->groupBoxView->Size = System::Drawing::Size(154, 145);
+            this->groupBoxView->Size = System::Drawing::Size(166, 145);
             this->groupBoxView->TabIndex = 4;
             this->groupBoxView->TabStop = false;
             this->groupBoxView->Text = L"Title bar";
@@ -1323,9 +1320,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->checkBoxRand->AutoSize = true;
             this->checkBoxRand->Location = System::Drawing::Point(16, 117);
             this->checkBoxRand->Name = L"checkBoxRand";
-            this->checkBoxRand->Size = System::Drawing::Size(139, 17);
+            this->checkBoxRand->Size = System::Drawing::Size(104, 17);
             this->checkBoxRand->TabIndex = 4;
-            this->checkBoxRand->Text = L"Random number display";
+            this->checkBoxRand->Text = L"Random number";
             this->checkBoxRand->UseVisualStyleBackColor = true;
             this->checkBoxRand->CheckedChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             // 
@@ -1408,9 +1405,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->labelStageSelect->AutoSize = true;
             this->labelStageSelect->Location = System::Drawing::Point(16, 52);
             this->labelStageSelect->Name = L"labelStageSelect";
-            this->labelStageSelect->Size = System::Drawing::Size(63, 13);
+            this->labelStageSelect->Size = System::Drawing::Size(76, 13);
             this->labelStageSelect->TabIndex = 0;
-            this->labelStageSelect->Text = L"Battle stage";
+            this->labelStageSelect->Text = L"Random stage";
             // 
             // numericUpDownStageSelect
             // 
@@ -1778,13 +1775,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // discriptionlabel
             // 
             this->discriptionlabel->AutoSize = true;
-            this->discriptionlabel->Location = System::Drawing::Point(8, 9);
+            this->discriptionlabel->Location = System::Drawing::Point(6, 11);
             this->discriptionlabel->Name = L"discriptionlabel";
-            this->discriptionlabel->Size = System::Drawing::Size(281, 52);
+            this->discriptionlabel->Size = System::Drawing::Size(350, 39);
             this->discriptionlabel->TabIndex = 3;
-            this->discriptionlabel->Text = L"By obfuscating your IP address, you can\r\nreduce security risks associated with pu"
-                L"blishing a server.\r\nWhen you create a server, you should use your converted\r\nIP "
-                L"address rather than your real one.";
+            this->discriptionlabel->Text = L"By obfuscating your IP address, you can reduce security risks associated\r\nwith pu"
+                L"blishing a server. When you create a server, you should use your\r\nconverted IP a"
+                L"ddress rather than your real one.";
             // 
             // Convertbutton
             // 
@@ -1872,7 +1869,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPageDetails->Padding = System::Windows::Forms::Padding(3);
             this->tabPageDetails->Size = System::Drawing::Size(369, 339);
             this->tabPageDetails->TabIndex = 8;
-            this->tabPageDetails->Text = L"Misc.";
+            this->tabPageDetails->Text = L"Miscellaneous";
             this->tabPageDetails->UseVisualStyleBackColor = true;
             // 
             // groupBoxDetails
@@ -2029,22 +2026,22 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		DWORD MixerVolumeMin, MixerVolumeMax;
 
 		void AdviceGameExe(){
-			textBoxGameExe->Text = gcnew String(L"右のボタンを押してパスを設定してください");
+			textBoxGameExe->Text = gcnew String(L"You should set the path to your game file.");
 			textBoxGameExe->Focus();
 		}
 
 		void CheckStageValue(){
 			if(numericUpDownStageSelect->Value > numericUpDownMaxStage->Value){
-				labelMaxStage->Text    = gcnew String(L"開始ステージ");
-				labelStageSelect->Text = gcnew String(L"終端ステージ");
+				labelMaxStage->Text    = gcnew String(L"Start stage:");
+				labelStageSelect->Text = gcnew String(L"End stage:");
 			}
 			else{
-				labelMaxStage->Text    = gcnew String(L"最大ステージ数");
-				labelStageSelect->Text = gcnew String(L"対戦ステージ");
+				labelMaxStage->Text    = gcnew String(L"Max stages:");
+				labelStageSelect->Text = gcnew String(L"Match stage:");
 			}
 
 			if(numericUpDownStageSelect->Value == 0){
-				labelStageSelect->Text = gcnew String(L"ランダムステージ");
+				labelStageSelect->Text = gcnew String(L"Random stage:");
 			}
 		}
 
@@ -2284,9 +2281,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonGameExe_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"格闘ツクールの実行ファイル");
-			openFileDialog1->Filter = gcnew String(L"exe file (*.exe)|*.exe");
+			openFileDialog1->Title  = gcnew String(L"Select a Fighter Maker executable file");
+			openFileDialog1->Filter = gcnew String(L"Executable file (*.exe)|*.exe");
 
+            //TODO: Again, detecting whether it is supported should NOT be dependent on the file description.
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(openFileDialog1->FileName);
 
@@ -2294,7 +2292,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 					textBoxGameExe->Text = openFileDialog1->FileName;
 				}
 				else{
-					textBoxGameExe->Text = L"格闘ツクールの実行ファイルではありません";
+					textBoxGameExe->Text = L"Invalid or unrecognized Fighter Maker executable";
 					textBoxGameExe->SelectAll();
 					textBoxGameExe->Focus();
 				}
@@ -2308,7 +2306,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonVSSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"対戦時に鳴らす音声ファイル");
+			openFileDialog1->Title  = gcnew String(L"Sound to be played on start of match");
 			openFileDialog1->Filter = gcnew String(L"wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2317,7 +2315,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonNoticeSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"告知受信時に鳴らす音声ファイル");
+			openFileDialog1->Title  = gcnew String(L"Sound to be played on announcement");
 			openFileDialog1->Filter = gcnew String(L"wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2326,7 +2324,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonEnterSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"メンバー入室時に鳴らす音声ファイル");
+			openFileDialog1->Title  = gcnew String(L"Sound to be played on player join");
 			openFileDialog1->Filter = gcnew String(L"wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2335,7 +2333,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonNameSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"ニックネームが呼ばれたら鳴らす音声ファイル");
+			openFileDialog1->Title  = gcnew String(L"Sound to be played when nickname is mentioned");
 			openFileDialog1->Filter = gcnew String(L"wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2344,7 +2342,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonTalkSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"発言で鳴らす音声ファイル");
+			openFileDialog1->Title  = gcnew String(L"Sound to be played on chat message");
 			openFileDialog1->Filter = gcnew String(L"wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2353,7 +2351,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonSeekSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"対戦募集で鳴らす音声ファイル");
+			openFileDialog1->Title  = gcnew String(L"Sound to be played when invited to a match");
 			openFileDialog1->Filter = gcnew String(L"wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2362,7 +2360,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 		}
 
 		System::Void buttonKeywordSound_Click(System::Object^  sender, System::EventArgs^  e) {
-			openFileDialog1->Title  = gcnew String(L"キーワードで鳴らす音声ファイル");
+			openFileDialog1->Title  = gcnew String(L"Sound to be played when keyword is mentioned (stalk)");
 			openFileDialog1->Filter = gcnew String(L"wav file (*.wav)|*.wav");
 
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
@@ -2504,6 +2502,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 				String^ extension = Path::GetExtension(file[0])->ToLower();
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(file[0]);
 
+                //TODO: game file detection
 				if(extension == ".exe" && (info->FileDescription == L"２Ｄ格闘ツクール2nd." || info->FileDescription == L"２Ｄ格闘ツクール９５")){
 					e->Effect = DragDropEffects::All;
 				}
@@ -2719,19 +2718,19 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			String^ buf = comboBoxProfile->Items[comboBoxProfile->SelectedIndex]->ToString();
 			String^ bufClone = String::Format(L"{0}{1}", buf, "_");
 			if(buf->Length > MAX_ARRAY-1){
-				mes = L"プロファイル名が長すぎます。\n複製を行うには、プロファイル名を短くしてください。";
+				mes = L"The profile name is too long.\nPlease shorten it in order to copy the profile correctly.";
 			}
 			for(int i=0; i < Profile::ProfileList->Count; i++){
 				if(Profile::ProfileList[i] == bufClone){
-					mes = L"既に複製されたプロファイルが存在します。";
+					mes = L"This profile already exists.";
 				}
 			}
 			if(Profile::ProfileList->Count > 31){
-				mes = L"これ以上プロファイルを作成できません。";
+				mes = L"There are too many profiles! You cannot have more than 31 profiles.";
 				return;
 			}
 			if(mes != nullptr){
-				MessageBox::Show(mes, L"プロファイル複製", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show(mes, L"Copy Profile", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 				return;
 			}
 			Profile::ProfileList->Add(bufClone);
@@ -2751,7 +2750,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			// プロファイル削除
 			int index = comboBoxProfile->SelectedIndex;
 			String^ buf = comboBoxProfile->Items[index]->ToString();
-			if(MessageBox::Show(String::Format(L"{0}を削除します。\nよろしいですか？", buf), L"プロファイル削除", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+			if(MessageBox::Show(String::Format(L"Are you sure you want to delete the profile \"{0}\"?", buf), L"Delete Profile", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 				Profile::ProfileList->RemoveAt(index);
 				comboBoxProfile->Items->RemoveAt(index);
 
@@ -2769,7 +2768,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 				return;
 			}
 			if(Profile::ProfileList->Count > 31){
-				MessageBox::Show(L"これ以上プロファイルを作成できません。", L"プロファイル追加", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show(L"There are too many profiles! You cannot have more than 31 profiles.", L"Add Profile", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 				return;
 			}
 

@@ -99,7 +99,7 @@ void MainForm::Begin()
 			SonarThread = gcnew Thread(gcnew ThreadStart(this, &MainForm::RunSonar));
 			SonarThread->Start();
 
-			this->Text += String::Format(L"  [{0}] [Server Port:{1}]", ServerName, MTOPTION.OPEN_PORT);
+			this->Text += String::Format(L" ({0}) (Server Port: {1})", ServerName, MTOPTION.OPEN_PORT);
 			WriteTime(0, SystemMessageColor);
 			WriteMessage(L"Server initialization complete.\n[MOTD]-------------------\n", SystemMessageColor);
 
@@ -301,14 +301,14 @@ void MainForm::Begin()
 					if(MTINFO.VERSION_CHECKED) {
 						WriteMessage(String::Format(L"Server version: v{0}\n", ServerVersion), SystemMessageColor);
 						if(LP_VERSION > ServerVersion){
-							WriteMessage(L"Your client is newer than the server. Some functions may be incompatible.\n", ErrorMessageColor);
+							WriteMessage(L"WARNING: Your client is newer than the server. Some functions may be incompatible.\n", ErrorMessageColor);
 						}
 						else if(LP_VERSION < ServerVersion) {
-							WriteMessage(L"LilithPortのバージョンがサーバより低いため、一部機能の互換性が取れない場合があります。\n最新バージョンを確認してください。\n", ErrorMessageColor);
+							WriteMessage(L"WARNING: Your client is older than the server. Some functions may be incompatible.\n", ErrorMessageColor);
 						}
 					}
 					else{
-						WriteMessage(L"MTSP, または古いバージョンのLilithPortサーバです。一部機能の互換性が取れない場合があります。\n", ErrorMessageColor);
+						WriteMessage(L"WARNING: You are connecting to an MTSP server or a very old LilithPort server. Some functions will be incompatible.\n", ErrorMessageColor);
 					}
 
 					// 蔵受信開始
@@ -316,28 +316,28 @@ void MainForm::Begin()
 
 
 					if(MTOPTION.CONNECTION_TYPE == CT_HOST){
-						this->Text += String::Format(L"  [{0}] [Host Port:{1}]", ServerName, MTOPTION.OPEN_PORT);
+						this->Text += String::Format(L" ({0}) (Host Port: {1})", ServerName, MTOPTION.OPEN_PORT);
 					}
 					else{
-						this->Text += String::Format(L"  [{0}] [Client]", ServerName);
+						this->Text += String::Format(L" ({0}) (Client)", ServerName);
 					}
-					WriteMessage(String::Format(L"{0}に接続しました。 (ID = {1})\n", ServerName, me->ID), SystemMessageColor);
+					WriteMessage(String::Format(L"Connected to {0}. (ID = {1})\n", ServerName, me->ID), SystemMessageColor);
 
 					if(ServerName->Length > 0){
 						if(ServerName[0] == '+'){
 							ServerMode = SM_MIX;
-							WriteMessage(L"混在サーバです。\n", SystemMessageColor);
+							WriteMessage(L"Server is in mixed mode.\n", SystemMessageColor);
 						}
 						if(ServerName[0] == '@'){
 							ServerMode = SM_MATCH;
-							WriteMessage(L"チャット禁止サーバです。\n", SystemMessageColor);
+							WriteMessage(L"Chat is disabled on this server.\n", SystemMessageColor);
 						}
 						else if(ServerName[0] == '#'){
 							ServerMode = SM_NORA;
-							WriteMessage(L"おおっと！ 野良サーバ\n", SystemMessageColor);
+							WriteMessage(L"Whoa! A Nora server!\n", SystemMessageColor); //fixme: hard translation (野良サーバ)
 
 							ListView = LV_BLIND;
-							listBoxMember->Items[0] = gcnew String(L"野試合会場");
+							listBoxMember->Items[0] = gcnew String(L"Open Match"); //fixme: hard translation (野試合会場)
 						}
 					}
 
@@ -362,27 +362,27 @@ void MainForm::Begin()
 
 				if(e->ErrorCode == 0){
 					if(me->ID == 0xFFFF){
-						WriteMessage(String::Format(L"{0}は満室です。\n", ServerName), ErrorMessageColor);
+						WriteMessage(String::Format(L"ERROR: {0} is full!\n", ServerName), ErrorMessageColor);
 					}
 					else if(me->ID == 0xFFFE){
-						WriteMessage(L"本体のバージョンが違います。\n", ErrorMessageColor);
+						WriteMessage(L"ERROR: Program version is different.\n", ErrorMessageColor);
 					}
 					else if(me->ID > MAX_ID){
-						WriteMessage(String::Format(L"{0}はこれ以上IDを発行できません。\n", ServerName), ErrorMessageColor);
+						WriteMessage(String::Format(L"ERROR: {0} could not issue any more player IDs.\n", ServerName), ErrorMessageColor);
 					}
 					else if(address != 0){
-						WriteMessage(L"サーバに接続できませんでした。\n回線が混雑している可能性があります。\n", ErrorMessageColor);
+						WriteMessage(L"ERROR: Could not connect to the server.\nThe connection may be busy.\n", ErrorMessageColor);
 					}
 				}
 				else{
 					if(e->ErrorCode == WSAECONNRESET){
-						WriteMessage(L"サーバのポートが開いていません。\n", ErrorMessageColor);
+						WriteMessage(L"ERROR: The connection was reset. \n", ErrorMessageColor);
 					}
 					else if(e->ErrorCode == WSAETIMEDOUT){
-						WriteMessage(L"サーバからの応答がありませんでした。\nサーバが稼働していないか、アドレスが間違っている可能性があります。\n", ErrorMessageColor);
+						WriteMessage(L"ERROR: The connection timed out.\nThis could be due to many reasons: the server is not running, or the address may be incorrect.\n", ErrorMessageColor);
 					}
 					else if(e->ErrorCode != WSAHOST_NOT_FOUND){
-						WriteMessage(String::Format(L"ソケットエラー > {0}\n", e->ErrorCode), ErrorMessageColor);
+						WriteMessage(String::Format(L"Unknown socket error: {0}\n", e->ErrorCode), ErrorMessageColor);
 					}
 					if(MTINFO.DEBUG){
 						WriteMessage(e->ToString() + L"\n", DebugMessageColor);
@@ -440,7 +440,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 		if(rcv->Length > MAX_PACKET){
 			if(MTINFO.DEBUG){
-				form->WriteMessage(String::Format(L"Large Packet > {0} from {1}\n", rcv[0], ep->ToString()), DebugMessageColor);
+				form->WriteMessage(String::Format(L"Got very large packet > {0} from {1}\n", rcv[0], ep->ToString()), DebugMessageColor);
 			}
 			return;
 		}
@@ -453,7 +453,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 		case PH_PONG:
 			if(rcv->Length == 1 && Ping > 0){
-				form->WriteMessage(String::Format(L"Ping : {0}ms\n", timeGetTime() - Ping), SystemMessageColor);
+				form->WriteMessage(String::Format(L"Ping: {0}ms\n", timeGetTime() - Ping), SystemMessageColor);
 				Ping = 0;
 			}
 			break;
@@ -497,7 +497,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 					if(IDCounter <= MAX_ID){
 						if(IDCounter == MAX_ID){
-							form->WriteMessage(L"発行IDが限界に達しました。\n", ErrorMessageColor);
+							form->WriteMessage(L"ERROR: issued ID is above the max ID!\n", ErrorMessageColor);
 						}
 
 						// メンバー登録
@@ -643,7 +643,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 		case PH_NOTICE:
 			if(UDP != nullptr){
-				form->WriteMessage(L"[サーバー告知]-------------------\n", SystemMessageColor);
+				form->WriteMessage(L"[Message of the Day]-------------------\n", SystemMessageColor);
 				form->WriteNotice(Encoding::Unicode->GetString(rcv, 2, (rcv->Length)-2));
 				form->WriteMessage(L"-------------------------------\n", SystemMessageColor);
 			}
@@ -702,14 +702,14 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					}
 					if(MTINFO.DEBUG){
 						if(id == 0){
-							form->WriteMessage(L"メンバーリストの要求を返信しました。\n", DebugMessageColor);
+							form->WriteMessage(L"Replied to player list request.\n", DebugMessageColor);
 						}
 					}
 
 					if(id > 0 && i >= MemberList->Count){
 						// サーバでもクラでも見えない状態
 						if(MTINFO.DEBUG){
-							form->WriteMessage(String::Format(L"Unknown({0})の検索\n", id), ErrorMessageColor);
+							form->WriteMessage(String::Format(L"Unknown ({0}) search!\n", id), ErrorMessageColor);
 						}
 
 						// バックアップ検索
@@ -718,16 +718,16 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 								// Unknown通知
 								array<BYTE>^ send = gcnew array<BYTE>(3){ PH_LOST, 0xFF, 0xFF };
 								UDP->BeginSend(send, send->Length, MemberListBackUp[id]->IP_EP, gcnew AsyncCallback(SendPackets), UDP);
-								form->WriteMessage(String::Format(L"Unknown({0})に通知をしました。\n", id), SystemMessageColor);
+								form->WriteMessage(String::Format(L"Sent notice to Unknown ({0}).\n", id), SystemMessageColor);
 							}
 							catch(Exception^){
 								if(MTINFO.DEBUG){
-									form->WriteMessage(String::Format(L"Unknown({0})への通知に失敗しました。\n", id), ErrorMessageColor);
+									form->WriteMessage(String::Format(L"Failed to send notice to Unknown ({0})!\n", id), ErrorMessageColor);
 								}
 							}
 						}else{
 							// バックアップリスト以上のID
-							form->WriteMessage(String::Format(L"履歴に存在しない接続IDです。\nサーバをシャットダウン後、しばらくしてからサーバを起動してください。\n", id), ErrorMessageColor);
+							form->WriteMessage(String::Format(L"This ID is not present in the log. Shut down and restart the server after waiting a while.\n", id), ErrorMessageColor);
 						}
 					}
 				}
@@ -819,7 +819,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					if(member > 0){
 						if(ListView != LV_BLIND){
 							form->WriteTime(0, SystemMessageColor);
-							form->WriteMessage(MemberList[member]->NAME + L"が退室しました。\n", SystemMessageColor);
+							form->WriteMessage(MemberList[member]->NAME + L" has left.\n", SystemMessageColor);
 						}
 
 						// 観戦中止
@@ -835,11 +835,11 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				else{
 					if(id == 0){
 						form->WriteTime(0, SystemMessageColor);
-						form->WriteMessage(ServerName + L"がシャットダウンしました。\n", SystemMessageColor);
+						form->WriteMessage(ServerName + L" was shut down.\n", SystemMessageColor);
 						MemberList[0]->STATE = 0xFF;
 					}
 					else if(id == 0xFFFF){
-						form->WriteMessage(ServerName + L"には登録されていません。\n時間を置いて再接続してみてください。\n", ErrorMessageColor);
+						form->WriteMessage(ServerName + L" is not registered. Please try to connect at a later time.\n", ErrorMessageColor);
 						MemberList[0]->STATE = 0xFF;
 					}
 					else{
@@ -847,18 +847,18 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 							if(id == MemberList[i]->ID){
 								if(i == 0){
 									form->WriteTime(0, SystemMessageColor);
-									form->WriteMessage(L"サーバとの接続が切断されました。\n", ErrorMessageColor);
+									form->WriteMessage(L"ERROR: Connection to the server lost.\n", ErrorMessageColor);
 									MemberList[0]->STATE = 0xFF;
 								}
 								else{
 									if(ListView != LV_BLIND){
 										if(rcv[0] == PH_QUIT){
 											form->WriteTime(0, SystemMessageColor);
-											form->WriteMessage(MemberList[i]->NAME + L"が退室しました。\n", SystemMessageColor);
+											form->WriteMessage(MemberList[i]->NAME + L" has left.\n", SystemMessageColor);
 										}
 										else{
 											form->WriteTime(0, SystemMessageColor);
-											form->WriteMessage(MemberList[i]->NAME + L"の回線が途切れました。\n", ErrorMessageColor);
+											form->WriteMessage(L"Connection with "+ MemberList[i]->NAME + L" was interrupted.\n", ErrorMessageColor);
 											if(MTINFO.DEBUG){
 												form->WriteMessage(String::Format(L"ID = {0}\n", MemberList[i]->ID), DebugMessageColor);
 												form->WriteMessage(String::Format(L"IP_EP = {0}\n", MemberList[i]->IP_EP), DebugMessageColor);
@@ -902,7 +902,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 						if(MemberList[i]->STATE == MS_SEEK && rcv[3] != MS_SEEK){
 							form->WriteTime(0, SystemMessageColor);
-							form->WriteMessage(String::Format(L"{0}が対戦募集を締め切りました。\n", MemberList[i]->NAME), SystemMessageColor);
+							form->WriteMessage(String::Format(L"{0} is now in seek mode.\n", MemberList[i]->NAME), SystemMessageColor);
 						}
 
 						MemberList[i]->STATE = rcv[3];
@@ -910,7 +910,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 						if(MemberList[i]->STATE == MS_SEEK){
 							form->WriteTime(0, SystemMessageColor);
-							form->WriteMessage(String::Format(L"{0}が対戦募集状態になりました。\n", MemberList[i]->NAME), SystemMessageColor);
+							form->WriteMessage(String::Format(L"{0} is now in seek mode.\n", MemberList[i]->NAME), SystemMessageColor);
 							if(MTOPTION.SEEK_SOUND_ENABLE){
 								try{
 									Media::SoundPlayer^ wav = gcnew Media::SoundPlayer(gcnew String(MTOPTION.SEEK_SOUND));
@@ -986,7 +986,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 						if(rcv[3] == 0xFF){
 							// そんな人いなかった
 							form->WriteTime(0, SystemMessageColor);
-							form->WriteMessage(MemberList[i]->NAME + L"は既にいませんでした。\n", SystemMessageColor);
+							form->WriteMessage(L"We didn't have "+MemberList[i]->NAME + L" before.\n", SystemMessageColor);
 
 							if(MTOPTION.CONNECTION_TYPE == CT_SERVER){
 								// 全員に通達
@@ -1016,9 +1016,9 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 								form->WriteMessage(String::Format(MemberList[i]->NAME + L" > state:{0}\n", rcv[3]), DebugMessageColor);
 							}
 							form->WriteTime(0, SystemMessageColor);
-							form->WriteMessage(MemberList[i]->NAME + L"の状態を更新しました。\n", SystemMessageColor);
+							form->WriteMessage(L"Updated state for " + MemberList[i]->NAME + L".\n", SystemMessageColor);
 							if(MTOPTION.CONNECTION_TYPE != CT_SERVER && MemberList[i]->ID == 0){
-								form->WriteMessage(L"サーバーとの通信が途切れた可能性があります。再接続をしてみてください。\n", ErrorMessageColor);
+								form->WriteMessage(L"Connection to the server may have been lost. Please try to reconnect.\n", ErrorMessageColor);
 							}
 							MemberList[i]->STATE = rcv[3];
 							form->listBoxMember->Refresh();
@@ -1113,6 +1113,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 			// 格ツクじゃないよ
 			try{
+                //TODO: change FM exe check
 				String^ exe = gcnew String(MTOPTION.GAME_EXE);
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(exe);
 
@@ -1141,8 +1142,8 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 			}
 			catch(Exception^){
 				send[1] = 0xFF;
-				form->WriteMessage(L"格闘ツクールの実行ファイルではありません。\n", ErrorMessageColor);
-				form->WriteMessage(L"オプションで実行ファイルのパスを設定してください。\n", ErrorMessageColor);
+				form->WriteMessage(L"ERROR: This is not a valid 2D Fighter Maker executable.\n", ErrorMessageColor);
+				form->WriteMessage(L"Please go to the settings menu and set it.\n", ErrorMessageColor);
 			}
 
 			UDP->BeginSend(send, send->Length, ep, gcnew AsyncCallback(SendPackets), UDP);
@@ -1159,7 +1160,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					}
 
 					if(i >= MemberList->Count){
-						form->WriteMessage(L"リストにいない人物からの対戦要求がありました。\n", ErrorMessageColor);
+						form->WriteMessage(L"ERROR: A match request was received from someone not on the list.\n", ErrorMessageColor);
 						MemberList[0]->STATE = MS_FREE;
 
 						if(MTOPTION.CONNECTION_TYPE != CT_SERVER){
@@ -1207,7 +1208,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					if(ListView != LV_BLIND){
 						form->WriteTime(0, SystemMessageColor);
 						form->WriteMessage(MemberList[i]->NAME, NameColor[MemberList[i]->TYPE]);
-						form->WriteMessage(L"から対戦の申し込みです。\n", SystemMessageColor);
+						form->WriteMessage(L"A new challenger!\n", SystemMessageColor);
 					}
 				}
 				finally{
@@ -1220,25 +1221,25 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 			if((rcv[1] != MS_FREE)&&(rcv[1] != MS_SEEK)){
 				switch(rcv[1]){
 				case MS_REST:
-					form->WriteMessage(L"挑戦相手は休憩中です。\n", SystemMessageColor);
+					form->WriteMessage(L"Challenger is currently on break.\n", SystemMessageColor);
 					break;
 				case MS_VS:
-					form->WriteMessage(L"挑戦相手は対戦中です。\n", SystemMessageColor);
+					form->WriteMessage(L"Challenger is currently playing.\n", SystemMessageColor);
 					break;
 				case MS_WATCH:
 				case MS_COUCH:
-					form->WriteMessage(L"挑戦相手は観戦中です。\n", SystemMessageColor);
+					form->WriteMessage(L"Challenger is currently spectating.\n", SystemMessageColor);
 					break;
 				case MS_SEEK:
 					break;
 				case MS_READY:
-					form->WriteMessage(L"挑戦相手は他の人と対戦準備中です。\n", SystemMessageColor);
+					form->WriteMessage(L"Challenger is currently preparing for battle against another person.\n", SystemMessageColor);
 					break;
 				case 0xFE:
-					form->WriteMessage(L"挑戦相手とプレイするゲームが違います。\n", ErrorMessageColor);
+					form->WriteMessage(L"ERROR: You and your challenger have a different game or game version.\n", ErrorMessageColor);
 					break;
 				default:
-					form->WriteMessage(L"挑戦相手が対戦出来る状態ではありません。\n", SystemMessageColor);
+					form->WriteMessage(L"Challenger is currently not in a state for matchmaking.\n", SystemMessageColor);
 					break;
 				}
 
@@ -1331,7 +1332,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 				// 対戦開始
 				form->WriteTime(0, SystemMessageColor);
-				form->WriteMessage(String::Format(L"対戦を開始します。(delay:{0})\n", NetVS->DELAY), SystemMessageColor);
+				form->WriteMessage(String::Format(L"Starting match... (Delay: {0})\n", NetVS->DELAY), SystemMessageColor);
 
 				// 音でお知らせ
 				if(MTOPTION.VS_SOUND_ENABLE){
@@ -1381,7 +1382,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				}
 				catch(Exception^){
 					MTINFO.TEAM_ROUND_HP = false;
-					form->WriteMessage(L"対戦相手が古いバージョンのLilithPortか、MTSPです。\n", ErrorMessageColor);
+					form->WriteMessage(L"ERROR: Opponent is using an old version of LilithPort or MTSP!\n", ErrorMessageColor);
 				}
 				
 
@@ -1394,7 +1395,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 		case PH_VS_END:
 			if(NetVS != nullptr){
-				form->WriteMessage(L"対戦終了のお知らせです。\n", SystemMessageColor);
+				form->WriteMessage(L"The match was ended.\n", SystemMessageColor);
 
 				NetVS->SEQUENCE = VS_END;
 				form->QuitGame();
@@ -1424,14 +1425,14 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				try{
 					if(NetVS->R_FRAME > f + NetVS->DELAY){
 						if(MTINFO.DEBUG){
-							form->WriteMessage(String::Format(L"無効なパケット(遅延) > {0} / {1}\n", f, NetVS->R_FRAME), DebugMessageColor);
+							form->WriteMessage(String::Format(L"Invalid packet (delay): {0}/{1}\n", f, NetVS->R_FRAME), DebugMessageColor);
 						}
 						break;
 					}
 					else if(f > NetVS->R_FRAME + NetVS->DELAY){
 						// まずこない
 						if(MTINFO.DEBUG){
-							form->WriteMessage(String::Format(L"無効なパケット(先行) > {0} / {1}\n", f, NetVS->R_FRAME), DebugMessageColor);
+							form->WriteMessage(String::Format(L"Invalid packet (preceding): {0}/{1}\n", f, NetVS->R_FRAME), DebugMessageColor);
 						}
 						break;
 					}
@@ -1469,7 +1470,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				try{
 					if(f >= NetVS->L_FRAME + NetVS->DELAY){
 						if(MTINFO.DEBUG){
-							form->WriteMessage(String::Format(L"無効なパケット(先行要求) > {0} / {1}\n", f, NetVS->L_FRAME), DebugMessageColor);
+							form->WriteMessage(String::Format(L"Invalid packet (prior request): {0}/{1}\n", f, NetVS->L_FRAME), DebugMessageColor);
 						}
 						UDP->BeginSend(send, send->Length, ep, gcnew AsyncCallback(SendPackets), UDP);
 						break;
@@ -1477,13 +1478,13 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					else if(NetVS->L_FRAME > f + NetVS->DELAY*2){
 						// 既にデータがないのでこれがくるとゲームにならない
 						if(MTINFO.DEBUG){
-							form->WriteMessage(String::Format(L"無効なパケット(遅延要求) > {0} / {1}\n", f, NetVS->L_FRAME), DebugMessageColor);
+							form->WriteMessage(String::Format(L"Invalid packet (delayed request): {0}/{1}\n", f, NetVS->L_FRAME), DebugMessageColor);
 						}
 						break;
 					}
 
 					if(MTINFO.DEBUG){
-						form->WriteMessage(String::Format(L"要求パケット > {0} / {1}\n", f, NetVS->L_FRAME), DebugMessageColor);
+						form->WriteMessage(String::Format(L"Request packet: {0}/{1}\n", f, NetVS->L_FRAME), DebugMessageColor);
 					}
 
 					Array::Copy(BitConverter::GetBytes(NetVS->LOCAL[f % NetVS->LOCAL->Length]), 0, send, 5, 2);
@@ -1508,7 +1509,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					NetVS->REMOTE[NetVS->R_READ] = w;
 
 					if(MTINFO.DEBUG){
-						form->WriteMessage(String::Format(L"返信パケット > {0} : {1}\n", f, w), DebugMessageColor);
+						form->WriteMessage(String::Format(L"Reply packet: {0} : {1}\n", f, w), DebugMessageColor);
 					}
 
 					if(NetVS->WAITING == 2){
@@ -1594,10 +1595,10 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 						if(i >= MemberList->Count){
 							// 外来客
-							form->WriteMessage(L"観戦者が来ました。\n", SystemMessageColor);
+							form->WriteMessage(L"A spectator has joined.\n", SystemMessageColor);
 						}
 						else{
-							form->WriteMessage(MemberList[i]->NAME + L"が観戦に来ました。\n", SystemMessageColor);
+							form->WriteMessage(MemberList[i]->NAME + L" has joined the match as a spectator.\n", SystemMessageColor);
 						}
 					}
 					finally{
@@ -1611,19 +1612,19 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 			if(rcv[1] > 0){
 				switch(rcv[1]){
 				case 1:
-					form->WriteMessage(L"観戦が許可されていませんでした。\n", SystemMessageColor);
+					form->WriteMessage(L"Spectating is disabled for this match.\n", SystemMessageColor);
 					break;
 
 				case 2:
-					form->WriteMessage(L"観戦席は満席でした。\n", SystemMessageColor);
+					form->WriteMessage(L"All spectator seats are taken!\n", SystemMessageColor);
 					break;
 
 				case 3:
-					form->WriteMessage(L"観戦に間に合いませんでした。\n", SystemMessageColor);
+					form->WriteMessage(L"You did not join in time to spectate.\n", SystemMessageColor);
 					break;
 
 				case 4:
-					form->WriteMessage(L"既に相手がこちらを観戦対象にしていました。\n", SystemMessageColor);
+					form->WriteMessage(L"You are already watching the opponent!\n", SystemMessageColor); //fixme: hard translation: 既に相手がこちらを観戦対象にしていました。
 					break;
 				}
 
@@ -1682,7 +1683,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					GameThread = gcnew Thread(gcnew ParameterizedThreadStart(form, &MainForm::RunGame));
 					GameThread->Start((UINT)RT_WATCH);
 
-					form->WriteMessage(L"観戦を開始します。\n", SystemMessageColor);
+					form->WriteMessage(L"Now spectating. Starting game...\n", SystemMessageColor);
 				}
 			}
 			break;
@@ -1692,7 +1693,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				UINT32 f = BitConverter::ToUInt32(rcv, 1);
 
 				if(f > WatchFrame + WatchHistory->Length - 20){
-					form->WriteMessage(L"同期が取れなくなったため観戦を中止します。\n", ErrorMessageColor);
+                    form->WriteMessage(L"ERROR: Could not synchronize; leaving spectator mode...\n", ErrorMessageColor); //fixme: hard translation: 同期が取れなくなったため観戦を中止します。
 					form->QuitWatch(true);
 				}
 
@@ -1700,7 +1701,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				try{
 					if(WatchFrame > f + 20){
 						if(MTINFO.DEBUG){
-							form->WriteMessage(String::Format(L"観戦パケット(遅延) > {0} / {1}\n", f, WatchFrame), DebugMessageColor);
+							form->WriteMessage(String::Format(L"Spectator packet (delay): {0}/{1}\n", f, WatchFrame), DebugMessageColor);
 						}
 						break;
 					}
@@ -1729,7 +1730,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 			if(id == MemberList[0]->ID){
 				// 閉幕のお知らせ
-				form->WriteMessage(L"観戦終了のお知らせです。\n", SystemMessageColor);
+				form->WriteMessage(L"The match was ended. Leaving spectator mode...\n", SystemMessageColor);
 				form->QuitWatch(false);
 			}
 			else{
@@ -1737,7 +1738,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				Monitor::Enter(InputHistory);
 				try{
 					if(MTINFO.DEBUG){
-						form->WriteMessage(String::Format(L"観戦中止 > {0}\n", id), DebugMessageColor);
+						form->WriteMessage(String::Format(L"Spectator end: {0}\n", id), DebugMessageColor);
 					}
 
 					for(i = 0; i < SpectatorList->Count; i++){
@@ -1774,17 +1775,20 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 								try{
 									form->richTextBoxLog->SelectionStart = form->richTextBoxLog->Text->Length;
 
+                                    form->richTextBoxLog->SelectionColor = SecretColor;
+                                    form->richTextBoxLog->AppendText(L"Inflicted DAMAGE on ");
+
 									form->richTextBoxLog->SelectionColor = NameColor[MemberList[i]->TYPE];
 									form->richTextBoxLog->AppendText(MemberList[i]->NAME);
 
 									form->richTextBoxLog->SelectionColor = SecretColor;
-									form->richTextBoxLog->AppendText(L"に ");
+									form->richTextBoxLog->AppendText(L" at ");
 
 									form->richTextBoxLog->SelectionColor = TalkMessageColor;
-									form->richTextBoxLog->AppendText(UInt32(time).ToString());
-
-									form->richTextBoxLog->SelectionColor = SecretColor;
-									form->richTextBoxLog->AppendText(L"の ダメージ！！\n");
+                                    form->richTextBoxLog->AppendText(UInt32(time).ToString());
+                                    
+                                    form->richTextBoxLog->SelectionColor = SecretColor;
+                                    form->richTextBoxLog->AppendText(L"!!\n");
 
 									form->richTextBoxLog->SelectionStart = form->richTextBoxLog->Text->Length;
 									if(!MTOPTION.LOG_LOCK) {
@@ -1823,7 +1827,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 		// UDP接続終了
 		if(UDP != nullptr){
 			UDP = nullptr;
-			form->WriteMessage(L"回線を切断しました。\n", SystemMessageColor);
+			form->WriteMessage(L"Connection was interrupted!\n", SystemMessageColor);
 		}
 	}
 	catch(SocketException^ e){
@@ -1832,11 +1836,11 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 		if(e->ErrorCode == WSAECONNRESET){
 			// パケットが弾かれた
 			if(MTINFO.DEBUG){
-				form->WriteMessage(L"ERROR > WSAECONNRESET\n", DebugMessageColor);
+				form->WriteMessage(L"ERROR: WSAECONNRESET\n", DebugMessageColor);
 			}
 		}
 		else{
-			form->WriteMessage(String::Format(L"ソケットエラー({0})\n", e->ErrorCode), ErrorMessageColor);
+			form->WriteMessage(String::Format(L"SOCKET ERROR: {0}\n", e->ErrorCode), ErrorMessageColor);
 			if(MTINFO.DEBUG){
 				form->WriteMessage(e->ToString() + L"\n", DebugMessageColor);
 			}
@@ -1871,8 +1875,8 @@ void MainForm::TimerGetIP()
 // HP持ち越しタイマー
 void MainForm::SetTeamHP(){
 	if(MTINFO.DEBUG){
-		WriteMessage(L"EVENT:SET_TEAM_HP\n", DebugMessageColor);
-		WriteMessage(String::Format(L"PROCESS:{0}, WINNER:P{1}, HP:{2}\n", (UINT)MTINFO.PROCESS, ((UINT)MTINFO.WINNER)+1, MTINFO.P_HP), DebugMessageColor);
+		WriteMessage(L"EVENT: SET_TEAM_HP\n", DebugMessageColor);
+		WriteMessage(String::Format(L"PROCESS: {0}, WINNER: P{1}, HP: {2}\n", (UINT)MTINFO.PROCESS, ((UINT)MTINFO.WINNER)+1, MTINFO.P_HP), DebugMessageColor);
 	}
 	Thread::Sleep(1000);
 	try {
@@ -1939,7 +1943,7 @@ void MainForm::RunSonar()
 
 					if((timeGetTime() - MemberList[i]->RESPONSE) > 100*1000){
 						WriteTime(0, SystemMessageColor);
-						WriteMessage(MemberList[i]->NAME + L"との通信が途絶えました。\n", ErrorMessageColor);
+						WriteMessage("Connection with " + MemberList[i]->NAME + L" was interrupted.\n", ErrorMessageColor);
 
 						send[0] = PH_LOST;
 
@@ -1963,7 +1967,7 @@ void MainForm::RunSonar()
 			}
 			else{
 				if((timeGetTime() - MemberList[1]->RESPONSE) > 100*1000){
-					WriteMessage(L"サーバとの通信が途絶えました。\n", ErrorMessageColor);
+					WriteMessage(L"Connection with the server timed out.\n", ErrorMessageColor);
 					leave   = true;
 					Ranging = false;
 				}
@@ -1973,7 +1977,7 @@ void MainForm::RunSonar()
 			}
 		}
 		catch(Exception^){
-			WriteMessage(L"ソナースレッドでエラーが発生しました。\n", ErrorMessageColor);
+			WriteMessage(L"An exception was thrown in the sonar thread.\n", ErrorMessageColor);
 		}
 		finally{
 			Monitor::Exit(MemberList);
@@ -2151,7 +2155,7 @@ void MainForm::RunGame(Object^ obj)
 			path += "\\" + file;
 			bw = gcnew BinaryWriter(File::Create(path));
 
-			WriteMessage(String::Format(L"\"{0}\"にリプレイファイルを作成します。\n", file), SystemMessageColor);
+			WriteMessage(String::Format(L"Replay file will be created: \"{0}\"\n", file), SystemMessageColor);
 
 			// ヘッダ
 			bw->Write(header);
@@ -2194,7 +2198,7 @@ void MainForm::RunGame(Object^ obj)
 		}
 	}
 	catch(IOException^ e){
-		WriteMessage(String::Format(L"ERROR > リプレイファイル\n{0}\n", e->ToString()), ErrorMessageColor);
+		WriteMessage(String::Format(L"Error writing to replay file:\n{0}\n", e->ToString()), ErrorMessageColor);
 
 		if(bw != nullptr){
 			bw->Close();
@@ -2242,24 +2246,24 @@ void MainForm::RunGame(Object^ obj)
 		
 		if(CreateProcess(MTOPTION.GAME_EXE, NULL, NULL, NULL, false, DEBUG_PROCESS, NULL, wdir, &si, &pi)){
 			if(run_type == RT_PLAYBACK){
-				WriteMessage(String::Format(L"\"{0}\"を再生します。\n", Path::GetFileName(ReplayFilePath)), SystemMessageColor);
+				WriteMessage(String::Format(L"Opening \"{0}\" for playback...\n", Path::GetFileName(ReplayFilePath)), SystemMessageColor);
 			}
 			else{
-				WriteMessage(String::Format(L"\"{0}\"を起動します。\n", Path::GetFileNameWithoutExtension(gcnew String(MTOPTION.GAME_EXE))), SystemMessageColor);
+				WriteMessage(String::Format(L"Starting \"{0}\"...\n", Path::GetFileNameWithoutExtension(gcnew String(MTOPTION.GAME_EXE))), SystemMessageColor);
 			}
 		}
 		else{
-			WriteMessage(String::Format(L"ERROR({0}) > \"{1}\"が開けませんでした。\n", GetLastError(), gcnew String(MTOPTION.GAME_EXE)), ErrorMessageColor);
+			WriteMessage(String::Format(L"ERROR ({0}): Could not run \"{1}\".\n", GetLastError(), gcnew String(MTOPTION.GAME_EXE)), ErrorMessageColor);
 			return;
 		}
 
 		if(MTOPTION.SHOW_GAME_OPTION){
-			WriteMessage(String::Format(L"[対戦設定]----------------------\n"
-				L"最大ステージ数: {0} / "
-				L"ランダムステージ: {1} / "
-				L"ラウンド数: {2} / "
-				L"ゲームタイマー: {3}\n"
-				L"ラウンドHP持ち越し: {4}\n"
+			WriteMessage(String::Format(L"[Current settings]----------------------\n"
+				L"Max stages: {0} / "
+				L"Random stage: {1} / "
+                L"# of rounds: {2} / "
+				L"Round timer: {3}\n"
+				L"Carry over HP between rounds: {4}\n"
 				L"-------------------------------\n"
 				, MTINFO.MAX_STAGE, MTINFO.STAGE_SELECT, MTINFO.ROUND, MTINFO.TIMER, MTINFO.TEAM_ROUND_HP == true ? "ON" : "OFF"), SystemMessageColor);
 		}
@@ -2510,7 +2514,7 @@ void MainForm::RunGame(Object^ obj)
 								c.Eax = WatchHistory[WatchFrame % WatchHistory->Length];
 
 								if(c.Eax == 0xFFFF && WaitingWatch == 2){
-									WriteMessage(L"タイムアウトしたため観戦を終了します。\n", ErrorMessageColor);
+									WriteMessage(L"Stopped spectating due to timeout.\n", ErrorMessageColor);
 									QuitWatch(true);
 								}
 							}
@@ -2607,7 +2611,7 @@ void MainForm::RunGame(Object^ obj)
 								c.Eax = WatchHistory[WatchFrame % WatchHistory->Length];
 
 								if(c.Eax == 0xFFFF && WaitingWatch == 2){
-									WriteMessage(L"タイムアウトしたため観戦を終了します。\n", ErrorMessageColor);
+									WriteMessage(L"Stopped spectating due to timeout.\n", ErrorMessageColor);
 									QuitWatch(true);
 								}
 							}
@@ -2667,7 +2671,7 @@ void MainForm::RunGame(Object^ obj)
 
 							if(MTOPTION.DISPLAY_NAME){
 								if(is_p1 == 0 && is_p2 == 0){
-									append_cap = _stprintf_s(MTINFO.TITLE, _T("%s [野試合中]"), MTINFO.TITLE);
+									append_cap = _stprintf_s(MTINFO.TITLE, _T("%s [Free Play]"), MTINFO.TITLE); //fixme: hard translation: 野試合中
 								}
 								else if(is_p2 == 0){
 									append_cap = _stprintf_s(MTINFO.TITLE, _T("%s [%s]"), MTINFO.TITLE, MTINFO.P1_NAME);
@@ -2678,16 +2682,16 @@ void MainForm::RunGame(Object^ obj)
 							}
 							if(MTOPTION.DISPLAY_VERSUS){
 								if(MTOPTION.SHOW_RESULT){
-									append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  対戦数:%d (%d - %d)"), MTINFO.TITLE, num_vs, p1_win, p2_win);
+									append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  Match: %d (%d - %d)"), MTINFO.TITLE, num_vs, p1_win, p2_win);
 								}else{
-									append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  対戦数:%d"), MTINFO.TITLE, num_vs);
+									append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  Match: %d"), MTINFO.TITLE, num_vs);
 								}
 							}
 							if(MTOPTION.DISPLAY_FRAMERATE){
-								append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  fps:%3d(%d％)"), MTINFO.TITLE, blt_count, input_count);
+								append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  FPS: %3d(%d％)"), MTINFO.TITLE, blt_count, input_count);
 							}
 							if(MTOPTION.DISPLAY_RAND){
-								append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  乱数:%d"), MTINFO.TITLE, rand_count);
+								append_cap = _stprintf_s(MTINFO.TITLE, _T("%s  Rand: %d"), MTINFO.TITLE, rand_count);
 							}
 
 							blt_count   = 0;
@@ -2738,7 +2742,7 @@ void MainForm::RunGame(Object^ obj)
 							int nValue = e_address;
 							char pszText[32];
 							_itoa_s(nValue, pszText, 32 * sizeof(char), 16);
-							WriteMessage(String::Format(L"EVENT:{0}\n", gcnew String(pszText)), DebugMessageColor);
+							WriteMessage(String::Format(L"EVENT: {0}\n", gcnew String(pszText)), DebugMessageColor);
 						}
 						
 					}
@@ -2941,10 +2945,10 @@ void MainForm::RunGame(Object^ obj)
 		if(MTINFO.INITIALIZED){
 			if(WaitingWatch > 0){
 				WaitingWatch = 0;
-				WriteMessage(L"観戦を中止します。\n", SystemMessageColor);
+				WriteMessage(L"Stopped watching.\n", SystemMessageColor);
 			}
 			else if(_tcslen(MTINFO.ORIGINAL_TITLE) > 0){
-				WriteMessage(String::Format(L"\"{0}\"を終了しました。\n", gcnew String(MTINFO.ORIGINAL_TITLE)), SystemMessageColor);
+				WriteMessage(String::Format(L"Ended \"{0}\".\n", gcnew String(MTINFO.ORIGINAL_TITLE)), SystemMessageColor);
 
 				if(run_type == RT_VS){
 					if(MTINFO.CONTROL == 1){
@@ -2953,11 +2957,11 @@ void MainForm::RunGame(Object^ obj)
 						p2_win = i;
 					}
 					WriteTime(0, SystemMessageColor);
-					WriteMessage(String::Format(L"対戦成績 ： {0}戦 {1}勝 {2}敗\n", num_vs, p1_win, p2_win), SecretColor);
+					WriteMessage(String::Format(L"Score： {0} matches, {1} wins (P1) {2} wins (P2)\n", num_vs, p1_win, p2_win), SecretColor);
 				}
 			}
 			else{
-				WriteMessage(L"ゲームを終了しました。\n", SystemMessageColor);
+				WriteMessage(L"Ended the game.\n", SystemMessageColor);
 			}
 		}
 
@@ -3032,7 +3036,7 @@ void MainForm::RunVersus()
 
 		if(NetVS->SEQUENCE != VS_PING){
 			if(NetVS->SEQUENCE != VS_ERROR){
-				WriteMessage(L"挑戦相手からの応答がありませんでした。\n", ErrorMessageColor);
+				WriteMessage(L"ERROR: There was no response from the opponent.\n", ErrorMessageColor);
 			}
 			return;
 		}
@@ -3060,7 +3064,7 @@ void MainForm::RunVersus()
 		}
 
 		if(NetVS->SEQUENCE != VS_SETTING){
-			WriteMessage(L"挑戦相手との回線が不安定です。\n", ErrorMessageColor);
+			WriteMessage(L"ERROR: The connection to the opponent is unstable.\n", ErrorMessageColor);
 			return;
 		}
 
@@ -3081,7 +3085,7 @@ void MainForm::RunVersus()
 			}
 
 			if(c < 4){
-				WriteMessage(L"ディレイ値の計算が正常に行われませんでした。\n", ErrorMessageColor);
+				WriteMessage(L"ERROR: Could not determine the delay from the opponent's ping.\n", ErrorMessageColor);
 				return;
 			}
 
@@ -3107,14 +3111,14 @@ void MainForm::RunVersus()
 		NetVS->SLEEPING = false;
 
 		if(NetVS->SEQUENCE != VS_STANDBY){
-			WriteMessage(L"対戦準備が完了しませんでした。\n", ErrorMessageColor);
+			WriteMessage(L"ERROR: The match initialization process could not be completed.\n", ErrorMessageColor);
 			return;
 		}
 
 		NetVS->SEQUENCE = VS_DATA;
 
 		// 対戦開始
-		WriteMessage(String::Format(L"対戦を開始します。(delay:{0})\n", NetVS->DELAY), SystemMessageColor);
+		WriteMessage(String::Format(L"Match starting! (Delay: {0})\n", NetVS->DELAY), SystemMessageColor);
 
 		GameThread = gcnew Thread(gcnew ParameterizedThreadStart(this, &MainForm::RunGame));
 		GameThread->Start((UINT)RT_VS);
@@ -3349,9 +3353,9 @@ UINT16 MainForm::RemoteInput()
 		}
 
 		if(eax == 0xFFFF && NetVS->SEQUENCE == VS_TIMEOUT){
-			WriteMessage(L"タイムアウトしたため対戦を終了します。\n", ErrorMessageColor);
+			WriteMessage(L"The match ended due to a timeout.\n", ErrorMessageColor);
 			if(MTINFO.DEBUG){
-				WriteMessage(String::Format(L"Frame > L:{0} / R:{1} (delay:{2})\n", NetVS->L_FRAME, NetVS->R_FRAME, NetVS->DELAY), DebugMessageColor);
+				WriteMessage(String::Format(L"Frame > L: {0} / R: {1} (delay: {2})\n", NetVS->L_FRAME, NetVS->R_FRAME, NetVS->DELAY), DebugMessageColor);
 			}
 
 			QuitGame();
@@ -3364,9 +3368,9 @@ UINT16 MainForm::RemoteInput()
 	if(NetVS->SEQUENCE != VS_DATA) return 0;
 
 	if((eax & 0x0003) == 0x0003){
-		WriteMessage(L"不正パケットの受信 > 左右同時押し\n", ErrorMessageColor);
+		WriteMessage(L"Received illegal packet: press left and right simultaneously\n", ErrorMessageColor); //fixme: dubious translation: 不正パケットの受信 > 左右同時押し
 		if(MTINFO.DEBUG){
-			WriteMessage(String::Format(L"IP = {0}\n", NetVS->IP_EP->Address), DebugMessageColor);
+			WriteMessage(String::Format(L"IP: {0}\n", NetVS->IP_EP->Address), DebugMessageColor);
 		}
 
 		QuitGame();
@@ -3440,7 +3444,7 @@ UINT16 MainForm::ReadReplayData(BinaryReader^ br, REPLAY_INFO& ri)
 		}
 	}
 	catch(EndOfStreamException^){
-		WriteMessage(L"リプレイファイルの再生が終了しました。\n", SystemMessageColor);
+		WriteMessage(L"End of replay file.\n", SystemMessageColor);
 
 		br->Close();
 		br = nullptr;
@@ -3516,7 +3520,7 @@ void MainForm::RunAutoRest() {
 	int to = MTOPTION.AUTO_REST_TIME;  // タイムアウト指定時間
 	AutoRestRanging = true;
 	if(MTINFO.DEBUG){
-		WriteMessage(String::Format(L"自動休憩スレッド開始 {0}分\n", to), DebugMessageColor);
+		WriteMessage(String::Format(L"Auto rest thread starts in {0} minute(s)!\n", to), DebugMessageColor);
 	}
 	while(AutoRestRanging){
 		AutoRestSleeping = true;
@@ -3537,7 +3541,7 @@ void MainForm::RunAutoRest() {
 			// フリー状態なら休憩状態にする
 			if(UDP != nullptr && MemberList[0]->STATE == MS_FREE){
 				ChangeState((BYTE)MS_REST);
-				WriteMessage(L"休憩状態を変更しました。 > オン\n", SystemMessageColor);
+				WriteMessage(L"Rest mode set to ON.\n", SystemMessageColor);
 			}
 			AutoRestRanging = false;
 			AutoRestThread = nullptr;
@@ -3549,9 +3553,9 @@ void MainForm::ChangeSeek() {
 
 	if(MemberList[0]->STATE == MS_FREE){
 		ChangeState((BYTE)MS_SEEK);
-		WriteMessage(L"対戦募集状態を変更しました。 > オン\n", SystemMessageColor);
+		WriteMessage(L"Seek mode set to ON.\n", SystemMessageColor);
 		WriteTime(0, SystemMessageColor);
-		WriteMessage(String::Format(L"{0}が対戦募集状態になりました。\n", MemberList[0]->NAME), SystemMessageColor);
+		WriteMessage(String::Format(L"{0} is now accepting new matches.\n", MemberList[0]->NAME), SystemMessageColor);
 	}
 	else if(MemberList[0]->STATE == MS_SEEK){
 		if(GameThread != nullptr && GameThread->IsAlive){
@@ -3560,9 +3564,9 @@ void MainForm::ChangeSeek() {
 			ChangeState((BYTE)MS_FREE);
 		}
 		
-		WriteMessage(L"対戦募集状態を変更しました。 > オフ\n", SystemMessageColor);
+		WriteMessage(L"Seek mode set to OFF.\n", SystemMessageColor);
 		WriteTime(0, SystemMessageColor);
-		WriteMessage(String::Format(L"{0}が対戦募集を締め切りました。\n", MemberList[0]->NAME), SystemMessageColor);
+		WriteMessage(String::Format(L"{0} has stopped accepting new matches.\n", MemberList[0]->NAME), SystemMessageColor);
 	}
 }
 void MainForm::ChangeLogWordWrap() {
@@ -3570,13 +3574,13 @@ void MainForm::ChangeLogWordWrap() {
 	richTextBoxLog->WordWrap = MTOPTION.LOG_WORDWRAP;
 	toolStripMenuItemWordWrap->Checked = MTOPTION.LOG_WORDWRAP;
 	if(MTOPTION.LOG_WORDWRAP){
-		WriteMessage(L"テキスト折り返し > オン\n", SystemMessageColor);
+		WriteMessage(L"Text wrap set to ON.\n", SystemMessageColor);
 	}else{
-		WriteMessage(L"テキスト折り返し > オフ\n", SystemMessageColor);
+		WriteMessage(L"Text wrap set to OFF.\n", SystemMessageColor);
 	}
 }
 void MainForm::ClearLog(){
-	if(MessageBox::Show(L"ログを10行残して削除します。\nよろしいですか？", L"ログの削除", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+	if(MessageBox::Show(L"This will remove all but the last 10 lines of the log.\nAre you sure you want to clear the log?", L"Clear Log", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 	}else{
 		return;
 	}
@@ -3587,7 +3591,7 @@ void MainForm::ClearLog(){
 			int index = richTextBoxLog->GetFirstCharIndexFromLine(len-11);
 			richTextBoxLog->SelectionStart=0;
 			richTextBoxLog->Select(0, index);
-			richTextBoxLog->SelectedText= L"[削除されました]\n";
+			richTextBoxLog->SelectedText= L"[Deleted]\n";
 		}
 	}
 	catch(Exception ^e){

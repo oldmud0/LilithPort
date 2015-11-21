@@ -5,6 +5,7 @@
 using namespace LilithPort;
 
 void OptionForm::SaveOption(bool apply){
+    //TODO: change FM exe check
 	MainForm^ parent = safe_cast<MainForm^>(this->Owner);
 
 	try{

@@ -96,7 +96,7 @@ void LoadMTOption()
 	GetPrivateProfileString(iniSystem, _T("SeekSound"),          _T("seek.wav"),    MTOPTION.SEEK_SOUND,    _MAX_PATH,    ini);
 	GetPrivateProfileString(iniSystem, _T("KeywordSound"),       _T("name.wav"),    MTOPTION.KEYWORD_SOUND, _MAX_PATH,    ini);
 	GetPrivateProfileString(iniSystem, _T("Keyword"),            _T(""),            MTOPTION.KEYWORD,        MAX_KEYWORD, ini);
-	GetPrivateProfileString(iniSystem, _T("Name"),               _T("NamelessDude"),  MTOPTION.NAME,           MAX_NAME,    ini);
+	GetPrivateProfileString(iniSystem, _T("Name"),               _T("NamelessDude"),MTOPTION.NAME,           MAX_NAME,    ini);
 	GetPrivateProfileString(iniSystem, _T("Comment"),            _T(""),            MTOPTION.COMMENT,        MAX_NAME,    ini);
 	MTOPTION.CONNECTION_TYPE      = GetPrivateProfileInt(iniSystem, _T("ConnectType"),          0, ini);
 	MTOPTION.PORT                 = GetPrivateProfileInt(iniSystem, _T("Port"),              7500, ini);
@@ -675,10 +675,10 @@ String^ EncryptionIP(String^ ip)
 		ipString = Int64(Net::IPAddress::Parse(ip)->Address).ToString();
 	}
 	catch (ArgumentNullException^) {
-		return L"変換失敗。IPぬるぽエラー";
+		return L"IP conversion failed due to an ArgumentNullException.";
 	}
 	catch (FormatException^) {
-		return L"変換失敗。IP形式エラー";
+		return L"IP conversion failed due to a FormatException.";
 	}
 
 	array<Byte> ^binaryData = gcnew array<Byte>(11);
@@ -689,10 +689,10 @@ String^ EncryptionIP(String^ ip)
 		ipBase64 = Convert::ToBase64String(binaryData);
 	}
 	catch (ArgumentNullException^) {
-		return L"変換失敗。Base64ぬるぽエラー";
+		return L"Null pointer trying to convert IP to Base64.";
 	}
 	catch (FormatException^) {
-		return L"変換失敗。Base64形式エラー";
+		return L"Base64 conversion failed due to a FormattingException.";
 	}
 	return ipBase64;
 }
@@ -700,6 +700,9 @@ String^ EncryptionIP(String^ ip)
 String^ MTEncryptionIP(String^ ip)
 {
 	String^ result, ^buf, ^part;
+
+    //DO NOT CHANGE DO NOT CHANGE
+    //Strange that the dictionary is missing ひ through ん.
 	String^ dic = L"そぞただちぢっつづてでとどなにぬねのはばabcdefghijklmnopqrstuvwxyz"
 		L"ABCDEFGHIJKLMNOPQRSTUVWXYGぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜ";
 
@@ -719,7 +722,7 @@ String^ MTEncryptionIP(String^ ip)
 		return result;
 	}
 	catch(Exception^){
-		return L"IPアドレスのMTSP変換に失敗しました。";
+		return L"MTSP conversion of the IP address failed.";
 	}
 }
 
@@ -752,6 +755,8 @@ _int64 MTDecryptionIP(String^ cipher_ip)
 	String^ buf;
 	TCHAR part;
 	int index;
+
+    //DO NOT CHANGE DO NOT CHANGE
 	String^ dic = L"そぞただちぢっつづてでとどなにぬねのはばabcdefghijklmnopqrstuvwxyz"
 		L"ABCDEFGHIJKLMNOPQRSTUVWXYGぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜ";
 

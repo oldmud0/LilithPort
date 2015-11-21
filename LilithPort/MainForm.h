@@ -32,9 +32,6 @@ namespace LilithPort {
 		MainForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: ここにコンストラクタ コードを追加します
-			//
 
 			// ブックマークをメニューに登録
 			String^ tmpName;
@@ -51,7 +48,7 @@ namespace LilithPort {
 					
 					toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::ToolStripMenuItem());
 					toolStripMenuItemBookMark->DropDownItems->Add(toolStripMenuItemDelBookMark);
-					toolStripMenuItemDelBookMark->Text = L"削除(&D)";
+                    toolStripMenuItemDelBookMark->Text = L"&Delete";
 					toolStripMenuItemDelBookMark->Tag = L"toolStripMenuItemBookMark" + i;
 					toolStripMenuItemDelBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelBookMark_Click);
 				}
@@ -293,7 +290,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             ReloadListToolStripMenuItem->Name = L"ReloadListToolStripMenuItem";
             ReloadListToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F5;
             ReloadListToolStripMenuItem->Size = System::Drawing::Size(228, 22);
-            ReloadListToolStripMenuItem->Text = L"&Refresh member list";
+            ReloadListToolStripMenuItem->Text = L"&Refresh player list";
             ReloadListToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ReloadListToolStripMenuItem_Click);
             // 
             // menuStrip1
@@ -801,28 +798,28 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             // 
             this->toolStripMenuItemVS->Name = L"toolStripMenuItemVS";
             this->toolStripMenuItemVS->Size = System::Drawing::Size(121, 22);
-            this->toolStripMenuItemVS->Text = L"対戦する";
+            this->toolStripMenuItemVS->Text = L"Fight";
             this->toolStripMenuItemVS->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemVS_Click);
             // 
             // toolStripMenuItemWatch
             // 
             this->toolStripMenuItemWatch->Name = L"toolStripMenuItemWatch";
             this->toolStripMenuItemWatch->Size = System::Drawing::Size(121, 22);
-            this->toolStripMenuItemWatch->Text = L"観戦する";
+            this->toolStripMenuItemWatch->Text = L"Spectate";
             this->toolStripMenuItemWatch->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemWatch_Click);
             // 
             // toolStripMenuItemSeek
             // 
             this->toolStripMenuItemSeek->Name = L"toolStripMenuItemSeek";
             this->toolStripMenuItemSeek->Size = System::Drawing::Size(121, 22);
-            this->toolStripMenuItemSeek->Text = L"対戦募集する";
+            this->toolStripMenuItemSeek->Text = L"Seek/Challenge"; //対戦募集する
             this->toolStripMenuItemSeek->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSeek_Click);
             // 
             // toolStripMenuItemPing
             // 
             this->toolStripMenuItemPing->Name = L"toolStripMenuItemPing";
             this->toolStripMenuItemPing->Size = System::Drawing::Size(121, 22);
-            this->toolStripMenuItemPing->Text = L"PING";
+            this->toolStripMenuItemPing->Text = L"Ping";
             this->toolStripMenuItemPing->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemPing_Click);
             // 
             // toolStripSeparator12
@@ -834,7 +831,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             // 
             this->toolStripMenuItemKick->Name = L"toolStripMenuItemKick";
             this->toolStripMenuItemKick->Size = System::Drawing::Size(121, 22);
-            this->toolStripMenuItemKick->Text = L"KICK";
+            this->toolStripMenuItemKick->Text = L"Kick";
             this->toolStripMenuItemKick->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemKick_Click);
             // 
             // richTextBoxLog
@@ -868,7 +865,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             this->contextMenuItemCopy->Name = L"contextMenuItemCopy";
             this->contextMenuItemCopy->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::C));
             this->contextMenuItemCopy->Size = System::Drawing::Size(163, 22);
-            this->contextMenuItemCopy->Text = L"コピー(&C)";
+            this->contextMenuItemCopy->Text = L"&Copy";
             this->contextMenuItemCopy->Click += gcnew System::EventHandler(this, &MainForm::contextMenuItemCopy_Click);
             // 
             // toolStripSeparator6
@@ -881,7 +878,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             this->contxtMenuItemSaveLog->Name = L"contxtMenuItemSaveLog";
             this->contxtMenuItemSaveLog->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::S));
             this->contxtMenuItemSaveLog->Size = System::Drawing::Size(163, 22);
-            this->contxtMenuItemSaveLog->Text = L"ログの保存(&S)";
+            this->contxtMenuItemSaveLog->Text = L"&Save log";
             this->contxtMenuItemSaveLog->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSaveLog_Click);
             // 
             // textBoxInput
@@ -897,8 +894,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             // 
             // openFileDialog1
             // 
-            this->openFileDialog1->Filter = L"MT Replay file (*.mtr)|*.mtr";
-            this->openFileDialog1->Title = L"LilithPort用のリプレイファイル";
+            this->openFileDialog1->Filter = L"MT replay file (*.mtr)|*.mtr";
+            this->openFileDialog1->Title = L"Open LilithPort replay";
             // 
             // statusStrip1
             // 
@@ -997,7 +994,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 		delegate void WriteMessageDelegate(String^ msg, Color color);
 
-		// MemberInfoさんはstdafx.hにお引越ししました
+		// MemberInfoはstdafx.hにお引越ししました
 		static Generic::List<MemberInfo^>^ MemberList;
 		static Generic::List<MemberInfoBackUp^>^ MemberListBackUp;
 		static UINT16 IDCounter; // Max 3FFF(16383)
@@ -1011,7 +1008,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 		// IP取得用
 		static WebClient^ GetIPClient;
-		static Uri^ GetIPUri = gcnew Uri("http://checkip.dyndns.org/");
+		static Uri^ GetIPUri = gcnew Uri("http://checkip.dyndns.org/"); //TODO: change checkip.dyndns.org to something more futureproof
 		static Thread^ TimerGetIPThread;
 		static bool    GetIPCancelled;
 		static bool    GetIPSleeping;
@@ -1101,6 +1098,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		void StartGame(UINT type){
 			// 格ツクじゃないよ
 			try{
+                //TODO: Quite frankly, I think this is a really bad way of detecting "supported" FM files. Case in point: FM15.
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(gcnew String(MTOPTION.GAME_EXE));
 
 				if(info->FileDescription != L"２Ｄ格闘ツクール2nd." && info->FileDescription != L"２Ｄ格闘ツクール９５"){
@@ -1116,8 +1114,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				}
 			}
 			catch(Exception^){
-				WriteMessage(L"格闘ツクールの実行ファイルではありません。\n", ErrorMessageColor);
-				WriteMessage(L"オプションで実行ファイルのパスを設定してください。\n", ErrorMessageColor);
+				WriteMessage(L"ERROR: This is not a valid or supported Fighter Maker executable.\n", ErrorMessageColor);
+				WriteMessage(L"Please go to the Options menu and set the path to a supported FM executable.\n", ErrorMessageColor);
 				return;
 			}
 
@@ -1231,7 +1229,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 						array<TCHAR>^ h = br->ReadChars(header->Length);
 						for(int i = 0; i < h->Length; i++){
 							if(h[i] != header[i]){
-								WriteMessage(L"有効なリプレイファイルではありません。\n", ErrorMessageColor);
+								WriteMessage(L"ERROR: This is not a valid replay file. The header was not recognized.\n", ErrorMessageColor);
 								return;
 							}
 						}
@@ -1239,7 +1237,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 						ver = br->ReadChar();
 
 						if(ver < _T('1') || ver > _T('4')){
-							WriteMessage(L"有効なリプレイのバージョンではありません。\n", ErrorMessageColor);
+							WriteMessage(L"ERROR: This replay is not supported. Only replays between versions 1 and 4 are supported.\n", ErrorMessageColor);
 							return;
 						}
 					}
@@ -1253,10 +1251,10 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			}
 			else{
 				if(_tcslen(MTINFO.ORIGINAL_TITLE) > 0){
-					WriteMessage(String::Format(L"{0}が起動中です。\n", gcnew String(MTINFO.ORIGINAL_TITLE)), SystemMessageColor);
+					WriteMessage(String::Format(L"{0} is starting.\n", gcnew String(MTINFO.ORIGINAL_TITLE)), SystemMessageColor);
 				}
 				else{
-					WriteMessage(L"他のゲームが起動中です。\n", SystemMessageColor);
+					WriteMessage(L"Another game is already starting.\n", SystemMessageColor);
 				}
 			}
 		}
@@ -1264,14 +1262,14 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		void QuitGame(){
 			if(GameThread != nullptr && GameThread->IsAlive){
 				if(MTINFO.DEBUG){
-					WriteMessage(L"ゲームプロセスを停止します。\n", DebugMessageColor);
+					WriteMessage(L"Closing game process...\n", DebugMessageColor);
 				}
 				try{
 					Process::GetProcessById(MTINFO.PROCESS_ID)->CloseMainWindow();
 				}
 				catch(ArgumentException^){
 					if(MTINFO.DEBUG){
-						WriteMessage(L"例外 > ArgumentException\n", DebugMessageColor);
+						WriteMessage(L"Caught an ArgumentException trying to close the game! Abandoning game thread.\n", DebugMessageColor);
 					}
 					GameThread->Abort();
 					GameThread = nullptr;
@@ -1338,7 +1336,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			if(state == MS_WATCH) ChangeState((BYTE)MS_FREE);
 			if(state == MS_COUCH) ChangeState((BYTE)MS_REST);
 
-			toolStripMenuItemWatch->Text = gcnew String(L"観戦する");
+			toolStripMenuItemWatch->Text = gcnew String(L"Spectate");
 		}
 
 		void Restart(){
@@ -1392,7 +1390,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			MTOPTION.CONNECTION_TYPE = CT_FREE;
 			MemberList[0]->TYPE  = CT_FREE;
 			MemberList[0]->STATE = MS_FREE;
-			this->Text = gcnew String(L"LilithPort  [Free Play]");
+			this->Text = gcnew String(L"LilithPort (Free Play)");
 			listBoxMember->Refresh();
 		}
 
@@ -1507,7 +1505,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				}
 
 				if(i >= MemberList->Count && MTOPTION.CONNECTION_TYPE != CT_SERVER){
-					name = gcnew String(String::Format(L"Unknown(ID:{0})", id));
+					name = gcnew String(String::Format(L"Unknown (ID: {0})", id));
 					col  = ErrorMessageColor;
 
 					// メンバーリスト外のIDがいたので問い合わせ
@@ -1584,7 +1582,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				WriteTime(1, SystemMessageColor);
 			}
 			// 表示
-			WriteMessage(String::Format(L"[ {0} ] ", name), col);
+			WriteMessage(String::Format(L"<{0}> ", name), col);
 			WriteMessage(String::Format(L"{0}\n", tmpMsg), TalkMessageColor);
 		}
 
@@ -1682,7 +1680,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 					richTextBoxLog->SelectionStart = richTextBoxLog->Text->Length;
 					richTextBoxLog->SelectionColor = NameColor[type];
 					richTextBoxLog->SelectionBackColor = CommentBackColor;
-					richTextBoxLog->AppendText(String::Format(L"[ {0} ] ", name));
+					richTextBoxLog->AppendText(String::Format(L"<{0}> ", name));
 
 					richTextBoxLog->SelectionColor = TalkMessageColor;
 					richTextBoxLog->SelectionBackColor = CommentBackColor;
@@ -1702,27 +1700,28 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			}
 			else{
 				WriteTime(0, SystemMessageColor);
-				WriteMessage(String::Format(L"{0}が入室しました。\n", name), SystemMessageColor);
+				WriteMessage(String::Format(L"{0} has joined.\n", name), SystemMessageColor);
 			}
 		}
 
 		void WriteCommandList(){
 			WriteMessage(
-				L"/help ： コマンド一覧の表示\n"
-				L"/clear ： ログの削除\n"
-				L"/log ： RTF形式でログの保存\n"
-				L"/debug ： デバッグモードの切り替え\n"
-				L"/vs ： ランダムに対戦を挑む\n"
-				L"/game ： ゲームの起動\n"
-				L"/replay ： リプレイファイルの再生\n"
-				L"/quit ： 起動中のゲームを終了\n"
-				L"/reload ： メンバーリストの更新\n"
-				L"/restart ： フリープレイから新規に回線接続\n"
-				L"/rest ： 休憩状態の切り替え\n"
-				L"/seek ： 対戦募集状態の切り替え\n"
-				L"/list ： リストの表示を切り替え\n"
-				L"/leave ： 退室＆フリープレイに移行\n"
-				L"/exit ： プログラムの終了\n", SystemMessageColor);
+				L"/help:    Displays a full list of available commands.\n"
+				L"/clear:   Clears the chat log.\n"
+				L"/log:     Saves the log to an RTF file.\n"
+				L"/debug:   Toggles debug mode.\n"
+				L"/vs:      Challenge a random opponent!\n"
+				L"/game:    Starts the game.\n"
+				L"/replay:  Opens a replay file.\n"
+				L"/quit:    Closes the game during battle.\n"
+				L"/reload:  Reloads player list.\n"
+				L"/restart: Reconnects to the last known server.\n"
+				L"/rest:    Toggles rest mode.\n"
+				L"/seek:    Toggles seek mode.\n"
+				L"/list:    Displays the player list.\n"
+				L"/leave:   Exits the server and enters Free Play mode.\n"
+				L"/exit:    Exits the program.\n"
+                L"LilithPort also supports drag-and-drop for replay files and for locating the FM executable.", SystemMessageColor);
 		}
 
 		void RandomVersus(){
@@ -1755,7 +1754,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 					StartGame(RT_VS);
 				}
 				else{
-					WriteMessage(L"対戦できる相手がいませんでした。\n", SystemMessageColor);
+					WriteMessage(L"Could not find the opponent in the player list.\n", SystemMessageColor);
 				}
 			}
 		}
@@ -1783,15 +1782,15 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 					Monitor::Exit(richTextBoxLog);
 				}
 
-				WriteMessage(String::Format(L"\"{0}\"にログを保存しました。\n", file), SystemMessageColor);
+				WriteMessage(String::Format(L"Log saved to \"{0}\".\n", file), SystemMessageColor);
 			}
 			else if(textBoxInput->Text->StartsWith("/debug", StringComparison::OrdinalIgnoreCase)){
 				MTINFO.DEBUG ^= 1;
 				if(MTINFO.DEBUG){
-					WriteMessage(L"デバッグモード > オン\n", SystemMessageColor);
+					WriteMessage(L"Debug mode is now ON!\n", SystemMessageColor);
 				}
 				else{
-					WriteMessage(L"デバッグモード > オフ\n", SystemMessageColor);
+					WriteMessage(L"Debug mode is now OFF.\n", SystemMessageColor);
 				}
 			}
 			else if(textBoxInput->Text->StartsWith("/vs", StringComparison::OrdinalIgnoreCase)){
@@ -1815,11 +1814,11 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 				if(MemberList[0]->STATE == MS_FREE){
 					ChangeState((BYTE)MS_REST);
-					WriteMessage(L"休憩状態を変更しました。 > オン\n", SystemMessageColor);
+					WriteMessage(L"Rest mode set to ON.\n", SystemMessageColor);
 				}
 				else if(MemberList[0]->STATE == MS_REST){
 					ChangeState((BYTE)MS_FREE);
-					WriteMessage(L"休憩状態を変更しました。 > オフ\n", SystemMessageColor);
+					WriteMessage(L"Rest mode set to OFF.\n", SystemMessageColor);
 				}
 			}
 			else if(textBoxInput->Text->StartsWith("/seek", StringComparison::OrdinalIgnoreCase)){
@@ -1844,7 +1843,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 						richTextBoxLog->SelectionColor = TalkMessageColor;
 						richTextBoxLog->SelectionBackColor = NoticeBackColor;
-						richTextBoxLog->AppendText(Byte(dice).ToString() + L"\n");
+						richTextBoxLog->AppendText("Rolled a "+Byte(dice).ToString() + L"\n");
 
 						richTextBoxLog->SelectionStart = richTextBoxLog->Text->Length;
 						if(!MTOPTION.LOG_LOCK) {
@@ -1876,7 +1875,10 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 						// TYPE 0:Server 1:Host 2:Client	
 						WriteMessage(String::Format(L"{0} / {1} / {2} / {3}\n", MemberList[i]->NAME, MemberList[i]->ID, MemberList[i]->IP_EP, MemberList[i]->TYPE), DebugMessageColor);
 					}
-				}
+                }
+                else {
+                    WriteMessage("/memberlist can only be performed when debug mode is enabled.", ErrorMessageColor);
+                }
 			}
 			else if(textBoxInput->Text->StartsWith("/memberhistory", StringComparison::OrdinalIgnoreCase)){
 				// デバッグ用コマンド
@@ -2109,7 +2111,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			Array::Copy(BitConverter::GetBytes(0), 0, send, 1, 2);
 			UDP->Send(send, 3, MemberList[1]->IP_EP);
 
-			WriteMessage(L"メンバーリストを更新しました。(連続しての更新はサーバーに負荷がかかるため、注意してください。)\n", SystemMessageColor);
+			WriteMessage(L"Manually updated the players list. (The list is usually updated continuously as manual requests place a load on the server.)\n", SystemMessageColor);
 		}
 		void WriteStatus(String^ msg){
 			toolStripStatusLabel->Text = msg;
@@ -2127,7 +2129,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			}
 			// TimerGetIPタイムアウト
 			if(e->Cancelled) {
-				WriteMessage(L"IPアドレス取得の要求がタイムアウトによりキャンセルされました。\n", ErrorMessageColor);
+				WriteMessage(L"IP address acquisition request failed due to a timeout.\n", ErrorMessageColor);
 				if(MTINFO.DEBUG){
 					WriteMessage(e->ToString() + L"\n", DebugMessageColor);
 				}
@@ -2151,7 +2153,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			}
 			catch(Exception^ e) {
 				Global_address = 0;
-				WriteMessage(L"IPアドレス情報の抽出に失敗しました。\nLilithPortのバージョンが古い可能性があります。\n", ErrorMessageColor);
+				WriteMessage(L"ERROR: Failed to extract IP address information. This version of LilithPort may be outdated.\n", ErrorMessageColor);
 
 				if(MTINFO.DEBUG){
 					WriteMessage(e->ToString() + L"\n", DebugMessageColor);
@@ -2163,14 +2165,14 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				if(reply != nullptr) reply->Close();
 			}
 			if(Global_address > 0) {
-				WriteMessage(String::Format(L"IPアドレスを取得しました。 > {0}\n", s3[1]), SystemMessageColor);
-				WriteMessage(L"[変換アドレス:ポート]\nLilithPort用 > ", SystemMessageColor);
+				WriteMessage(String::Format(L"IP address acquired: {0}\n", s3[1]), SystemMessageColor);
+				WriteMessage(L"[Converted address]\nLilithPort: ", SystemMessageColor);
 
 				richTextBoxLog->SelectionColor = TalkMessageColor;
 				richTextBoxLog->SelectionBackColor = NoticeBackColor;
 				richTextBoxLog->AppendText(String::Format(L"{0}:{1}\n", EncryptionIP(s3[1]), MTOPTION.OPEN_PORT));
 				
-				WriteMessage(L"MTSP用 > ", SystemMessageColor);
+				WriteMessage(L"MTSP: ", SystemMessageColor);
 				richTextBoxLog->SelectionColor = TalkMessageColor;
 				richTextBoxLog->SelectionBackColor = NoticeBackColor;
 				richTextBoxLog->AppendText(String::Format(L"{0}:{1}\n", MTEncryptionIP(s3[1]), MTOPTION.OPEN_PORT));
@@ -2244,14 +2246,14 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				GetIPClient->OpenReadCompleted += gcnew OpenReadCompletedEventHandler(this, &MainForm::GetIPOpenReadCompleted);
 
 				// タイムアウトタイマー
-				WriteMessage(L"IPアドレスを取得中です...\n", SystemMessageColor);
+				WriteMessage(L"Obtaining IP address from "+GetIPUri->ToString()+"...\n", SystemMessageColor);
 				TimerGetIPThread = gcnew Thread(gcnew ThreadStart(this, &MainForm::TimerGetIP));
 				TimerGetIPThread->Start();
 				try{
 					GetIPClient->OpenReadAsync(GetIPUri);
 				}
 				catch(WebException^ e) {
-					WriteMessage(L"IPアドレスの取得に失敗しました。\n", ErrorMessageColor);
+					WriteMessage(L"ERROR: Could not obtain IP address.\n", ErrorMessageColor);
 
 					if(MTINFO.DEBUG){
 						WriteMessage(e->ToString() + L"\n", DebugMessageColor);
@@ -2373,7 +2375,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				s->ShowDialog(this);
 
 				if(!File::Exists(gcnew String(MTOPTION.GAME_EXE))){
-					MessageBox::Show(L"実行ファイルのパスを設定してください。", L"ゲームがありません");
+					MessageBox::Show(L"Please set the path to the Fighter Maker executable file.", L"No game file found");
 
 					OptionForm^ o = gcnew OptionForm;
 					o->GameExePathError = true;
@@ -2395,7 +2397,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			}
 
 			if(MTOPTION.CONNECTION_TYPE == CT_SERVER && MTINFO.ERRORED == false){
-				if(MessageBox::Show(L"サーバを落としますか？", L"終了の確認", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::No){
+				if(MessageBox::Show(L"If you close LilithPort, the server will be closed and all players will be kicked.\nShut down the server?", L"Confirm Server Shutdown", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::No){
 					IsFormClosing = false;
 					e->Cancel = true;
 					return;
@@ -2503,7 +2505,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 						PacketSendAllMember(msg, 0);
 	
-						WriteMessage(L"[サーバー告知]-------------------\n", SystemMessageColor);
+						WriteMessage(L"[Message of the Day]-------------------\n", SystemMessageColor);
 						WriteNotice(textBoxInput->Text);
 						WriteMessage(L"-------------------------------\n", SystemMessageColor);
 					}
@@ -2511,7 +2513,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 						AnalyzeCommand();
 					}
 					else if(UDP != nullptr && ServerMode >= SM_MATCH){
-						WriteMessage(L"チャットは禁止されています。\n", SystemMessageColor);
+						WriteMessage(L"Chat is disabled on this server.\n", SystemMessageColor);
 					}
 					else if(UDP != nullptr){
 						// チャット発言
@@ -2590,18 +2592,18 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				// 休憩状態の変更
 				if(state == MS_FREE){
 					ChangeState((BYTE)MS_REST);
-					WriteMessage(L"休憩状態を変更しました。 > オン\n", SystemMessageColor);
+					WriteMessage(L"Rest mode is now ON.\n", SystemMessageColor);
 				}
 				else if(state == MS_REST){
 					ChangeState((BYTE)MS_FREE);
-					WriteMessage(L"休憩状態を変更しました。 > オフ\n", SystemMessageColor);
+					WriteMessage(L"Rest mode is now OFF.\n", SystemMessageColor);
 				}
 				else if(state == MS_VS){
-					WriteMessage(L"対戦を中止します。\n", SystemMessageColor);
+					WriteMessage(L"Ending match...\n", SystemMessageColor);
 					QuitGame();
 				}
 				else if(state == MS_WATCH || state == MS_COUCH){
-					WriteMessage(L"観戦を中止します。\n", SystemMessageColor);
+					WriteMessage(L"Ending spectate...\n", SystemMessageColor);
 					QuitWatch(true);
 				}
 			}
@@ -2666,7 +2668,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		}
 
 		System::Void toolStripMenuItemVersion_Click(System::Object^  sender, System::EventArgs^  e) {
-			WriteMessage(L"LilithPort v1.07\n", SystemMessageColor);
+			WriteMessage(L"LilithPort v1.07\nEnglish translation by longbyte1\n", SystemMessageColor);
 		}
 
 		System::Void toolStripMenuItemExit_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -2676,11 +2678,11 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		// ブックマーク追加
 		System::Void toolStripMenuItemAddBookMark_Click(System::Object^  sender, System::EventArgs^  e) {
 			if((MTOPTION.BOOKMARK_COUNT - MTOPTION.BOOKMARK_DELETED_COUNT) > 9) {
-				MessageBox::Show(L"これ以上ブックマークを追加できません。\nブックマークは最大10個まで登録できます。\n\n追加するには、ブックマークの削除を行ってください。", L"ブックマークの追加", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show(L"You can only have up to 10 bookmarks. Please free up some space by deleting some bookmarks.", L"Add Bookmark", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 				return;
 			}
 			if(MTOPTION.CONNECTION_TYPE == CT_SERVER || MTOPTION.CONNECTION_TYPE == CT_FREE ){
-				MessageBox::Show(L"SERVERモード、\nFREEモードはブックマークに追加できません。", L"ブックマークの追加", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show(L"You can't add anything to the bookmarks list while in Free Play mode or in Server mode!", L"Add Bookmark", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 				return;
 			}
 
@@ -2698,7 +2700,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			// 削除メニュー
 			toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			toolStripMenuItemBookMark->DropDownItems->Add(toolStripMenuItemDelBookMark);
-			toolStripMenuItemDelBookMark->Text = L"削除(&D)";
+			toolStripMenuItemDelBookMark->Text = L"&Delete";
 			toolStripMenuItemDelBookMark->Tag = L"toolStripMenuItemBookMark" + MTOPTION.BOOKMARK_COUNT;
 			toolStripMenuItemDelBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelBookMark_Click);
 			
@@ -2721,7 +2723,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		System::Void toolStripMenuItemBookMark_Click(System::Object^ sender, System::EventArgs^ e) {
 			UINT tmpInt = (UINT)((ToolStripMenuItem^)sender)->Tag;
 
-			if(MessageBox::Show(((ToolStripMenuItem^)sender)->Text+ L" に接続します。\nよろしいですか？", L"ブックマーク接続", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+			if(MessageBox::Show(L"Connect to "+((ToolStripMenuItem^)sender)->Text+ L"?\n", L"Connect from Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 			}else{
 				return;
 			}
@@ -2737,7 +2739,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			Object^ tmpTag;
 			tmpTag = ((ToolStripMenuItem^)sender)->Tag;
 			UINT tmpInt = (UINT)toolStripMenuItemBookMarkMenu->DropDownItems[(String^)tmpTag]->Tag;
-			if(MessageBox::Show((String^)toolStripMenuItemBookMarkMenu->DropDownItems[(String^)tmpTag]->Text+ L" をブックマークから削除します。\nよろしいですか？", L"ブックマークの削除", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+			if(MessageBox::Show((String^)toolStripMenuItemBookMarkMenu->DropDownItems[(String^)tmpTag]->Text+ L" will be deleted.\nContinue?", L"Delete Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 				toolStripMenuItemBookMarkMenu->DropDownItems->Remove(toolStripMenuItemBookMarkMenu->DropDownItems[(String^)tmpTag]);
 				MTOPTION.BOOKMARK_DELETED_COUNT++;
 
@@ -2774,14 +2776,14 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		// 再起動
 		System::Void RestartToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			if(MTOPTION.CONNECTION_TYPE == CT_SERVER) {
-				if(MessageBox::Show(L"サーバを落とします。\nよろしいですか？", L"再起動", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+				if(MessageBox::Show(L"This will shut down the server and drop all players.\nAre you sure you want to do this?", L"Restart", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 				}else{
 					return;
 				}
 			}
 
 			if(MTOPTION.CONNECTION_TYPE == CT_HOST || MTOPTION.CONNECTION_TYPE == CT_CLIENT){
-				if(MessageBox::Show(L"回線を切断します。\nよろしいですか？", L"再起動", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+				if(MessageBox::Show(L"This will disconnect you from the server.\nContinue?", L"Restart", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 				}else{
 					return;
 				}
@@ -2793,14 +2795,14 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		// 退室
 		System::Void LeaveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			if(MTOPTION.CONNECTION_TYPE == CT_SERVER) {
-				if(MessageBox::Show(L"サーバを落とします。\nよろしいですか？", L"退室", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+				if(MessageBox::Show(L"This will shut down the server and drop all players.\nAre you sure you want to do this?", L"Leave", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 				}else{
 					return;
 				}
 			}
 
 			if(MTOPTION.CONNECTION_TYPE == CT_HOST || MTOPTION.CONNECTION_TYPE == CT_CLIENT){
-				if(MessageBox::Show(L"回線を切断します。\nよろしいですか？", L"退室", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+				if(MessageBox::Show(L"This will disconnect you from the server.\nContinue?", L"Leave", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 				}else{
 					return;
 				}
@@ -2815,11 +2817,11 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 			if(MemberList[0]->STATE == MS_FREE){
 				ChangeState((BYTE)MS_REST);
-				WriteMessage(L"休憩状態を変更しました。 > オン\n", SystemMessageColor);
+				WriteMessage(L"Rest mode is now ON.\n", SystemMessageColor);
 			}
 			else if(MemberList[0]->STATE == MS_REST){
 				ChangeState((BYTE)MS_FREE);
-				WriteMessage(L"休憩状態を変更しました。 > オフ\n", SystemMessageColor);
+				WriteMessage(L"Rest mode is now OFF.\n", SystemMessageColor);
 			}
 		}
 
@@ -2865,7 +2867,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				Monitor::Exit(richTextBoxLog);
 			}
 
-			WriteMessage(String::Format(L"\"{0}\"にログを保存しました。\n", file), SystemMessageColor);
+			WriteMessage(String::Format(L"Saved log to \"{0}\".\n", file), SystemMessageColor);
 		}
 
 		System::Void toolStripMenuItemReplay_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -2975,11 +2977,12 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 		System::Void richTextBoxLog_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkClickedEventArgs^  e) {
 			// 強制終了対策
+            //XXX this is really insecure. Are you seriously going to trust a random link on the chat?
 			try{
 				Process::Start(e->LinkText);
 			}
 			catch(Exception^){
-				WriteMessage(L"不正な文字列リンクです。\n", ErrorMessageColor);
+				WriteMessage(L"Invalid link.\n", ErrorMessageColor);
 			}
 		}
 
@@ -3034,7 +3037,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				Array::Copy(BitConverter::GetBytes(MemberList[0]->ID), 0, send, 1, 2);
 				UDP->BeginSend(send, send->Length, WatchTarget, gcnew AsyncCallback(SendPackets), UDP);
 
-				toolStripMenuItemWatch->Text = gcnew String(L"観戦をやめる");
+				toolStripMenuItemWatch->Text = gcnew String(L"Stop spectating");
 			}
 			else{
 				QuitWatch(true);
@@ -3062,7 +3065,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			int index = listBoxMember->SelectedIndex;
 			int id = MemberList[index]->ID;
 
-			if(MessageBox::Show(String::Format(L"[ {0} ](ID:{1})をキックします。\nよろしいですか？", MemberList[index]->NAME, MemberList[index]->ID), "KICK", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+			if(MessageBox::Show(String::Format(L"{0} (ID: {1}) will be kicked.\nAre you sure you want to be kicked?", MemberList[index]->NAME, MemberList[index]->ID), "Kick Player", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 			}else{
 				return;
 			}
@@ -3074,7 +3077,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 
 				if(ListView != LV_BLIND){
 					WriteTime(0, SystemMessageColor);
-					WriteMessage(String::Format(L"{0}(ID:{1})をキックしました。\n", MemberList[index]->NAME, MemberList[index]->ID), SystemMessageColor);
+					WriteMessage(String::Format(L"{0} (ID: {1}) was kicked.\n", MemberList[index]->NAME, MemberList[index]->ID), SystemMessageColor);
 				}
 				if(MemberList[0]->STATE == MS_WATCH || MemberList[0]->STATE == MS_COUCH){
 					if(TargetID == MemberList[index]->ID){
@@ -3093,7 +3096,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 				for(int i = 1; i < MemberList->Count; i++){
 					UDP->BeginSend(quit, quit->Length, MemberList[i]->IP_EP, gcnew AsyncCallback(SendPackets), UDP);
 					if(MTINFO.DEBUG){
-						WriteMessage(String::Format(L"{0}に通知\n", MemberList[i]->ID), DebugMessageColor);
+						WriteMessage(String::Format(L"Notified {0}\n", MemberList[i]->ID), DebugMessageColor);
 					}
 				}
 			}
@@ -3142,6 +3145,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		System::Void MainForm_DragEnter(System::Object^  sender, System::Windows::Forms::DragEventArgs^  e) {
 			e->Effect = DragDropEffects::None;
 
+            //TODO: change FM exe check
 			if(e->Data->GetDataPresent(DataFormats::FileDrop)){
 				array<String^>^ file = safe_cast<array<String^>^>(e->Data->GetData(DataFormats::FileDrop, false));
 				String^ extension = Path::GetExtension(file[0])->ToLower();
@@ -3200,7 +3204,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 							MTOPTION.STAGE_SELECT = MTOPTION.MAX_STAGE == 1 ? 1 : 0;
 						}
 
-						WriteMessage(String::Format(L"プレイするゲームを\"{0}\"に変更しました。\n", Path::GetFileNameWithoutExtension(file[0])), SystemMessageColor);
+						WriteMessage(String::Format(L"Game file changed to \"{0}\".\n", Path::GetFileNameWithoutExtension(file[0])), SystemMessageColor);
 					}
 					else{
 						Option->SetGameExePath(file[0]);
