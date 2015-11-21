@@ -409,8 +409,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonOK
             // 
+            this->buttonOK->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
             this->buttonOK->DialogResult = System::Windows::Forms::DialogResult::OK;
-            this->buttonOK->Location = System::Drawing::Point(165, 371);
+            this->buttonOK->Location = System::Drawing::Point(194, 381);
             this->buttonOK->Name = L"buttonOK";
             this->buttonOK->Size = System::Drawing::Size(64, 26);
             this->buttonOK->TabIndex = 7;
@@ -420,18 +421,20 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonApply
             // 
-            this->buttonApply->Location = System::Drawing::Point(305, 371);
+            this->buttonApply->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonApply->Location = System::Drawing::Point(334, 381);
             this->buttonApply->Name = L"buttonApply";
             this->buttonApply->Size = System::Drawing::Size(64, 26);
             this->buttonApply->TabIndex = 8;
-            this->buttonApply->Text = L"&Apply";
+            this->buttonApply->Text = L"Apply";
             this->buttonApply->UseVisualStyleBackColor = true;
             this->buttonApply->Click += gcnew System::EventHandler(this, &OptionForm::buttonApply_Click);
             // 
             // buttonCancel
             // 
+            this->buttonCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
             this->buttonCancel->DialogResult = System::Windows::Forms::DialogResult::Cancel;
-            this->buttonCancel->Location = System::Drawing::Point(235, 371);
+            this->buttonCancel->Location = System::Drawing::Point(264, 381);
             this->buttonCancel->Name = L"buttonCancel";
             this->buttonCancel->Size = System::Drawing::Size(64, 26);
             this->buttonCancel->TabIndex = 9;
@@ -461,13 +464,15 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPageSound->Location = System::Drawing::Point(4, 22);
             this->tabPageSound->Name = L"tabPageSound";
             this->tabPageSound->Padding = System::Windows::Forms::Padding(3);
-            this->tabPageSound->Size = System::Drawing::Size(369, 339);
+            this->tabPageSound->Size = System::Drawing::Size(398, 349);
             this->tabPageSound->TabIndex = 3;
             this->tabPageSound->Text = L"Sounds";
             this->tabPageSound->UseVisualStyleBackColor = true;
             // 
             // groupBoxKeywordSound
             // 
+            this->groupBoxKeywordSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxKeywordSound->Controls->Add(this->buttonKeywordSoundPlay);
             this->groupBoxKeywordSound->Controls->Add(this->checkBoxKeywordSound);
             this->groupBoxKeywordSound->Controls->Add(this->buttonKeywordSound);
@@ -476,14 +481,15 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxKeywordSound->Controls->Add(this->textBoxKeyword);
             this->groupBoxKeywordSound->Location = System::Drawing::Point(9, 375);
             this->groupBoxKeywordSound->Name = L"groupBoxKeywordSound";
-            this->groupBoxKeywordSound->Size = System::Drawing::Size(335, 104);
+            this->groupBoxKeywordSound->Size = System::Drawing::Size(364, 104);
             this->groupBoxKeywordSound->TabIndex = 7;
             this->groupBoxKeywordSound->TabStop = false;
             this->groupBoxKeywordSound->Text = L"Play on keyword(s)";
             // 
             // buttonKeywordSoundPlay
             // 
-            this->buttonKeywordSoundPlay->Location = System::Drawing::Point(260, 67);
+            this->buttonKeywordSoundPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonKeywordSoundPlay->Location = System::Drawing::Point(289, 67);
             this->buttonKeywordSoundPlay->Name = L"buttonKeywordSoundPlay";
             this->buttonKeywordSoundPlay->Size = System::Drawing::Size(65, 22);
             this->buttonKeywordSoundPlay->TabIndex = 5;
@@ -493,8 +499,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // checkBoxKeywordSound
             // 
+            this->checkBoxKeywordSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->checkBoxKeywordSound->AutoSize = true;
-            this->checkBoxKeywordSound->Location = System::Drawing::Point(197, 70);
+            this->checkBoxKeywordSound->Location = System::Drawing::Point(226, 70);
             this->checkBoxKeywordSound->Name = L"checkBoxKeywordSound";
             this->checkBoxKeywordSound->Size = System::Drawing::Size(65, 17);
             this->checkBoxKeywordSound->TabIndex = 4;
@@ -504,7 +511,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonKeywordSound
             // 
-            this->buttonKeywordSound->Location = System::Drawing::Point(166, 67);
+            this->buttonKeywordSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonKeywordSound->Location = System::Drawing::Point(195, 67);
             this->buttonKeywordSound->Name = L"buttonKeywordSound";
             this->buttonKeywordSound->Size = System::Drawing::Size(24, 22);
             this->buttonKeywordSound->TabIndex = 3;
@@ -515,9 +523,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxKeywordSoundPath
             // 
             this->textBoxKeywordSoundPath->AllowDrop = true;
+            this->textBoxKeywordSoundPath->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxKeywordSoundPath->Location = System::Drawing::Point(10, 68);
             this->textBoxKeywordSoundPath->Name = L"textBoxKeywordSoundPath";
-            this->textBoxKeywordSoundPath->Size = System::Drawing::Size(150, 20);
+            this->textBoxKeywordSoundPath->Size = System::Drawing::Size(179, 20);
             this->textBoxKeywordSoundPath->TabIndex = 2;
             this->textBoxKeywordSoundPath->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxKeywordSoundPath->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxKeywordSound_DragDrop);
@@ -534,28 +544,33 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // textBoxKeyword
             // 
+            this->textBoxKeyword->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxKeyword->Location = System::Drawing::Point(10, 38);
             this->textBoxKeyword->Name = L"textBoxKeyword";
-            this->textBoxKeyword->Size = System::Drawing::Size(315, 20);
+            this->textBoxKeyword->Size = System::Drawing::Size(344, 20);
             this->textBoxKeyword->TabIndex = 0;
             this->textBoxKeyword->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             // 
             // groupBoxSeekSound
             // 
+            this->groupBoxSeekSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxSeekSound->Controls->Add(this->buttonSeekSoundPlay);
             this->groupBoxSeekSound->Controls->Add(this->checkBoxSeekSound);
             this->groupBoxSeekSound->Controls->Add(this->buttonSeekSound);
             this->groupBoxSeekSound->Controls->Add(this->textBoxSeekSound);
             this->groupBoxSeekSound->Location = System::Drawing::Point(8, 311);
             this->groupBoxSeekSound->Name = L"groupBoxSeekSound";
-            this->groupBoxSeekSound->Size = System::Drawing::Size(336, 56);
+            this->groupBoxSeekSound->Size = System::Drawing::Size(365, 56);
             this->groupBoxSeekSound->TabIndex = 6;
             this->groupBoxSeekSound->TabStop = false;
             this->groupBoxSeekSound->Text = L"Challenge request";
             // 
             // buttonSeekSoundPlay
             // 
-            this->buttonSeekSoundPlay->Location = System::Drawing::Point(261, 21);
+            this->buttonSeekSoundPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonSeekSoundPlay->Location = System::Drawing::Point(290, 21);
             this->buttonSeekSoundPlay->Name = L"buttonSeekSoundPlay";
             this->buttonSeekSoundPlay->Size = System::Drawing::Size(65, 22);
             this->buttonSeekSoundPlay->TabIndex = 3;
@@ -565,8 +580,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // checkBoxSeekSound
             // 
+            this->checkBoxSeekSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->checkBoxSeekSound->AutoSize = true;
-            this->checkBoxSeekSound->Location = System::Drawing::Point(197, 23);
+            this->checkBoxSeekSound->Location = System::Drawing::Point(226, 23);
             this->checkBoxSeekSound->Name = L"checkBoxSeekSound";
             this->checkBoxSeekSound->Size = System::Drawing::Size(65, 17);
             this->checkBoxSeekSound->TabIndex = 2;
@@ -576,7 +592,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonSeekSound
             // 
-            this->buttonSeekSound->Location = System::Drawing::Point(167, 20);
+            this->buttonSeekSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonSeekSound->Location = System::Drawing::Point(196, 20);
             this->buttonSeekSound->Name = L"buttonSeekSound";
             this->buttonSeekSound->Size = System::Drawing::Size(24, 22);
             this->buttonSeekSound->TabIndex = 1;
@@ -587,9 +604,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxSeekSound
             // 
             this->textBoxSeekSound->AllowDrop = true;
+            this->textBoxSeekSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxSeekSound->Location = System::Drawing::Point(10, 21);
             this->textBoxSeekSound->Name = L"textBoxSeekSound";
-            this->textBoxSeekSound->Size = System::Drawing::Size(151, 20);
+            this->textBoxSeekSound->Size = System::Drawing::Size(180, 20);
             this->textBoxSeekSound->TabIndex = 0;
             this->textBoxSeekSound->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxSeekSound->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxSeekSound_DragDrop);
@@ -597,20 +616,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxTalkSound
             // 
+            this->groupBoxTalkSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxTalkSound->Controls->Add(this->buttonTalkSoundPlay);
             this->groupBoxTalkSound->Controls->Add(this->checkBoxTalkSound);
             this->groupBoxTalkSound->Controls->Add(this->buttonTalkSound);
             this->groupBoxTalkSound->Controls->Add(this->textBoxTalkSound);
             this->groupBoxTalkSound->Location = System::Drawing::Point(8, 247);
             this->groupBoxTalkSound->Name = L"groupBoxTalkSound";
-            this->groupBoxTalkSound->Size = System::Drawing::Size(336, 56);
+            this->groupBoxTalkSound->Size = System::Drawing::Size(365, 56);
             this->groupBoxTalkSound->TabIndex = 5;
             this->groupBoxTalkSound->TabStop = false;
             this->groupBoxTalkSound->Text = L"Chat";
             // 
             // buttonTalkSoundPlay
             // 
-            this->buttonTalkSoundPlay->Location = System::Drawing::Point(261, 21);
+            this->buttonTalkSoundPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonTalkSoundPlay->Location = System::Drawing::Point(290, 21);
             this->buttonTalkSoundPlay->Name = L"buttonTalkSoundPlay";
             this->buttonTalkSoundPlay->Size = System::Drawing::Size(65, 22);
             this->buttonTalkSoundPlay->TabIndex = 3;
@@ -620,8 +642,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // checkBoxTalkSound
             // 
+            this->checkBoxTalkSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->checkBoxTalkSound->AutoSize = true;
-            this->checkBoxTalkSound->Location = System::Drawing::Point(197, 23);
+            this->checkBoxTalkSound->Location = System::Drawing::Point(226, 23);
             this->checkBoxTalkSound->Name = L"checkBoxTalkSound";
             this->checkBoxTalkSound->Size = System::Drawing::Size(65, 17);
             this->checkBoxTalkSound->TabIndex = 2;
@@ -631,7 +654,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonTalkSound
             // 
-            this->buttonTalkSound->Location = System::Drawing::Point(167, 20);
+            this->buttonTalkSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonTalkSound->Location = System::Drawing::Point(196, 20);
             this->buttonTalkSound->Name = L"buttonTalkSound";
             this->buttonTalkSound->Size = System::Drawing::Size(24, 22);
             this->buttonTalkSound->TabIndex = 1;
@@ -642,9 +666,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxTalkSound
             // 
             this->textBoxTalkSound->AllowDrop = true;
+            this->textBoxTalkSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxTalkSound->Location = System::Drawing::Point(10, 21);
             this->textBoxTalkSound->Name = L"textBoxTalkSound";
-            this->textBoxTalkSound->Size = System::Drawing::Size(151, 20);
+            this->textBoxTalkSound->Size = System::Drawing::Size(180, 20);
             this->textBoxTalkSound->TabIndex = 0;
             this->textBoxTalkSound->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxTalkSound->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxTalkSound_DragDrop);
@@ -652,20 +678,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxName
             // 
+            this->groupBoxName->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxName->Controls->Add(this->buttonNameSoundPlay);
             this->groupBoxName->Controls->Add(this->checkBoxNameSound);
             this->groupBoxName->Controls->Add(this->buttonNameSound);
             this->groupBoxName->Controls->Add(this->textBoxNameSound);
             this->groupBoxName->Location = System::Drawing::Point(8, 187);
             this->groupBoxName->Name = L"groupBoxName";
-            this->groupBoxName->Size = System::Drawing::Size(336, 56);
+            this->groupBoxName->Size = System::Drawing::Size(365, 56);
             this->groupBoxName->TabIndex = 4;
             this->groupBoxName->TabStop = false;
             this->groupBoxName->Text = L"When nickname is mentioned";
             // 
             // buttonNameSoundPlay
             // 
-            this->buttonNameSoundPlay->Location = System::Drawing::Point(261, 21);
+            this->buttonNameSoundPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonNameSoundPlay->Location = System::Drawing::Point(290, 21);
             this->buttonNameSoundPlay->Name = L"buttonNameSoundPlay";
             this->buttonNameSoundPlay->Size = System::Drawing::Size(65, 22);
             this->buttonNameSoundPlay->TabIndex = 5;
@@ -675,8 +704,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // checkBoxNameSound
             // 
+            this->checkBoxNameSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->checkBoxNameSound->AutoSize = true;
-            this->checkBoxNameSound->Location = System::Drawing::Point(197, 23);
+            this->checkBoxNameSound->Location = System::Drawing::Point(226, 23);
             this->checkBoxNameSound->Name = L"checkBoxNameSound";
             this->checkBoxNameSound->Size = System::Drawing::Size(65, 17);
             this->checkBoxNameSound->TabIndex = 4;
@@ -686,7 +716,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonNameSound
             // 
-            this->buttonNameSound->Location = System::Drawing::Point(167, 20);
+            this->buttonNameSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonNameSound->Location = System::Drawing::Point(196, 20);
             this->buttonNameSound->Name = L"buttonNameSound";
             this->buttonNameSound->Size = System::Drawing::Size(24, 22);
             this->buttonNameSound->TabIndex = 3;
@@ -697,9 +728,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxNameSound
             // 
             this->textBoxNameSound->AllowDrop = true;
+            this->textBoxNameSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxNameSound->Location = System::Drawing::Point(11, 21);
             this->textBoxNameSound->Name = L"textBoxNameSound";
-            this->textBoxNameSound->Size = System::Drawing::Size(150, 20);
+            this->textBoxNameSound->Size = System::Drawing::Size(179, 20);
             this->textBoxNameSound->TabIndex = 2;
             this->textBoxNameSound->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxNameSound->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxNameSound_DragDrop);
@@ -707,20 +740,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxEnterSound
             // 
+            this->groupBoxEnterSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxEnterSound->Controls->Add(this->buttonEnterSoundPlay);
             this->groupBoxEnterSound->Controls->Add(this->checkBoxEnterSound);
             this->groupBoxEnterSound->Controls->Add(this->textBoxEnterSound);
             this->groupBoxEnterSound->Controls->Add(this->buttonEnterSound);
             this->groupBoxEnterSound->Location = System::Drawing::Point(8, 128);
             this->groupBoxEnterSound->Name = L"groupBoxEnterSound";
-            this->groupBoxEnterSound->Size = System::Drawing::Size(336, 56);
+            this->groupBoxEnterSound->Size = System::Drawing::Size(365, 56);
             this->groupBoxEnterSound->TabIndex = 3;
             this->groupBoxEnterSound->TabStop = false;
             this->groupBoxEnterSound->Text = L"Player join";
             // 
             // buttonEnterSoundPlay
             // 
-            this->buttonEnterSoundPlay->Location = System::Drawing::Point(261, 22);
+            this->buttonEnterSoundPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonEnterSoundPlay->Location = System::Drawing::Point(290, 22);
             this->buttonEnterSoundPlay->Name = L"buttonEnterSoundPlay";
             this->buttonEnterSoundPlay->Size = System::Drawing::Size(65, 22);
             this->buttonEnterSoundPlay->TabIndex = 4;
@@ -730,8 +766,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // checkBoxEnterSound
             // 
+            this->checkBoxEnterSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->checkBoxEnterSound->AutoSize = true;
-            this->checkBoxEnterSound->Location = System::Drawing::Point(197, 24);
+            this->checkBoxEnterSound->Location = System::Drawing::Point(226, 24);
             this->checkBoxEnterSound->Name = L"checkBoxEnterSound";
             this->checkBoxEnterSound->Size = System::Drawing::Size(65, 17);
             this->checkBoxEnterSound->TabIndex = 3;
@@ -742,9 +779,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxEnterSound
             // 
             this->textBoxEnterSound->AllowDrop = true;
+            this->textBoxEnterSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxEnterSound->Location = System::Drawing::Point(11, 22);
             this->textBoxEnterSound->Name = L"textBoxEnterSound";
-            this->textBoxEnterSound->Size = System::Drawing::Size(150, 20);
+            this->textBoxEnterSound->Size = System::Drawing::Size(179, 20);
             this->textBoxEnterSound->TabIndex = 1;
             this->textBoxEnterSound->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxEnterSound->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxEnterSound_DragDrop);
@@ -752,7 +791,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonEnterSound
             // 
-            this->buttonEnterSound->Location = System::Drawing::Point(167, 21);
+            this->buttonEnterSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonEnterSound->Location = System::Drawing::Point(196, 21);
             this->buttonEnterSound->Name = L"buttonEnterSound";
             this->buttonEnterSound->Size = System::Drawing::Size(24, 22);
             this->buttonEnterSound->TabIndex = 2;
@@ -762,20 +802,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxNoticeSound
             // 
+            this->groupBoxNoticeSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxNoticeSound->Controls->Add(this->buttonNoticeSoundPlay);
             this->groupBoxNoticeSound->Controls->Add(this->checkBoxNoticeSound);
             this->groupBoxNoticeSound->Controls->Add(this->textBoxNoticeSound);
             this->groupBoxNoticeSound->Controls->Add(this->buttonNoticeSound);
             this->groupBoxNoticeSound->Location = System::Drawing::Point(8, 68);
             this->groupBoxNoticeSound->Name = L"groupBoxNoticeSound";
-            this->groupBoxNoticeSound->Size = System::Drawing::Size(336, 56);
+            this->groupBoxNoticeSound->Size = System::Drawing::Size(365, 56);
             this->groupBoxNoticeSound->TabIndex = 2;
             this->groupBoxNoticeSound->TabStop = false;
             this->groupBoxNoticeSound->Text = L"Announcement";
             // 
             // buttonNoticeSoundPlay
             // 
-            this->buttonNoticeSoundPlay->Location = System::Drawing::Point(261, 22);
+            this->buttonNoticeSoundPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonNoticeSoundPlay->Location = System::Drawing::Point(290, 22);
             this->buttonNoticeSoundPlay->Name = L"buttonNoticeSoundPlay";
             this->buttonNoticeSoundPlay->Size = System::Drawing::Size(65, 22);
             this->buttonNoticeSoundPlay->TabIndex = 4;
@@ -785,8 +828,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // checkBoxNoticeSound
             // 
+            this->checkBoxNoticeSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->checkBoxNoticeSound->AutoSize = true;
-            this->checkBoxNoticeSound->Location = System::Drawing::Point(197, 24);
+            this->checkBoxNoticeSound->Location = System::Drawing::Point(226, 24);
             this->checkBoxNoticeSound->Name = L"checkBoxNoticeSound";
             this->checkBoxNoticeSound->Size = System::Drawing::Size(65, 17);
             this->checkBoxNoticeSound->TabIndex = 3;
@@ -797,9 +841,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxNoticeSound
             // 
             this->textBoxNoticeSound->AllowDrop = true;
+            this->textBoxNoticeSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxNoticeSound->Location = System::Drawing::Point(11, 22);
             this->textBoxNoticeSound->Name = L"textBoxNoticeSound";
-            this->textBoxNoticeSound->Size = System::Drawing::Size(150, 20);
+            this->textBoxNoticeSound->Size = System::Drawing::Size(179, 20);
             this->textBoxNoticeSound->TabIndex = 1;
             this->textBoxNoticeSound->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxNoticeSound->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxNoticeSound_DragDrop);
@@ -807,7 +853,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonNoticeSound
             // 
-            this->buttonNoticeSound->Location = System::Drawing::Point(167, 21);
+            this->buttonNoticeSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonNoticeSound->Location = System::Drawing::Point(196, 21);
             this->buttonNoticeSound->Name = L"buttonNoticeSound";
             this->buttonNoticeSound->Size = System::Drawing::Size(24, 22);
             this->buttonNoticeSound->TabIndex = 2;
@@ -817,20 +864,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxVSSound
             // 
+            this->groupBoxVSSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxVSSound->Controls->Add(this->buttonVSSoundPlay);
             this->groupBoxVSSound->Controls->Add(this->checkBoxVSSound);
             this->groupBoxVSSound->Controls->Add(this->textBoxVSSound);
             this->groupBoxVSSound->Controls->Add(this->buttonVSSound);
             this->groupBoxVSSound->Location = System::Drawing::Point(8, 9);
             this->groupBoxVSSound->Name = L"groupBoxVSSound";
-            this->groupBoxVSSound->Size = System::Drawing::Size(336, 56);
+            this->groupBoxVSSound->Size = System::Drawing::Size(365, 56);
             this->groupBoxVSSound->TabIndex = 1;
             this->groupBoxVSSound->TabStop = false;
             this->groupBoxVSSound->Text = L"Challenge notification";
             // 
             // buttonVSSoundPlay
             // 
-            this->buttonVSSoundPlay->Location = System::Drawing::Point(261, 21);
+            this->buttonVSSoundPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonVSSoundPlay->Location = System::Drawing::Point(290, 21);
             this->buttonVSSoundPlay->Name = L"buttonVSSoundPlay";
             this->buttonVSSoundPlay->Size = System::Drawing::Size(65, 22);
             this->buttonVSSoundPlay->TabIndex = 4;
@@ -840,8 +890,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // checkBoxVSSound
             // 
+            this->checkBoxVSSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->checkBoxVSSound->AutoSize = true;
-            this->checkBoxVSSound->Location = System::Drawing::Point(197, 24);
+            this->checkBoxVSSound->Location = System::Drawing::Point(226, 24);
             this->checkBoxVSSound->Name = L"checkBoxVSSound";
             this->checkBoxVSSound->Size = System::Drawing::Size(65, 17);
             this->checkBoxVSSound->TabIndex = 3;
@@ -852,9 +903,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxVSSound
             // 
             this->textBoxVSSound->AllowDrop = true;
+            this->textBoxVSSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxVSSound->Location = System::Drawing::Point(11, 22);
             this->textBoxVSSound->Name = L"textBoxVSSound";
-            this->textBoxVSSound->Size = System::Drawing::Size(150, 20);
+            this->textBoxVSSound->Size = System::Drawing::Size(179, 20);
             this->textBoxVSSound->TabIndex = 1;
             this->textBoxVSSound->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxVSSound->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxVSSound_DragDrop);
@@ -862,7 +915,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonVSSound
             // 
-            this->buttonVSSound->Location = System::Drawing::Point(167, 21);
+            this->buttonVSSound->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonVSSound->Location = System::Drawing::Point(196, 21);
             this->buttonVSSound->Name = L"buttonVSSound";
             this->buttonVSSound->Size = System::Drawing::Size(24, 22);
             this->buttonVSSound->TabIndex = 2;
@@ -881,13 +935,15 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPagePath->Location = System::Drawing::Point(4, 22);
             this->tabPagePath->Name = L"tabPagePath";
             this->tabPagePath->Padding = System::Windows::Forms::Padding(3);
-            this->tabPagePath->Size = System::Drawing::Size(369, 339);
+            this->tabPagePath->Size = System::Drawing::Size(427, 371);
             this->tabPagePath->TabIndex = 0;
             this->tabPagePath->Text = L"General";
             this->tabPagePath->UseVisualStyleBackColor = true;
             // 
             // groupBoxProfile
             // 
+            this->groupBoxProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxProfile->Controls->Add(this->buttonSaveProfile);
             this->groupBoxProfile->Controls->Add(this->buttonAddProfile);
             this->groupBoxProfile->Controls->Add(this->labelProfileName);
@@ -897,14 +953,15 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxProfile->Controls->Add(this->comboBoxProfile);
             this->groupBoxProfile->Location = System::Drawing::Point(8, 9);
             this->groupBoxProfile->Name = L"groupBoxProfile";
-            this->groupBoxProfile->Size = System::Drawing::Size(330, 92);
+            this->groupBoxProfile->Size = System::Drawing::Size(405, 92);
             this->groupBoxProfile->TabIndex = 4;
             this->groupBoxProfile->TabStop = false;
             this->groupBoxProfile->Text = L"Profile";
             // 
             // buttonSaveProfile
             // 
-            this->buttonSaveProfile->Location = System::Drawing::Point(275, 54);
+            this->buttonSaveProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonSaveProfile->Location = System::Drawing::Point(350, 54);
             this->buttonSaveProfile->Name = L"buttonSaveProfile";
             this->buttonSaveProfile->Size = System::Drawing::Size(45, 24);
             this->buttonSaveProfile->TabIndex = 7;
@@ -914,7 +971,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonAddProfile
             // 
-            this->buttonAddProfile->Location = System::Drawing::Point(223, 54);
+            this->buttonAddProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonAddProfile->Location = System::Drawing::Point(298, 54);
             this->buttonAddProfile->Name = L"buttonAddProfile";
             this->buttonAddProfile->Size = System::Drawing::Size(45, 24);
             this->buttonAddProfile->TabIndex = 6;
@@ -924,6 +982,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // labelProfileName
             // 
+            this->labelProfileName->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->labelProfileName->AutoSize = true;
             this->labelProfileName->Location = System::Drawing::Point(10, 60);
             this->labelProfileName->Name = L"labelProfileName";
@@ -933,7 +993,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonDeleteProfile
             // 
-            this->buttonDeleteProfile->Location = System::Drawing::Point(275, 20);
+            this->buttonDeleteProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonDeleteProfile->Location = System::Drawing::Point(350, 20);
             this->buttonDeleteProfile->Name = L"buttonDeleteProfile";
             this->buttonDeleteProfile->Size = System::Drawing::Size(45, 24);
             this->buttonDeleteProfile->TabIndex = 4;
@@ -943,16 +1004,19 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // textBoxProfileName
             // 
+            this->textBoxProfileName->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxProfileName->Location = System::Drawing::Point(51, 56);
             this->textBoxProfileName->MaxLength = 63;
             this->textBoxProfileName->Name = L"textBoxProfileName";
-            this->textBoxProfileName->Size = System::Drawing::Size(161, 20);
+            this->textBoxProfileName->Size = System::Drawing::Size(236, 20);
             this->textBoxProfileName->TabIndex = 3;
             this->textBoxProfileName->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             // 
             // buttonCopyProfile
             // 
-            this->buttonCopyProfile->Location = System::Drawing::Point(223, 20);
+            this->buttonCopyProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonCopyProfile->Location = System::Drawing::Point(298, 20);
             this->buttonCopyProfile->Name = L"buttonCopyProfile";
             this->buttonCopyProfile->Size = System::Drawing::Size(45, 24);
             this->buttonCopyProfile->TabIndex = 2;
@@ -962,24 +1026,29 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // comboBoxProfile
             // 
+            this->comboBoxProfile->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->comboBoxProfile->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
             this->comboBoxProfile->FormattingEnabled = true;
             this->comboBoxProfile->ItemHeight = 13;
             this->comboBoxProfile->Location = System::Drawing::Point(12, 21);
             this->comboBoxProfile->MaxDropDownItems = 64;
             this->comboBoxProfile->Name = L"comboBoxProfile";
-            this->comboBoxProfile->Size = System::Drawing::Size(200, 21);
+            this->comboBoxProfile->Size = System::Drawing::Size(275, 21);
             this->comboBoxProfile->TabIndex = 0;
             this->comboBoxProfile->SelectedIndexChanged += gcnew System::EventHandler(this, &OptionForm::comboBoxProfile_SelectedIndexChanged);
             // 
             // groupBoxReplayFolder
             // 
+            this->groupBoxReplayFolder->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxReplayFolder->Controls->Add(this->textBoxReplayFolder);
             this->groupBoxReplayFolder->Controls->Add(this->buttonReplayFolder);
             this->groupBoxReplayFolder->Controls->Add(this->checkBoxDivide);
             this->groupBoxReplayFolder->Location = System::Drawing::Point(8, 170);
             this->groupBoxReplayFolder->Name = L"groupBoxReplayFolder";
-            this->groupBoxReplayFolder->Size = System::Drawing::Size(330, 87);
+            this->groupBoxReplayFolder->Size = System::Drawing::Size(405, 87);
             this->groupBoxReplayFolder->TabIndex = 2;
             this->groupBoxReplayFolder->TabStop = false;
             this->groupBoxReplayFolder->Text = L"Replay folder";
@@ -987,9 +1056,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxReplayFolder
             // 
             this->textBoxReplayFolder->AllowDrop = true;
+            this->textBoxReplayFolder->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxReplayFolder->Location = System::Drawing::Point(12, 22);
             this->textBoxReplayFolder->Name = L"textBoxReplayFolder";
-            this->textBoxReplayFolder->Size = System::Drawing::Size(278, 20);
+            this->textBoxReplayFolder->Size = System::Drawing::Size(353, 20);
             this->textBoxReplayFolder->TabIndex = 1;
             this->textBoxReplayFolder->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxReplayFolder->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxReplayFolder_DragDrop);
@@ -997,7 +1068,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonReplayFolder
             // 
-            this->buttonReplayFolder->Location = System::Drawing::Point(296, 22);
+            this->buttonReplayFolder->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonReplayFolder->Location = System::Drawing::Point(371, 22);
             this->buttonReplayFolder->Name = L"buttonReplayFolder";
             this->buttonReplayFolder->Size = System::Drawing::Size(24, 22);
             this->buttonReplayFolder->TabIndex = 2;
@@ -1018,29 +1090,33 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxNet
             // 
+            this->groupBoxNet->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxNet->Controls->Add(this->labelComment);
             this->groupBoxNet->Controls->Add(this->numericUpDownMaxConnection);
             this->groupBoxNet->Controls->Add(this->textBoxComment);
             this->groupBoxNet->Controls->Add(this->label5);
             this->groupBoxNet->Location = System::Drawing::Point(8, 263);
             this->groupBoxNet->Name = L"groupBoxNet";
-            this->groupBoxNet->Size = System::Drawing::Size(330, 87);
+            this->groupBoxNet->Size = System::Drawing::Size(405, 87);
             this->groupBoxNet->TabIndex = 3;
             this->groupBoxNet->TabStop = false;
             this->groupBoxNet->Text = L"Connection";
             // 
             // labelComment
             // 
+            this->labelComment->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
             this->labelComment->AutoSize = true;
             this->labelComment->Location = System::Drawing::Point(10, 55);
             this->labelComment->Name = L"labelComment";
-            this->labelComment->Size = System::Drawing::Size(60, 13);
+            this->labelComment->Size = System::Drawing::Size(63, 13);
             this->labelComment->TabIndex = 0;
-            this->labelComment->Text = L"Description";
+            this->labelComment->Text = L"Description:";
             // 
             // numericUpDownMaxConnection
             // 
-            this->numericUpDownMaxConnection->Location = System::Drawing::Point(104, 22);
+            this->numericUpDownMaxConnection->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->numericUpDownMaxConnection->Location = System::Drawing::Point(355, 22);
             this->numericUpDownMaxConnection->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
             this->numericUpDownMaxConnection->Name = L"numericUpDownMaxConnection";
             this->numericUpDownMaxConnection->Size = System::Drawing::Size(40, 20);
@@ -1050,9 +1126,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // textBoxComment
             // 
-            this->textBoxComment->Location = System::Drawing::Point(104, 52);
+            this->textBoxComment->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->textBoxComment->Location = System::Drawing::Point(137, 52);
             this->textBoxComment->Name = L"textBoxComment";
-            this->textBoxComment->Size = System::Drawing::Size(183, 20);
+            this->textBoxComment->Size = System::Drawing::Size(258, 20);
             this->textBoxComment->TabIndex = 2;
             this->textBoxComment->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             // 
@@ -1061,17 +1139,19 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->label5->AutoSize = true;
             this->label5->Location = System::Drawing::Point(10, 24);
             this->label5->Name = L"label5";
-            this->label5->Size = System::Drawing::Size(88, 13);
+            this->label5->Size = System::Drawing::Size(91, 13);
             this->label5->TabIndex = 0;
-            this->label5->Text = L"Max connections";
+            this->label5->Text = L"Max connections:";
             // 
             // groupBoxGameExe
             // 
+            this->groupBoxGameExe->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxGameExe->Controls->Add(this->textBoxGameExe);
             this->groupBoxGameExe->Controls->Add(this->buttonGameExe);
             this->groupBoxGameExe->Location = System::Drawing::Point(8, 107);
             this->groupBoxGameExe->Name = L"groupBoxGameExe";
-            this->groupBoxGameExe->Size = System::Drawing::Size(330, 56);
+            this->groupBoxGameExe->Size = System::Drawing::Size(405, 56);
             this->groupBoxGameExe->TabIndex = 1;
             this->groupBoxGameExe->TabStop = false;
             this->groupBoxGameExe->Text = L"Game executable path";
@@ -1079,9 +1159,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // textBoxGameExe
             // 
             this->textBoxGameExe->AllowDrop = true;
+            this->textBoxGameExe->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxGameExe->Location = System::Drawing::Point(12, 22);
             this->textBoxGameExe->Name = L"textBoxGameExe";
-            this->textBoxGameExe->Size = System::Drawing::Size(278, 20);
+            this->textBoxGameExe->Size = System::Drawing::Size(353, 20);
             this->textBoxGameExe->TabIndex = 1;
             this->textBoxGameExe->TextChanged += gcnew System::EventHandler(this, &OptionForm::ApplyButtonEnable);
             this->textBoxGameExe->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &OptionForm::textBoxGameExe_DragDrop);
@@ -1089,7 +1171,8 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // buttonGameExe
             // 
-            this->buttonGameExe->Location = System::Drawing::Point(296, 22);
+            this->buttonGameExe->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->buttonGameExe->Location = System::Drawing::Point(371, 22);
             this->buttonGameExe->Name = L"buttonGameExe";
             this->buttonGameExe->Size = System::Drawing::Size(24, 22);
             this->buttonGameExe->TabIndex = 2;
@@ -1099,9 +1182,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxSave
             // 
+            this->groupBoxSave->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxSave->Controls->Add(this->radioButtonReplayVersion1);
             this->groupBoxSave->Controls->Add(this->radioButtonReplayVersion2);
-            this->groupBoxSave->Location = System::Drawing::Point(195, 216);
+            this->groupBoxSave->Location = System::Drawing::Point(253, 216);
             this->groupBoxSave->Name = L"groupBoxSave";
             this->groupBoxSave->Size = System::Drawing::Size(166, 46);
             this->groupBoxSave->TabIndex = 4;
@@ -1134,6 +1218,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // tabControlOption
             // 
+            this->tabControlOption->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->tabControlOption->Controls->Add(this->tabPagePath);
             this->tabControlOption->Controls->Add(this->tabPageSound);
             this->tabControlOption->Controls->Add(this->tabPageGame);
@@ -1141,11 +1228,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabControlOption->Controls->Add(this->tabPageVolume);
             this->tabControlOption->Controls->Add(this->tabPageIP);
             this->tabControlOption->Controls->Add(this->tabPageDetails);
-            this->tabControlOption->Dock = System::Windows::Forms::DockStyle::Top;
             this->tabControlOption->Location = System::Drawing::Point(0, 0);
             this->tabControlOption->Name = L"tabControlOption";
             this->tabControlOption->SelectedIndex = 0;
-            this->tabControlOption->Size = System::Drawing::Size(377, 365);
+            this->tabControlOption->Size = System::Drawing::Size(406, 375);
             this->tabControlOption->TabIndex = 0;
             // 
             // tabPageGame
@@ -1160,18 +1246,20 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPageGame->Location = System::Drawing::Point(4, 22);
             this->tabPageGame->Name = L"tabPageGame";
             this->tabPageGame->Padding = System::Windows::Forms::Padding(3);
-            this->tabPageGame->Size = System::Drawing::Size(369, 339);
+            this->tabPageGame->Size = System::Drawing::Size(427, 371);
             this->tabPageGame->TabIndex = 4;
             this->tabPageGame->Text = L"Game";
             this->tabPageGame->UseVisualStyleBackColor = true;
             // 
             // groupBoxTeamOption
             // 
+            this->groupBoxTeamOption->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxTeamOption->Controls->Add(this->labelTeamRoundHP);
             this->groupBoxTeamOption->Controls->Add(this->checkBoxTeamRoundHP);
             this->groupBoxTeamOption->Location = System::Drawing::Point(9, 268);
             this->groupBoxTeamOption->Name = L"groupBoxTeamOption";
-            this->groupBoxTeamOption->Size = System::Drawing::Size(353, 65);
+            this->groupBoxTeamOption->Size = System::Drawing::Size(410, 65);
             this->groupBoxTeamOption->TabIndex = 6;
             this->groupBoxTeamOption->TabStop = false;
             this->groupBoxTeamOption->Text = L"Team play";
@@ -1198,9 +1286,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxSimulate
             // 
+            this->groupBoxSimulate->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxSimulate->Controls->Add(this->numericUpDownSimDelay);
             this->groupBoxSimulate->Controls->Add(this->labelSimDelay);
-            this->groupBoxSimulate->Location = System::Drawing::Point(195, 161);
+            this->groupBoxSimulate->Location = System::Drawing::Point(253, 161);
             this->groupBoxSimulate->Name = L"groupBoxSimulate";
             this->groupBoxSimulate->Size = System::Drawing::Size(166, 48);
             this->groupBoxSimulate->TabIndex = 5;
@@ -1259,12 +1348,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxView
             // 
+            this->groupBoxView->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxView->Controls->Add(this->checkBoxShowResult);
             this->groupBoxView->Controls->Add(this->checkBoxVersus);
             this->groupBoxView->Controls->Add(this->checkBoxName);
             this->groupBoxView->Controls->Add(this->checkBoxFramerate);
             this->groupBoxView->Controls->Add(this->checkBoxRand);
-            this->groupBoxView->Location = System::Drawing::Point(195, 9);
+            this->groupBoxView->Location = System::Drawing::Point(253, 9);
             this->groupBoxView->Name = L"groupBoxView";
             this->groupBoxView->Size = System::Drawing::Size(166, 145);
             this->groupBoxView->TabIndex = 4;
@@ -1426,17 +1516,18 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPageColor->Location = System::Drawing::Point(4, 22);
             this->tabPageColor->Name = L"tabPageColor";
             this->tabPageColor->Padding = System::Windows::Forms::Padding(3);
-            this->tabPageColor->Size = System::Drawing::Size(369, 339);
+            this->tabPageColor->Size = System::Drawing::Size(398, 349);
             this->tabPageColor->TabIndex = 5;
             this->tabPageColor->Text = L"Colors";
             this->tabPageColor->UseVisualStyleBackColor = true;
             // 
             // groupBoxMessageColor
             // 
+            this->groupBoxMessageColor->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxMessageColor->Controls->Add(this->buttonDebugMessage);
             this->groupBoxMessageColor->Controls->Add(this->buttonErrorMessage);
             this->groupBoxMessageColor->Controls->Add(this->buttonSystemMessage);
-            this->groupBoxMessageColor->Location = System::Drawing::Point(192, 9);
+            this->groupBoxMessageColor->Location = System::Drawing::Point(221, 9);
             this->groupBoxMessageColor->Name = L"groupBoxMessageColor";
             this->groupBoxMessageColor->Size = System::Drawing::Size(168, 117);
             this->groupBoxMessageColor->TabIndex = 3;
@@ -1481,10 +1572,11 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxOthersColor
             // 
+            this->groupBoxOthersColor->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxOthersColor->Controls->Add(this->buttonSecret);
             this->groupBoxOthersColor->Controls->Add(this->buttonCommentBack);
             this->groupBoxOthersColor->Controls->Add(this->buttonNoticeBack);
-            this->groupBoxOthersColor->Location = System::Drawing::Point(192, 139);
+            this->groupBoxOthersColor->Location = System::Drawing::Point(221, 139);
             this->groupBoxOthersColor->Name = L"groupBoxOthersColor";
             this->groupBoxOthersColor->Size = System::Drawing::Size(168, 117);
             this->groupBoxOthersColor->TabIndex = 4;
@@ -1643,18 +1735,20 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPageVolume->Location = System::Drawing::Point(4, 22);
             this->tabPageVolume->Name = L"tabPageVolume";
             this->tabPageVolume->Padding = System::Windows::Forms::Padding(3);
-            this->tabPageVolume->Size = System::Drawing::Size(369, 339);
+            this->tabPageVolume->Size = System::Drawing::Size(427, 371);
             this->tabPageVolume->TabIndex = 6;
             this->tabPageVolume->Text = L"Volume";
             this->tabPageVolume->UseVisualStyleBackColor = true;
             // 
             // groupBoxMidi
             // 
+            this->groupBoxMidi->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxMidi->Controls->Add(this->labelMidi);
             this->groupBoxMidi->Controls->Add(this->trackBarMidi);
-            this->groupBoxMidi->Location = System::Drawing::Point(8, 199);
+            this->groupBoxMidi->Location = System::Drawing::Point(8, 132);
             this->groupBoxMidi->Name = L"groupBoxMidi";
-            this->groupBoxMidi->Size = System::Drawing::Size(352, 56);
+            this->groupBoxMidi->Size = System::Drawing::Size(410, 56);
             this->groupBoxMidi->TabIndex = 3;
             this->groupBoxMidi->TabStop = false;
             this->groupBoxMidi->Text = L"Software synthesizer (MIDI)";
@@ -1670,12 +1764,14 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // trackBarMidi
             // 
+            this->trackBarMidi->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->trackBarMidi->AutoSize = false;
             this->trackBarMidi->LargeChange = 10;
             this->trackBarMidi->Location = System::Drawing::Point(48, 13);
             this->trackBarMidi->Maximum = 100;
             this->trackBarMidi->Name = L"trackBarMidi";
-            this->trackBarMidi->Size = System::Drawing::Size(296, 35);
+            this->trackBarMidi->Size = System::Drawing::Size(354, 35);
             this->trackBarMidi->TabIndex = 1;
             this->trackBarMidi->TickFrequency = 10;
             this->trackBarMidi->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
@@ -1683,11 +1779,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxSE
             // 
+            this->groupBoxSE->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxSE->Controls->Add(this->labelSE);
             this->groupBoxSE->Controls->Add(this->trackBarSE);
-            this->groupBoxSE->Location = System::Drawing::Point(8, 74);
+            this->groupBoxSE->Location = System::Drawing::Point(8, 69);
             this->groupBoxSE->Name = L"groupBoxSE";
-            this->groupBoxSE->Size = System::Drawing::Size(352, 56);
+            this->groupBoxSE->Size = System::Drawing::Size(410, 56);
             this->groupBoxSE->TabIndex = 2;
             this->groupBoxSE->TabStop = false;
             this->groupBoxSE->Text = L"SE";
@@ -1703,12 +1801,14 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // trackBarSE
             // 
+            this->trackBarSE->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->trackBarSE->AutoSize = false;
             this->trackBarSE->LargeChange = 2;
             this->trackBarSE->Location = System::Drawing::Point(48, 13);
             this->trackBarSE->Maximum = 20;
             this->trackBarSE->Name = L"trackBarSE";
-            this->trackBarSE->Size = System::Drawing::Size(296, 35);
+            this->trackBarSE->Size = System::Drawing::Size(354, 35);
             this->trackBarSE->TabIndex = 1;
             this->trackBarSE->TickFrequency = 2;
             this->trackBarSE->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
@@ -1716,11 +1816,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // groupBoxBGM
             // 
+            this->groupBoxBGM->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxBGM->Controls->Add(this->labelBGM);
             this->groupBoxBGM->Controls->Add(this->trackBarBGM);
-            this->groupBoxBGM->Location = System::Drawing::Point(8, 9);
+            this->groupBoxBGM->Location = System::Drawing::Point(8, 6);
             this->groupBoxBGM->Name = L"groupBoxBGM";
-            this->groupBoxBGM->Size = System::Drawing::Size(352, 56);
+            this->groupBoxBGM->Size = System::Drawing::Size(410, 56);
             this->groupBoxBGM->TabIndex = 1;
             this->groupBoxBGM->TabStop = false;
             this->groupBoxBGM->Text = L"BGM";
@@ -1736,12 +1838,14 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // trackBarBGM
             // 
+            this->trackBarBGM->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->trackBarBGM->AutoSize = false;
             this->trackBarBGM->LargeChange = 2;
             this->trackBarBGM->Location = System::Drawing::Point(48, 13);
             this->trackBarBGM->Maximum = 20;
             this->trackBarBGM->Name = L"trackBarBGM";
-            this->trackBarBGM->Size = System::Drawing::Size(296, 35);
+            this->trackBarBGM->Size = System::Drawing::Size(354, 35);
             this->trackBarBGM->TabIndex = 1;
             this->trackBarBGM->TickFrequency = 2;
             this->trackBarBGM->TickStyle = System::Windows::Forms::TickStyle::TopLeft;
@@ -1757,14 +1861,15 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPageIP->Location = System::Drawing::Point(4, 22);
             this->tabPageIP->Name = L"tabPageIP";
             this->tabPageIP->Padding = System::Windows::Forms::Padding(3);
-            this->tabPageIP->Size = System::Drawing::Size(369, 339);
+            this->tabPageIP->Size = System::Drawing::Size(398, 349);
             this->tabPageIP->TabIndex = 7;
             this->tabPageIP->Text = L"IP conversion";
             this->tabPageIP->UseVisualStyleBackColor = true;
             // 
             // AddPortbutton
             // 
-            this->AddPortbutton->Location = System::Drawing::Point(169, 252);
+            this->AddPortbutton->Anchor = System::Windows::Forms::AnchorStyles::Top;
+            this->AddPortbutton->Location = System::Drawing::Point(184, 252);
             this->AddPortbutton->Name = L"AddPortbutton";
             this->AddPortbutton->Size = System::Drawing::Size(126, 26);
             this->AddPortbutton->TabIndex = 4;
@@ -1774,18 +1879,20 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // discriptionlabel
             // 
-            this->discriptionlabel->AutoSize = true;
+            this->discriptionlabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->discriptionlabel->Location = System::Drawing::Point(6, 11);
             this->discriptionlabel->Name = L"discriptionlabel";
-            this->discriptionlabel->Size = System::Drawing::Size(350, 39);
+            this->discriptionlabel->Size = System::Drawing::Size(379, 39);
             this->discriptionlabel->TabIndex = 3;
-            this->discriptionlabel->Text = L"By obfuscating your IP address, you can reduce security risks associated\r\nwith pu"
-                L"blishing a server. When you create a server, you should use your\r\nconverted IP a"
-                L"ddress rather than your real one.";
+            this->discriptionlabel->Text = L"By obfuscating your IP address, you can reduce security risks associated with pub"
+                L"lishing a server. When you create a server, you should use your converted IP add"
+                L"ress rather than your real one.";
             // 
             // Convertbutton
             // 
-            this->Convertbutton->Location = System::Drawing::Point(99, 252);
+            this->Convertbutton->Anchor = System::Windows::Forms::AnchorStyles::Top;
+            this->Convertbutton->Location = System::Drawing::Point(114, 252);
             this->Convertbutton->Name = L"Convertbutton";
             this->Convertbutton->Size = System::Drawing::Size(64, 26);
             this->Convertbutton->TabIndex = 2;
@@ -1795,13 +1902,15 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // Base64groupBox
             // 
+            this->Base64groupBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->Base64groupBox->Controls->Add(this->labelAddrMT);
             this->Base64groupBox->Controls->Add(this->textBoxMTAddr);
             this->Base64groupBox->Controls->Add(this->labelAddrBase64);
             this->Base64groupBox->Controls->Add(this->Base64textBox);
             this->Base64groupBox->Location = System::Drawing::Point(7, 141);
             this->Base64groupBox->Name = L"Base64groupBox";
-            this->Base64groupBox->Size = System::Drawing::Size(352, 91);
+            this->Base64groupBox->Size = System::Drawing::Size(381, 91);
             this->Base64groupBox->TabIndex = 1;
             this->Base64groupBox->TabStop = false;
             this->Base64groupBox->Text = L"Converted IP address";
@@ -1817,10 +1926,12 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // textBoxMTAddr
             // 
+            this->textBoxMTAddr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->textBoxMTAddr->Location = System::Drawing::Point(75, 54);
             this->textBoxMTAddr->Name = L"textBoxMTAddr";
             this->textBoxMTAddr->ReadOnly = true;
-            this->textBoxMTAddr->Size = System::Drawing::Size(271, 20);
+            this->textBoxMTAddr->Size = System::Drawing::Size(300, 20);
             this->textBoxMTAddr->TabIndex = 2;
             // 
             // labelAddrBase64
@@ -1834,19 +1945,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // Base64textBox
             // 
+            this->Base64textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->Base64textBox->Location = System::Drawing::Point(75, 20);
             this->Base64textBox->MaxLength = 100;
             this->Base64textBox->Name = L"Base64textBox";
             this->Base64textBox->ReadOnly = true;
-            this->Base64textBox->Size = System::Drawing::Size(271, 20);
+            this->Base64textBox->Size = System::Drawing::Size(300, 20);
             this->Base64textBox->TabIndex = 0;
             // 
             // IPgroupBox
             // 
+            this->IPgroupBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->IPgroupBox->Controls->Add(this->IPtextBox);
             this->IPgroupBox->Location = System::Drawing::Point(7, 76);
             this->IPgroupBox->Name = L"IPgroupBox";
-            this->IPgroupBox->Size = System::Drawing::Size(352, 56);
+            this->IPgroupBox->Size = System::Drawing::Size(381, 56);
             this->IPgroupBox->TabIndex = 0;
             this->IPgroupBox->TabStop = false;
             this->IPgroupBox->Text = L"IP address";
@@ -1854,10 +1969,12 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // IPtextBox
             // 
             this->IPtextBox->AccessibleDescription = L"";
+            this->IPtextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->IPtextBox->Location = System::Drawing::Point(7, 21);
             this->IPtextBox->MaxLength = 20;
             this->IPtextBox->Name = L"IPtextBox";
-            this->IPtextBox->Size = System::Drawing::Size(339, 20);
+            this->IPtextBox->Size = System::Drawing::Size(368, 20);
             this->IPtextBox->TabIndex = 0;
             this->IPtextBox->TextChanged += gcnew System::EventHandler(this, &OptionForm::IPtextBox_TextChanged);
             // 
@@ -1867,20 +1984,23 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->tabPageDetails->Location = System::Drawing::Point(4, 22);
             this->tabPageDetails->Name = L"tabPageDetails";
             this->tabPageDetails->Padding = System::Windows::Forms::Padding(3);
-            this->tabPageDetails->Size = System::Drawing::Size(369, 339);
+            this->tabPageDetails->Size = System::Drawing::Size(427, 371);
             this->tabPageDetails->TabIndex = 8;
             this->tabPageDetails->Text = L"Miscellaneous";
             this->tabPageDetails->UseVisualStyleBackColor = true;
             // 
             // groupBoxDetails
             // 
+            this->groupBoxDetails->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->groupBoxDetails->Controls->Add(this->checkBoxShowGameOption);
             this->groupBoxDetails->Controls->Add(this->checkBoxNameFlash);
             this->groupBoxDetails->Controls->Add(this->checkBoxGetIP);
             this->groupBoxDetails->Controls->Add(this->checkBoxTalkFlash);
             this->groupBoxDetails->Location = System::Drawing::Point(9, 8);
             this->groupBoxDetails->Name = L"groupBoxDetails";
-            this->groupBoxDetails->Size = System::Drawing::Size(351, 306);
+            this->groupBoxDetails->Size = System::Drawing::Size(409, 338);
             this->groupBoxDetails->TabIndex = 0;
             this->groupBoxDetails->TabStop = false;
             this->groupBoxDetails->Text = L"Miscellaneous";
@@ -1931,10 +2051,12 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             // 
             // OptionForm
             // 
+            this->AcceptButton = this->buttonOK;
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->AutoScroll = true;
-            this->ClientSize = System::Drawing::Size(377, 405);
+            this->CancelButton = this->buttonCancel;
+            this->ClientSize = System::Drawing::Size(406, 415);
             this->Controls->Add(this->tabControlOption);
             this->Controls->Add(this->buttonApply);
             this->Controls->Add(this->buttonCancel);
@@ -1942,7 +2064,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->MaximizeBox = false;
             this->MinimizeBox = false;
+            this->MinimumSize = System::Drawing::Size(398, 452);
             this->Name = L"OptionForm";
+            this->ShowIcon = false;
             this->ShowInTaskbar = false;
             this->Text = L"Options";
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &OptionForm::OptionForm_FormClosed);
@@ -2008,7 +2132,6 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
             this->groupBoxBGM->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBarBGM))->EndInit();
             this->tabPageIP->ResumeLayout(false);
-            this->tabPageIP->PerformLayout();
             this->Base64groupBox->ResumeLayout(false);
             this->Base64groupBox->PerformLayout();
             this->IPgroupBox->ResumeLayout(false);

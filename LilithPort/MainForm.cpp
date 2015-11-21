@@ -1247,7 +1247,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					form->WriteMessage(L"Challenger is currently preparing for battle against another person.\n", SystemMessageColor);
 					break;
 				case 0xFE:
-					form->WriteMessage(L"ERROR: You and your challenger have a different game or game version.\n", ErrorMessageColor);
+					form->WriteMessage(L"ERROR: You and your challenger have a different game or game version. Make sure your game executable's file name is the same as that of your opponent.\n", ErrorMessageColor);
 					break;
 				default:
 					form->WriteMessage(L"Challenger is currently not in a state for matchmaking.\n", SystemMessageColor);
@@ -2968,7 +2968,7 @@ void MainForm::RunGame(Object^ obj)
 						p2_win = i;
 					}
 					WriteTime(0, SystemMessageColor);
-					WriteMessage(String::Format(L"Score： {0} matches, {1} wins (P1) {2} wins (P2)\n", num_vs, p1_win, p2_win), SecretColor);
+					WriteMessage(String::Format(L"Score: {0} matches, {1} wins (P1), {2} wins (P2)\n", num_vs, p1_win, p2_win), SecretColor);
 				}
 			}
 			else{

@@ -39,15 +39,15 @@ namespace LilithPort {
 				for(UINT i=0;i < MTOPTION.BOOKMARK_COUNT;i++) {
 					tmpName = gcnew String(MTOPTION.BOOKMARK_SERVER_NAME[i]);
 					
-					toolStripMenuItemBookMark = (gcnew System::Windows::Forms::ToolStripMenuItem());
-					toolStripMenuItemBookMarkMenu->DropDownItems->Add(toolStripMenuItemBookMark);
+					toolStripMenuItemBookMark = (gcnew System::Windows::Forms::MenuItem());
+					toolStripMenuItemBookMarkMenu->MenuItems->Add(toolStripMenuItemBookMark);
 					toolStripMenuItemBookMark->Text = tmpName;
 					toolStripMenuItemBookMark->Name = L"toolStripMenuItemBookMark" + i;
 					toolStripMenuItemBookMark->Tag = i;
 					toolStripMenuItemBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemBookMark_Click);
 					
-					toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::ToolStripMenuItem());
-					toolStripMenuItemBookMark->DropDownItems->Add(toolStripMenuItemDelBookMark);
+					toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::MenuItem());
+					toolStripMenuItemBookMark->MenuItems->Add(toolStripMenuItemDelBookMark);
                     toolStripMenuItemDelBookMark->Text = L"&Delete";
 					toolStripMenuItemDelBookMark->Tag = L"toolStripMenuItemBookMark" + i;
 					toolStripMenuItemDelBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelBookMark_Click);
@@ -75,101 +75,103 @@ namespace LilithPort {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::MenuStrip^  menuStrip1;
+	private: System::Windows::Forms::MainMenu^  menuStrip1;
 	private: System::Windows::Forms::SplitContainer^  splitContainer1;
 	private: System::Windows::Forms::ListBox^  listBoxMember;
 	private: System::Windows::Forms::RichTextBox^  richTextBoxLog;
 	private: System::Windows::Forms::TextBox^  textBoxInput;
 
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemFile;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemSaveLog;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator1;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemExit;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemFile;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemSaveLog;
+    private: System::Windows::Forms::MenuItem^  toolStripSeparator1;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemExit;
 
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemOption;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemSetting;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator2;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelayAuto;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator4;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay2;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay3;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay4;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay5;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay6;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay7;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay8;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay9;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator3;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemRecordReplay;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAllowSpectator;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemOption;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemSetting;
+	private: System::Windows::Forms::MenuItem^  toolStripSeparator2;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelayAuto;
+	private: System::Windows::Forms::MenuItem^  toolStripSeparator4;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay2;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay3;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay4;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay5;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay6;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay7;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay8;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay9;
+	private: System::Windows::Forms::MenuItem^  toolStripSeparator3;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemRecordReplay;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemAllowSpectator;
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemHelp;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemViewCommand;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemHelp;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemViewCommand;
 
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator5;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemVersion;
+	private: System::Windows::Forms::MenuItem^  toolStripSeparator5;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemVersion;
 
-	private: System::Windows::Forms::ContextMenuStrip^  contextMenuStripMember;
-	private: System::Windows::Forms::ContextMenuStrip^  contextMenuStripLog;
-	private: System::Windows::Forms::ToolStripMenuItem^  contextMenuItemCopy;
+	private: System::Windows::Forms::ContextMenu^  contextMenuStripMember;
+	private: System::Windows::Forms::ContextMenu^  contextMenuStripLog;
+	private: System::Windows::Forms::MenuItem^  contextMenuItemCopy;
 
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator6;
-	private: System::Windows::Forms::ToolStripMenuItem^  contxtMenuItemSaveLog;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemVS;
+	private: System::Windows::Forms::MenuItem^  toolStripSeparator6;
+	private: System::Windows::Forms::MenuItem^  contxtMenuItemSaveLog;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemVS;
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
 	private: System::Windows::Forms::ToolTip^  toolTipMember;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemPing;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemReplay;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemPing;
+    private: System::Windows::Forms::MenuItem^  toolStripMenuItemReplay;
 
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWatch;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator7;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAfterRest;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemChangeList;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay10;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay11;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelay12;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemBookMarkMenu;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAddBookMark;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemBookMark;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemDelBookMark;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator8;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemWatch;
+	private: System::Windows::Forms::MenuItem^  toolStripSeparator7;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemAfterRest;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemChangeList;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay10;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay11;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelay12;
+    private: System::Windows::Forms::MenuItem^  toolStripMenuItemBookMarkMenu;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemAddBookMark;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemBookMark;
+	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelBookMark;
+    private: System::Windows::Forms::MenuItem^  toolStripSeparator8;
 
-	private: System::Windows::Forms::ToolStripMenuItem^  CommandToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  GameStartToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  RestartToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator9;
-	private: System::Windows::Forms::ToolStripMenuItem^  LeaveToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  RestToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  SeekToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  ClearToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator10;
+    private: System::Windows::Forms::MenuItem^  CommandToolStripMenuItem;
+    private: System::Windows::Forms::MenuItem^  GameStartToolStripMenuItem;
+    private: System::Windows::Forms::MenuItem^  RestartToolStripMenuItem;
+    private: System::Windows::Forms::MenuItem^  toolStripSeparator9;
+	private: System::Windows::Forms::MenuItem^  LeaveToolStripMenuItem;
+	private: System::Windows::Forms::MenuItem^  RestToolStripMenuItem;
+	private: System::Windows::Forms::MenuItem^  SeekToolStripMenuItem;
+	private: System::Windows::Forms::MenuItem^  ClearToolStripMenuItem;
+    private: System::Windows::Forms::MenuItem^  toolStripSeparator10;
 
-private: System::Windows::Forms::ToolStripMenuItem^  ToggleHitJudgeToolStripMenuItem;
-private: System::Windows::Forms::ToolStripMenuItem^  LogLockToolStripMenuItem;
+private: System::Windows::Forms::MenuItem^  ToggleHitJudgeToolStripMenuItem;
+private: System::Windows::Forms::MenuItem^  LogLockToolStripMenuItem;
 
-private: System::Windows::Forms::ToolStripMenuItem^  GetIPToolStripMenuItem;
-private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator11;
-private: System::Windows::Forms::ToolStripMenuItem^  GameStartNoReplayToolStripMenuItem;
-private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator12;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemKick;
+private: System::Windows::Forms::MenuItem^  GetIPToolStripMenuItem;
+private: System::Windows::Forms::MenuItem^  toolStripSeparator11;
+private: System::Windows::Forms::MenuItem^  GameStartNoReplayToolStripMenuItem;
+private: System::Windows::Forms::MenuItem^  toolStripSeparator12;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemKick;
 private: System::Windows::Forms::StatusStrip^  statusStrip1;
 private: System::Windows::Forms::ToolStripStatusLabel^  toolStripStatusLabel;
 
 private: System::Windows::Forms::ToolStripDropDownButton^  toolStripDropDownButtonProfile;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemSeek;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRest;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestEnable;
-private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator13;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestTime5;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestTime10;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestTime15;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestTime20;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestTime30;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestTime60;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemAutoRestTime120;
-private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemSeek;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRest;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestEnable;
+private: System::Windows::Forms::MenuItem^  toolStripSeparator13;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime5;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime10;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime15;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime20;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime30;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime60;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime120;
+private: System::Windows::Forms::MenuItem^  toolStripMenuItemWordWrap;
+private: System::Windows::Forms::ContextMenu^  contextMenuStrip1;
+private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 
 
 
@@ -191,557 +193,500 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		void InitializeComponent(void)
 		{
             this->components = (gcnew System::ComponentModel::Container());
-            System::Windows::Forms::ToolStripMenuItem^  ReloadListToolStripMenuItem;
+            System::Windows::Forms::MenuItem^  ReloadListToolStripMenuItem;
             System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
-            this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-            this->toolStripMenuItemFile = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemReplay = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemSaveLog = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemExit = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemBookMarkMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAddBookMark = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator8 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->CommandToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->GameStartToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->GameStartNoReplayToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator9 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->RestartToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->LeaveToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->RestToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->SeekToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator10 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->ClearToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->ToggleHitJudgeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator11 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->GetIPToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemOption = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemSetting = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator2 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemDelay = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelayAuto = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator4 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemDelay2 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay3 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay4 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay5 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay6 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay7 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay8 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay9 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay10 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay11 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemDelay12 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator3 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemRecordReplay = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAllowSpectator = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemWordWrap = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->LogLockToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator7 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemAfterRest = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRest = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRestEnable = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator13 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemAutoRestTime5 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRestTime10 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRestTime15 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRestTime20 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRestTime30 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRestTime60 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemAutoRestTime120 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemHelp = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemViewCommand = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemChangeList = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator5 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemVersion = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->menuStrip1 = (gcnew System::Windows::Forms::MainMenu(this->components));
+            this->toolStripMenuItemFile = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemReplay = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemSaveLog = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator1 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemExit = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemBookMarkMenu = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAddBookMark = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator8 = (gcnew System::Windows::Forms::MenuItem());
+            this->CommandToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->GameStartToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->GameStartNoReplayToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator9 = (gcnew System::Windows::Forms::MenuItem());
+            this->RestartToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->LeaveToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->RestToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->SeekToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator10 = (gcnew System::Windows::Forms::MenuItem());
+            this->ClearToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->ToggleHitJudgeToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator11 = (gcnew System::Windows::Forms::MenuItem());
+            this->GetIPToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemOption = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemSetting = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator2 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelayAuto = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator4 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay2 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay3 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay4 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay5 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay6 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay7 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay8 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay9 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay10 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay11 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemDelay12 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator3 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemRecordReplay = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAllowSpectator = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemWordWrap = (gcnew System::Windows::Forms::MenuItem());
+            this->LogLockToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator7 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAfterRest = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRest = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestEnable = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator13 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestTime5 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestTime10 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestTime15 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestTime20 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestTime30 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestTime60 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemAutoRestTime120 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemHelp = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemViewCommand = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemChangeList = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator5 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemVersion = (gcnew System::Windows::Forms::MenuItem());
             this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
             this->listBoxMember = (gcnew System::Windows::Forms::ListBox());
-            this->contextMenuStripMember = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-            this->toolStripMenuItemVS = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemWatch = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemSeek = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripMenuItemPing = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator12 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->toolStripMenuItemKick = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenu());
+            this->toolStripMenuItemVS = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemWatch = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemSeek = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemPing = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator12 = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripMenuItemKick = (gcnew System::Windows::Forms::MenuItem());
             this->richTextBoxLog = (gcnew System::Windows::Forms::RichTextBox());
-            this->contextMenuStripLog = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-            this->contextMenuItemCopy = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->toolStripSeparator6 = (gcnew System::Windows::Forms::ToolStripSeparator());
-            this->contxtMenuItemSaveLog = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->contextMenuStrip2 = (gcnew System::Windows::Forms::ContextMenu());
+            this->contextMenuItemCopy = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator6 = (gcnew System::Windows::Forms::MenuItem());
+            this->contxtMenuItemSaveLog = (gcnew System::Windows::Forms::MenuItem());
             this->textBoxInput = (gcnew System::Windows::Forms::TextBox());
             this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
             this->toolTipMember = (gcnew System::Windows::Forms::ToolTip(this->components));
             this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
             this->toolStripDropDownButtonProfile = (gcnew System::Windows::Forms::ToolStripDropDownButton());
             this->toolStripStatusLabel = (gcnew System::Windows::Forms::ToolStripStatusLabel());
-            ReloadListToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-            this->menuStrip1->SuspendLayout();
+            ReloadListToolStripMenuItem = (gcnew System::Windows::Forms::MenuItem());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
             this->splitContainer1->Panel1->SuspendLayout();
             this->splitContainer1->Panel2->SuspendLayout();
             this->splitContainer1->SuspendLayout();
-            this->contextMenuStripMember->SuspendLayout();
-            this->contextMenuStripLog->SuspendLayout();
             this->statusStrip1->SuspendLayout();
             this->SuspendLayout();
             // 
             // ReloadListToolStripMenuItem
             // 
-            ReloadListToolStripMenuItem->Name = L"ReloadListToolStripMenuItem";
-            ReloadListToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F5;
-            ReloadListToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            ReloadListToolStripMenuItem->Index = 7;
+            ReloadListToolStripMenuItem->Shortcut = System::Windows::Forms::Shortcut::F5;
             ReloadListToolStripMenuItem->Text = L"&Refresh player list";
             ReloadListToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ReloadListToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
-            this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+            this->menuStrip1->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(5) {
                 this->toolStripMenuItemFile,
                     this->toolStripMenuItemBookMarkMenu, this->CommandToolStripMenuItem, this->toolStripMenuItemOption, this->toolStripMenuItemHelp
             });
-            this->menuStrip1->Location = System::Drawing::Point(0, 0);
-            this->menuStrip1->Name = L"menuStrip1";
-            this->menuStrip1->Size = System::Drawing::Size(528, 24);
-            this->menuStrip1->TabIndex = 0;
-            this->menuStrip1->Text = L"menuStrip1";
             // 
             // toolStripMenuItemFile
             // 
-            this->toolStripMenuItemFile->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+            this->toolStripMenuItemFile->Index = 0;
+            this->toolStripMenuItemFile->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(4) {
                 this->toolStripMenuItemReplay,
                     this->toolStripMenuItemSaveLog, this->toolStripSeparator1, this->toolStripMenuItemExit
             });
-            this->toolStripMenuItemFile->Name = L"toolStripMenuItemFile";
-            this->toolStripMenuItemFile->Size = System::Drawing::Size(37, 20);
             this->toolStripMenuItemFile->Text = L"&File";
             // 
             // toolStripMenuItemReplay
             // 
-            this->toolStripMenuItemReplay->Name = L"toolStripMenuItemReplay";
-            this->toolStripMenuItemReplay->Size = System::Drawing::Size(171, 22);
+            this->toolStripMenuItemReplay->Index = 0;
             this->toolStripMenuItemReplay->Text = L"Open &Replay File...";
             this->toolStripMenuItemReplay->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemReplay_Click);
             // 
             // toolStripMenuItemSaveLog
             // 
-            this->toolStripMenuItemSaveLog->Name = L"toolStripMenuItemSaveLog";
-            this->toolStripMenuItemSaveLog->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::S));
-            this->toolStripMenuItemSaveLog->Size = System::Drawing::Size(171, 22);
+            this->toolStripMenuItemSaveLog->Index = 1;
+            this->toolStripMenuItemSaveLog->Shortcut = System::Windows::Forms::Shortcut::CtrlS;
             this->toolStripMenuItemSaveLog->Text = L"&Save Log";
             this->toolStripMenuItemSaveLog->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSaveLog_Click);
             // 
             // toolStripSeparator1
             // 
-            this->toolStripSeparator1->Name = L"toolStripSeparator1";
-            this->toolStripSeparator1->Size = System::Drawing::Size(168, 6);
+            this->toolStripSeparator1->Index = 2;
+            this->toolStripSeparator1->Text = L"-";
             // 
             // toolStripMenuItemExit
             // 
-            this->toolStripMenuItemExit->Name = L"toolStripMenuItemExit";
-            this->toolStripMenuItemExit->Size = System::Drawing::Size(171, 22);
+            this->toolStripMenuItemExit->Index = 3;
             this->toolStripMenuItemExit->Text = L"&Exit";
             this->toolStripMenuItemExit->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemExit_Click);
             // 
             // toolStripMenuItemBookMarkMenu
             // 
-            this->toolStripMenuItemBookMarkMenu->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+            this->toolStripMenuItemBookMarkMenu->Index = 1;
+            this->toolStripMenuItemBookMarkMenu->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(2) {
                 this->toolStripMenuItemAddBookMark,
                     this->toolStripSeparator8
             });
-            this->toolStripMenuItemBookMarkMenu->Name = L"toolStripMenuItemBookMarkMenu";
-            this->toolStripMenuItemBookMarkMenu->Size = System::Drawing::Size(78, 20);
             this->toolStripMenuItemBookMarkMenu->Text = L"&Bookmarks";
             // 
             // toolStripMenuItemAddBookMark
             // 
-            this->toolStripMenuItemAddBookMark->Name = L"toolStripMenuItemAddBookMark";
-            this->toolStripMenuItemAddBookMark->Size = System::Drawing::Size(152, 22);
+            this->toolStripMenuItemAddBookMark->Index = 0;
             this->toolStripMenuItemAddBookMark->Text = L"&Add server";
             this->toolStripMenuItemAddBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAddBookMark_Click);
             // 
             // toolStripSeparator8
             // 
-            this->toolStripSeparator8->Name = L"toolStripSeparator8";
-            this->toolStripSeparator8->Size = System::Drawing::Size(149, 6);
+            this->toolStripSeparator8->Index = 1;
+            this->toolStripSeparator8->Text = L"-";
             // 
             // CommandToolStripMenuItem
             // 
-            this->CommandToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(13) {
+            this->CommandToolStripMenuItem->Index = 2;
+            this->CommandToolStripMenuItem->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(13) {
                 this->GameStartToolStripMenuItem,
                     this->GameStartNoReplayToolStripMenuItem, this->toolStripSeparator9, this->RestartToolStripMenuItem, this->LeaveToolStripMenuItem,
                     this->RestToolStripMenuItem, this->SeekToolStripMenuItem, ReloadListToolStripMenuItem, this->toolStripSeparator10, this->ClearToolStripMenuItem,
                     this->ToggleHitJudgeToolStripMenuItem, this->toolStripSeparator11, this->GetIPToolStripMenuItem
             });
-            this->CommandToolStripMenuItem->Name = L"CommandToolStripMenuItem";
-            this->CommandToolStripMenuItem->Size = System::Drawing::Size(81, 20);
             this->CommandToolStripMenuItem->Text = L"&Commands";
             // 
             // GameStartToolStripMenuItem
             // 
-            this->GameStartToolStripMenuItem->BackColor = System::Drawing::SystemColors::Control;
-            this->GameStartToolStripMenuItem->Name = L"GameStartToolStripMenuItem";
-            this->GameStartToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->GameStartToolStripMenuItem->Index = 0;
             this->GameStartToolStripMenuItem->Text = L"Start &game";
             this->GameStartToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::GameStartToolStripMenuItem_Click);
             // 
             // GameStartNoReplayToolStripMenuItem
             // 
-            this->GameStartNoReplayToolStripMenuItem->Name = L"GameStartNoReplayToolStripMenuItem";
-            this->GameStartNoReplayToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->GameStartNoReplayToolStripMenuItem->Index = 1;
             this->GameStartNoReplayToolStripMenuItem->Text = L"S&tart game (no replay)";
             this->GameStartNoReplayToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::GameStartNoReplayToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
-            this->toolStripSeparator9->Name = L"toolStripSeparator9";
-            this->toolStripSeparator9->Size = System::Drawing::Size(225, 6);
+            this->toolStripSeparator9->Index = 2;
+            this->toolStripSeparator9->Text = L"-";
             // 
             // RestartToolStripMenuItem
             // 
-            this->RestartToolStripMenuItem->Name = L"RestartToolStripMenuItem";
-            this->RestartToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->RestartToolStripMenuItem->Index = 3;
             this->RestartToolStripMenuItem->Text = L"&Restart";
             this->RestartToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::RestartToolStripMenuItem_Click);
             // 
             // LeaveToolStripMenuItem
             // 
-            this->LeaveToolStripMenuItem->Name = L"LeaveToolStripMenuItem";
-            this->LeaveToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->LeaveToolStripMenuItem->Index = 4;
             this->LeaveToolStripMenuItem->Text = L"&Leave";
             this->LeaveToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::LeaveToolStripMenuItem_Click);
             // 
             // RestToolStripMenuItem
             // 
-            this->RestToolStripMenuItem->Name = L"RestToolStripMenuItem";
-            this->RestToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->RestToolStripMenuItem->Index = 5;
             this->RestToolStripMenuItem->Text = L"Toggle rest &mode";
             this->RestToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::RestToolStripMenuItem_Click);
             // 
             // SeekToolStripMenuItem
             // 
-            this->SeekToolStripMenuItem->Name = L"SeekToolStripMenuItem";
-            this->SeekToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->SeekToolStripMenuItem->Index = 6;
             this->SeekToolStripMenuItem->Text = L"Toggle &seek mode";
             this->SeekToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::SeekToolStripMenuItem_Click);
             // 
             // toolStripSeparator10
             // 
-            this->toolStripSeparator10->Name = L"toolStripSeparator10";
-            this->toolStripSeparator10->Size = System::Drawing::Size(225, 6);
+            this->toolStripSeparator10->Index = 8;
+            this->toolStripSeparator10->Text = L"-";
             // 
             // ClearToolStripMenuItem
             // 
-            this->ClearToolStripMenuItem->Name = L"ClearToolStripMenuItem";
-            this->ClearToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->ClearToolStripMenuItem->Index = 9;
             this->ClearToolStripMenuItem->Text = L"&Clear chat";
             this->ClearToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ClearToolStripMenuItem_Click);
             // 
             // ToggleHitJudgeToolStripMenuItem
             // 
-            this->ToggleHitJudgeToolStripMenuItem->Name = L"ToggleHitJudgeToolStripMenuItem";
-            this->ToggleHitJudgeToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F1;
-            this->ToggleHitJudgeToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->ToggleHitJudgeToolStripMenuItem->Index = 10;
+            this->ToggleHitJudgeToolStripMenuItem->Shortcut = System::Windows::Forms::Shortcut::F1;
             this->ToggleHitJudgeToolStripMenuItem->Text = L"Switch player list view (&H)";
             this->ToggleHitJudgeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ToggleHitJudgeToolStripMenuItem_Click);
             // 
             // toolStripSeparator11
             // 
-            this->toolStripSeparator11->Name = L"toolStripSeparator11";
-            this->toolStripSeparator11->Size = System::Drawing::Size(225, 6);
+            this->toolStripSeparator11->Index = 11;
+            this->toolStripSeparator11->Text = L"-";
             // 
             // GetIPToolStripMenuItem
             // 
-            this->GetIPToolStripMenuItem->Name = L"GetIPToolStripMenuItem";
-            this->GetIPToolStripMenuItem->Size = System::Drawing::Size(228, 22);
+            this->GetIPToolStripMenuItem->Index = 12;
             this->GetIPToolStripMenuItem->Text = L"Get &IP address";
             this->GetIPToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::GetIPToolStripMenuItem_Click);
             // 
             // toolStripMenuItemOption
             // 
-            this->toolStripMenuItemOption->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(11) {
+            this->toolStripMenuItemOption->Index = 3;
+            this->toolStripMenuItemOption->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(11) {
                 this->toolStripMenuItemSetting,
                     this->toolStripSeparator2, this->toolStripMenuItemDelay, this->toolStripSeparator3, this->toolStripMenuItemRecordReplay, this->toolStripMenuItemAllowSpectator,
                     this->toolStripMenuItemWordWrap, this->LogLockToolStripMenuItem, this->toolStripSeparator7, this->toolStripMenuItemAfterRest,
                     this->toolStripMenuItemAutoRest
             });
-            this->toolStripMenuItemOption->Name = L"toolStripMenuItemOption";
-            this->toolStripMenuItemOption->Size = System::Drawing::Size(61, 20);
             this->toolStripMenuItemOption->Text = L"&Options";
             // 
             // toolStripMenuItemSetting
             // 
-            this->toolStripMenuItemSetting->Name = L"toolStripMenuItemSetting";
-            this->toolStripMenuItemSetting->Size = System::Drawing::Size(178, 22);
+            this->toolStripMenuItemSetting->Index = 0;
             this->toolStripMenuItemSetting->Text = L"&Settings...";
             this->toolStripMenuItemSetting->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSetting_Click);
             // 
             // toolStripSeparator2
             // 
-            this->toolStripSeparator2->Name = L"toolStripSeparator2";
-            this->toolStripSeparator2->Size = System::Drawing::Size(175, 6);
+            this->toolStripSeparator2->Index = 1;
+            this->toolStripSeparator2->Text = L"-";
             // 
             // toolStripMenuItemDelay
             // 
-            this->toolStripMenuItemDelay->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(13) {
+            this->toolStripMenuItemDelay->Index = 2;
+            this->toolStripMenuItemDelay->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(13) {
                 this->toolStripMenuItemDelayAuto,
                     this->toolStripSeparator4, this->toolStripMenuItemDelay2, this->toolStripMenuItemDelay3, this->toolStripMenuItemDelay4, this->toolStripMenuItemDelay5,
                     this->toolStripMenuItemDelay6, this->toolStripMenuItemDelay7, this->toolStripMenuItemDelay8, this->toolStripMenuItemDelay9, this->toolStripMenuItemDelay10,
                     this->toolStripMenuItemDelay11, this->toolStripMenuItemDelay12
             });
-            this->toolStripMenuItemDelay->Name = L"toolStripMenuItemDelay";
-            this->toolStripMenuItemDelay->Size = System::Drawing::Size(178, 22);
             this->toolStripMenuItemDelay->Text = L"&Delay";
             // 
             // toolStripMenuItemDelayAuto
             // 
             this->toolStripMenuItemDelayAuto->Checked = true;
-            this->toolStripMenuItemDelayAuto->CheckState = System::Windows::Forms::CheckState::Checked;
-            this->toolStripMenuItemDelayAuto->Name = L"toolStripMenuItemDelayAuto";
-            this->toolStripMenuItemDelayAuto->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelayAuto->Index = 0;
             this->toolStripMenuItemDelayAuto->Text = L"Auto";
             this->toolStripMenuItemDelayAuto->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelayAuto_Click);
             // 
             // toolStripSeparator4
             // 
-            this->toolStripSeparator4->Name = L"toolStripSeparator4";
-            this->toolStripSeparator4->Size = System::Drawing::Size(97, 6);
+            this->toolStripSeparator4->Index = 1;
+            this->toolStripSeparator4->Text = L"-";
             // 
             // toolStripMenuItemDelay2
             // 
-            this->toolStripMenuItemDelay2->Name = L"toolStripMenuItemDelay2";
-            this->toolStripMenuItemDelay2->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay2->Index = 2;
             this->toolStripMenuItemDelay2->Text = L"2";
             this->toolStripMenuItemDelay2->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay2_Click);
             // 
             // toolStripMenuItemDelay3
             // 
-            this->toolStripMenuItemDelay3->Name = L"toolStripMenuItemDelay3";
-            this->toolStripMenuItemDelay3->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay3->Index = 3;
             this->toolStripMenuItemDelay3->Text = L"3";
             this->toolStripMenuItemDelay3->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay3_Click);
             // 
             // toolStripMenuItemDelay4
             // 
-            this->toolStripMenuItemDelay4->Name = L"toolStripMenuItemDelay4";
-            this->toolStripMenuItemDelay4->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay4->Index = 4;
             this->toolStripMenuItemDelay4->Text = L"4";
             this->toolStripMenuItemDelay4->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay4_Click);
             // 
             // toolStripMenuItemDelay5
             // 
-            this->toolStripMenuItemDelay5->Name = L"toolStripMenuItemDelay5";
-            this->toolStripMenuItemDelay5->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay5->Index = 5;
             this->toolStripMenuItemDelay5->Text = L"5";
             this->toolStripMenuItemDelay5->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay5_Click);
             // 
             // toolStripMenuItemDelay6
             // 
-            this->toolStripMenuItemDelay6->Name = L"toolStripMenuItemDelay6";
-            this->toolStripMenuItemDelay6->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay6->Index = 6;
             this->toolStripMenuItemDelay6->Text = L"6";
             this->toolStripMenuItemDelay6->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay6_Click);
             // 
             // toolStripMenuItemDelay7
             // 
-            this->toolStripMenuItemDelay7->Name = L"toolStripMenuItemDelay7";
-            this->toolStripMenuItemDelay7->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay7->Index = 7;
             this->toolStripMenuItemDelay7->Text = L"7";
             this->toolStripMenuItemDelay7->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay7_Click);
             // 
             // toolStripMenuItemDelay8
             // 
-            this->toolStripMenuItemDelay8->Name = L"toolStripMenuItemDelay8";
-            this->toolStripMenuItemDelay8->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay8->Index = 8;
             this->toolStripMenuItemDelay8->Text = L"8";
             this->toolStripMenuItemDelay8->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay8_Click);
             // 
             // toolStripMenuItemDelay9
             // 
-            this->toolStripMenuItemDelay9->Name = L"toolStripMenuItemDelay9";
-            this->toolStripMenuItemDelay9->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay9->Index = 9;
             this->toolStripMenuItemDelay9->Text = L"9";
             this->toolStripMenuItemDelay9->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay9_Click);
             // 
             // toolStripMenuItemDelay10
             // 
-            this->toolStripMenuItemDelay10->Name = L"toolStripMenuItemDelay10";
-            this->toolStripMenuItemDelay10->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay10->Index = 10;
             this->toolStripMenuItemDelay10->Text = L"10";
             this->toolStripMenuItemDelay10->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay10_Click);
             // 
             // toolStripMenuItemDelay11
             // 
-            this->toolStripMenuItemDelay11->Name = L"toolStripMenuItemDelay11";
-            this->toolStripMenuItemDelay11->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay11->Index = 11;
             this->toolStripMenuItemDelay11->Text = L"11";
             this->toolStripMenuItemDelay11->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay11_Click);
             // 
             // toolStripMenuItemDelay12
             // 
-            this->toolStripMenuItemDelay12->Name = L"toolStripMenuItemDelay12";
-            this->toolStripMenuItemDelay12->Size = System::Drawing::Size(100, 22);
+            this->toolStripMenuItemDelay12->Index = 12;
             this->toolStripMenuItemDelay12->Text = L"12";
             this->toolStripMenuItemDelay12->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelay12_Click);
             // 
             // toolStripSeparator3
             // 
-            this->toolStripSeparator3->Name = L"toolStripSeparator3";
-            this->toolStripSeparator3->Size = System::Drawing::Size(175, 6);
+            this->toolStripSeparator3->Index = 3;
+            this->toolStripSeparator3->Text = L"-";
             // 
             // toolStripMenuItemRecordReplay
             // 
             this->toolStripMenuItemRecordReplay->Checked = true;
-            this->toolStripMenuItemRecordReplay->CheckState = System::Windows::Forms::CheckState::Checked;
-            this->toolStripMenuItemRecordReplay->Name = L"toolStripMenuItemRecordReplay";
-            this->toolStripMenuItemRecordReplay->Size = System::Drawing::Size(178, 22);
+            this->toolStripMenuItemRecordReplay->Index = 4;
             this->toolStripMenuItemRecordReplay->Text = L"Save &replays";
             this->toolStripMenuItemRecordReplay->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemRecordReplay_Click);
             // 
             // toolStripMenuItemAllowSpectator
             // 
             this->toolStripMenuItemAllowSpectator->Checked = true;
-            this->toolStripMenuItemAllowSpectator->CheckState = System::Windows::Forms::CheckState::Checked;
-            this->toolStripMenuItemAllowSpectator->Name = L"toolStripMenuItemAllowSpectator";
-            this->toolStripMenuItemAllowSpectator->Size = System::Drawing::Size(178, 22);
+            this->toolStripMenuItemAllowSpectator->Index = 5;
             this->toolStripMenuItemAllowSpectator->Text = L"&Allow spectators";
             this->toolStripMenuItemAllowSpectator->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAllowSpectator_Click);
             // 
             // toolStripMenuItemWordWrap
             // 
-            this->toolStripMenuItemWordWrap->Name = L"toolStripMenuItemWordWrap";
-            this->toolStripMenuItemWordWrap->Size = System::Drawing::Size(178, 22);
+            this->toolStripMenuItemWordWrap->Index = 6;
             this->toolStripMenuItemWordWrap->Text = L"&Word wrap chat";
             this->toolStripMenuItemWordWrap->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemWordWrap_Click);
             // 
             // LogLockToolStripMenuItem
             // 
             this->LogLockToolStripMenuItem->Checked = true;
-            this->LogLockToolStripMenuItem->CheckState = System::Windows::Forms::CheckState::Checked;
-            this->LogLockToolStripMenuItem->Name = L"LogLockToolStripMenuItem";
-            this->LogLockToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F3;
-            this->LogLockToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+            this->LogLockToolStripMenuItem->Index = 7;
+            this->LogLockToolStripMenuItem->Shortcut = System::Windows::Forms::Shortcut::F3;
             this->LogLockToolStripMenuItem->Text = L"Auto-scro&ll chat";
             this->LogLockToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::LogLockToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
-            this->toolStripSeparator7->Name = L"toolStripSeparator7";
-            this->toolStripSeparator7->Size = System::Drawing::Size(175, 6);
+            this->toolStripSeparator7->Index = 8;
+            this->toolStripSeparator7->Text = L"-";
             // 
             // toolStripMenuItemAfterRest
             // 
-            this->toolStripMenuItemAfterRest->Name = L"toolStripMenuItemAfterRest";
-            this->toolStripMenuItemAfterRest->Size = System::Drawing::Size(178, 22);
+            this->toolStripMenuItemAfterRest->Index = 9;
             this->toolStripMenuItemAfterRest->Text = L"Rest after &net battle";
             this->toolStripMenuItemAfterRest->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAfterRest_Click);
             // 
             // toolStripMenuItemAutoRest
             // 
-            this->toolStripMenuItemAutoRest->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(9) {
+            this->toolStripMenuItemAutoRest->Index = 10;
+            this->toolStripMenuItemAutoRest->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(9) {
                 this->toolStripMenuItemAutoRestEnable,
                     this->toolStripSeparator13, this->toolStripMenuItemAutoRestTime5, this->toolStripMenuItemAutoRestTime10, this->toolStripMenuItemAutoRestTime15,
                     this->toolStripMenuItemAutoRestTime20, this->toolStripMenuItemAutoRestTime30, this->toolStripMenuItemAutoRestTime60, this->toolStripMenuItemAutoRestTime120
             });
-            this->toolStripMenuItemAutoRest->Name = L"toolStripMenuItemAutoRest";
-            this->toolStripMenuItemAutoRest->Size = System::Drawing::Size(178, 22);
             this->toolStripMenuItemAutoRest->Text = L"Auto-rest after";
             // 
             // toolStripMenuItemAutoRestEnable
             // 
-            this->toolStripMenuItemAutoRestEnable->Name = L"toolStripMenuItemAutoRestEnable";
-            this->toolStripMenuItemAutoRestEnable->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestEnable->Index = 0;
             this->toolStripMenuItemAutoRestEnable->Text = L"Enabled";
             this->toolStripMenuItemAutoRestEnable->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestEnable_Click);
             // 
             // toolStripSeparator13
             // 
-            this->toolStripSeparator13->Name = L"toolStripSeparator13";
-            this->toolStripSeparator13->Size = System::Drawing::Size(135, 6);
+            this->toolStripSeparator13->Index = 1;
+            this->toolStripSeparator13->Text = L"-";
             // 
             // toolStripMenuItemAutoRestTime5
             // 
-            this->toolStripMenuItemAutoRestTime5->Name = L"toolStripMenuItemAutoRestTime5";
-            this->toolStripMenuItemAutoRestTime5->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestTime5->Index = 2;
+            this->toolStripMenuItemAutoRestTime5->RadioCheck = true;
             this->toolStripMenuItemAutoRestTime5->Text = L"5 minutes";
             this->toolStripMenuItemAutoRestTime5->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestTime5_Click);
             // 
             // toolStripMenuItemAutoRestTime10
             // 
-            this->toolStripMenuItemAutoRestTime10->Name = L"toolStripMenuItemAutoRestTime10";
-            this->toolStripMenuItemAutoRestTime10->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestTime10->Index = 3;
+            this->toolStripMenuItemAutoRestTime10->RadioCheck = true;
             this->toolStripMenuItemAutoRestTime10->Text = L"10 minutes";
             this->toolStripMenuItemAutoRestTime10->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestTime10_Click);
             // 
             // toolStripMenuItemAutoRestTime15
             // 
-            this->toolStripMenuItemAutoRestTime15->Name = L"toolStripMenuItemAutoRestTime15";
-            this->toolStripMenuItemAutoRestTime15->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestTime15->Index = 4;
+            this->toolStripMenuItemAutoRestTime15->RadioCheck = true;
             this->toolStripMenuItemAutoRestTime15->Text = L"15 minutes";
             this->toolStripMenuItemAutoRestTime15->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestTime15_Click);
             // 
             // toolStripMenuItemAutoRestTime20
             // 
-            this->toolStripMenuItemAutoRestTime20->Name = L"toolStripMenuItemAutoRestTime20";
-            this->toolStripMenuItemAutoRestTime20->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestTime20->Index = 5;
+            this->toolStripMenuItemAutoRestTime20->RadioCheck = true;
             this->toolStripMenuItemAutoRestTime20->Text = L"20 minutes";
             this->toolStripMenuItemAutoRestTime20->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestTime20_Click);
             // 
             // toolStripMenuItemAutoRestTime30
             // 
-            this->toolStripMenuItemAutoRestTime30->Name = L"toolStripMenuItemAutoRestTime30";
-            this->toolStripMenuItemAutoRestTime30->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestTime30->Index = 6;
+            this->toolStripMenuItemAutoRestTime30->RadioCheck = true;
             this->toolStripMenuItemAutoRestTime30->Text = L"30 minutes";
             this->toolStripMenuItemAutoRestTime30->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestTime30_Click);
             // 
             // toolStripMenuItemAutoRestTime60
             // 
-            this->toolStripMenuItemAutoRestTime60->Name = L"toolStripMenuItemAutoRestTime60";
-            this->toolStripMenuItemAutoRestTime60->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestTime60->Index = 7;
+            this->toolStripMenuItemAutoRestTime60->RadioCheck = true;
             this->toolStripMenuItemAutoRestTime60->Text = L"60 minutes";
             this->toolStripMenuItemAutoRestTime60->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestTime60_Click);
             // 
             // toolStripMenuItemAutoRestTime120
             // 
-            this->toolStripMenuItemAutoRestTime120->Name = L"toolStripMenuItemAutoRestTime120";
-            this->toolStripMenuItemAutoRestTime120->Size = System::Drawing::Size(138, 22);
+            this->toolStripMenuItemAutoRestTime120->Index = 8;
+            this->toolStripMenuItemAutoRestTime120->RadioCheck = true;
             this->toolStripMenuItemAutoRestTime120->Text = L"120 minutes";
             this->toolStripMenuItemAutoRestTime120->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemAutoRestTime120_Click);
             // 
             // toolStripMenuItemHelp
             // 
-            this->toolStripMenuItemHelp->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+            this->toolStripMenuItemHelp->Index = 4;
+            this->toolStripMenuItemHelp->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(4) {
                 this->toolStripMenuItemViewCommand,
                     this->toolStripMenuItemChangeList, this->toolStripSeparator5, this->toolStripMenuItemVersion
             });
-            this->toolStripMenuItemHelp->Name = L"toolStripMenuItemHelp";
-            this->toolStripMenuItemHelp->ShortcutKeyDisplayString = L"Ctrl+L";
-            this->toolStripMenuItemHelp->Size = System::Drawing::Size(44, 20);
             this->toolStripMenuItemHelp->Text = L"&Help";
             // 
             // toolStripMenuItemViewCommand
             // 
-            this->toolStripMenuItemViewCommand->Name = L"toolStripMenuItemViewCommand";
-            this->toolStripMenuItemViewCommand->Size = System::Drawing::Size(175, 22);
+            this->toolStripMenuItemViewCommand->Index = 0;
             this->toolStripMenuItemViewCommand->Text = L"&Command List";
             this->toolStripMenuItemViewCommand->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemViewCommand_Click);
             // 
             // toolStripMenuItemChangeList
             // 
-            this->toolStripMenuItemChangeList->Name = L"toolStripMenuItemChangeList";
-            this->toolStripMenuItemChangeList->ShortcutKeys = System::Windows::Forms::Keys::F2;
-            this->toolStripMenuItemChangeList->Size = System::Drawing::Size(175, 22);
+            this->toolStripMenuItemChangeList->Index = 1;
+            this->toolStripMenuItemChangeList->Shortcut = System::Windows::Forms::Shortcut::F2;
             this->toolStripMenuItemChangeList->Text = L"Toggle &list view";
             this->toolStripMenuItemChangeList->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemChangeList_Click);
             // 
             // toolStripSeparator5
             // 
-            this->toolStripSeparator5->Name = L"toolStripSeparator5";
-            this->toolStripSeparator5->Size = System::Drawing::Size(172, 6);
+            this->toolStripSeparator5->Index = 2;
+            this->toolStripSeparator5->Text = L"-";
             // 
             // toolStripMenuItemVersion
             // 
-            this->toolStripMenuItemVersion->Name = L"toolStripMenuItemVersion";
-            this->toolStripMenuItemVersion->Size = System::Drawing::Size(175, 22);
+            this->toolStripMenuItemVersion->Index = 3;
             this->toolStripMenuItemVersion->Text = L"&About...";
             this->toolStripMenuItemVersion->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemVersion_Click);
             // 
@@ -751,7 +696,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->splitContainer1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-            this->splitContainer1->Location = System::Drawing::Point(0, 28);
+            this->splitContainer1->Location = System::Drawing::Point(0, 0);
             this->splitContainer1->Name = L"splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -760,77 +705,68 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             // 
             // splitContainer1.Panel2
             // 
-            this->splitContainer1->Panel2->Controls->Add(this->richTextBoxLog);
             this->splitContainer1->Panel2->Controls->Add(this->textBoxInput);
-            this->splitContainer1->Size = System::Drawing::Size(528, 322);
-            this->splitContainer1->SplitterDistance = 90;
+            this->splitContainer1->Panel2->Controls->Add(this->richTextBoxLog);
+            this->splitContainer1->Size = System::Drawing::Size(656, 375);
+            this->splitContainer1->SplitterDistance = 96;
             this->splitContainer1->TabIndex = 2;
             this->splitContainer1->TabStop = false;
             // 
             // listBoxMember
             // 
             this->listBoxMember->BorderStyle = System::Windows::Forms::BorderStyle::None;
-            this->listBoxMember->ContextMenuStrip = this->contextMenuStripMember;
+            this->listBoxMember->ContextMenu = this->contextMenuStrip1;
             this->listBoxMember->Dock = System::Windows::Forms::DockStyle::Fill;
             this->listBoxMember->DrawMode = System::Windows::Forms::DrawMode::OwnerDrawFixed;
             this->listBoxMember->FormattingEnabled = true;
             this->listBoxMember->ItemHeight = 12;
             this->listBoxMember->Location = System::Drawing::Point(0, 0);
             this->listBoxMember->Name = L"listBoxMember";
-            this->listBoxMember->Size = System::Drawing::Size(88, 320);
+            this->listBoxMember->Size = System::Drawing::Size(94, 373);
             this->listBoxMember->TabIndex = 2;
             this->listBoxMember->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseClick);
             this->listBoxMember->DrawItem += gcnew System::Windows::Forms::DrawItemEventHandler(this, &MainForm::listBoxMember_DrawItem);
             this->listBoxMember->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseDoubleClick);
             // 
-            // contextMenuStripMember
+            // contextMenuStrip1
             // 
-            this->contextMenuStripMember->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+            this->contextMenuStrip1->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(6) {
                 this->toolStripMenuItemVS,
                     this->toolStripMenuItemWatch, this->toolStripMenuItemSeek, this->toolStripMenuItemPing, this->toolStripSeparator12, this->toolStripMenuItemKick
             });
-            this->contextMenuStripMember->Name = L"contextMenuStrip1";
-            this->contextMenuStripMember->ShowImageMargin = false;
-            this->contextMenuStripMember->Size = System::Drawing::Size(122, 120);
-            this->contextMenuStripMember->Opening += gcnew System::ComponentModel::CancelEventHandler(this, &MainForm::contextMenuStripMember_Opening);
             // 
             // toolStripMenuItemVS
             // 
-            this->toolStripMenuItemVS->Name = L"toolStripMenuItemVS";
-            this->toolStripMenuItemVS->Size = System::Drawing::Size(121, 22);
+            this->toolStripMenuItemVS->Index = 0;
             this->toolStripMenuItemVS->Text = L"Fight";
             this->toolStripMenuItemVS->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemVS_Click);
             // 
             // toolStripMenuItemWatch
             // 
-            this->toolStripMenuItemWatch->Name = L"toolStripMenuItemWatch";
-            this->toolStripMenuItemWatch->Size = System::Drawing::Size(121, 22);
+            this->toolStripMenuItemWatch->Index = 1;
             this->toolStripMenuItemWatch->Text = L"Spectate";
             this->toolStripMenuItemWatch->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemWatch_Click);
             // 
             // toolStripMenuItemSeek
             // 
-            this->toolStripMenuItemSeek->Name = L"toolStripMenuItemSeek";
-            this->toolStripMenuItemSeek->Size = System::Drawing::Size(121, 22);
-            this->toolStripMenuItemSeek->Text = L"Seek/Challenge"; //対戦募集する
+            this->toolStripMenuItemSeek->Index = 2;
+            this->toolStripMenuItemSeek->Text = L"Seek/Challenge";
             this->toolStripMenuItemSeek->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSeek_Click);
             // 
             // toolStripMenuItemPing
             // 
-            this->toolStripMenuItemPing->Name = L"toolStripMenuItemPing";
-            this->toolStripMenuItemPing->Size = System::Drawing::Size(121, 22);
+            this->toolStripMenuItemPing->Index = 3;
             this->toolStripMenuItemPing->Text = L"Ping";
             this->toolStripMenuItemPing->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemPing_Click);
             // 
             // toolStripSeparator12
             // 
-            this->toolStripSeparator12->Name = L"toolStripSeparator12";
-            this->toolStripSeparator12->Size = System::Drawing::Size(118, 6);
+            this->toolStripSeparator12->Index = 4;
+            this->toolStripSeparator12->Text = L"-";
             // 
             // toolStripMenuItemKick
             // 
-            this->toolStripMenuItemKick->Name = L"toolStripMenuItemKick";
-            this->toolStripMenuItemKick->Size = System::Drawing::Size(121, 22);
+            this->toolStripMenuItemKick->Index = 5;
             this->toolStripMenuItemKick->Text = L"Kick";
             this->toolStripMenuItemKick->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemKick_Click);
             // 
@@ -838,46 +774,41 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             // 
             this->richTextBoxLog->BackColor = System::Drawing::SystemColors::Window;
             this->richTextBoxLog->BorderStyle = System::Windows::Forms::BorderStyle::None;
-            this->richTextBoxLog->ContextMenuStrip = this->contextMenuStripLog;
+            this->richTextBoxLog->ContextMenu = this->contextMenuStrip2;
             this->richTextBoxLog->Dock = System::Windows::Forms::DockStyle::Fill;
             this->richTextBoxLog->Location = System::Drawing::Point(0, 0);
             this->richTextBoxLog->Name = L"richTextBoxLog";
             this->richTextBoxLog->ReadOnly = true;
-            this->richTextBoxLog->Size = System::Drawing::Size(432, 300);
+            this->richTextBoxLog->Size = System::Drawing::Size(554, 373);
             this->richTextBoxLog->TabIndex = 0;
             this->richTextBoxLog->TabStop = false;
             this->richTextBoxLog->Text = L"";
             this->richTextBoxLog->WordWrap = false;
             this->richTextBoxLog->LinkClicked += gcnew System::Windows::Forms::LinkClickedEventHandler(this, &MainForm::richTextBoxLog_LinkClicked);
             // 
-            // contextMenuStripLog
+            // contextMenuStrip2
             // 
-            this->contextMenuStripLog->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+            this->contextMenuStrip2->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(3) {
                 this->contextMenuItemCopy,
                     this->toolStripSeparator6, this->contxtMenuItemSaveLog
             });
-            this->contextMenuStripLog->Name = L"contextMenuStrip2";
-            this->contextMenuStripLog->ShowImageMargin = false;
-            this->contextMenuStripLog->Size = System::Drawing::Size(164, 54);
             // 
             // contextMenuItemCopy
             // 
-            this->contextMenuItemCopy->Name = L"contextMenuItemCopy";
-            this->contextMenuItemCopy->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::C));
-            this->contextMenuItemCopy->Size = System::Drawing::Size(163, 22);
+            this->contextMenuItemCopy->Index = 0;
+            this->contextMenuItemCopy->Shortcut = System::Windows::Forms::Shortcut::CtrlC;
             this->contextMenuItemCopy->Text = L"&Copy";
             this->contextMenuItemCopy->Click += gcnew System::EventHandler(this, &MainForm::contextMenuItemCopy_Click);
             // 
             // toolStripSeparator6
             // 
-            this->toolStripSeparator6->Name = L"toolStripSeparator6";
-            this->toolStripSeparator6->Size = System::Drawing::Size(160, 6);
+            this->toolStripSeparator6->Index = 1;
+            this->toolStripSeparator6->Text = L"-";
             // 
             // contxtMenuItemSaveLog
             // 
-            this->contxtMenuItemSaveLog->Name = L"contxtMenuItemSaveLog";
-            this->contxtMenuItemSaveLog->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::S));
-            this->contxtMenuItemSaveLog->Size = System::Drawing::Size(163, 22);
+            this->contxtMenuItemSaveLog->Index = 2;
+            this->contxtMenuItemSaveLog->Shortcut = System::Windows::Forms::Shortcut::CtrlS;
             this->contxtMenuItemSaveLog->Text = L"&Save log";
             this->contxtMenuItemSaveLog->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSaveLog_Click);
             // 
@@ -885,10 +816,10 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             // 
             this->textBoxInput->BackColor = System::Drawing::SystemColors::Window;
             this->textBoxInput->Dock = System::Windows::Forms::DockStyle::Bottom;
-            this->textBoxInput->Location = System::Drawing::Point(0, 300);
-            this->textBoxInput->MaxLength = 127;
+            this->textBoxInput->Location = System::Drawing::Point(0, 353);
+            this->textBoxInput->MaxLength = 255;
             this->textBoxInput->Name = L"textBoxInput";
-            this->textBoxInput->Size = System::Drawing::Size(432, 20);
+            this->textBoxInput->Size = System::Drawing::Size(554, 20);
             this->textBoxInput->TabIndex = 0;
             this->textBoxInput->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::textBoxInput_KeyDown);
             // 
@@ -903,10 +834,10 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
                 this->toolStripDropDownButtonProfile,
                     this->toolStripStatusLabel
             });
-            this->statusStrip1->Location = System::Drawing::Point(0, 357);
+            this->statusStrip1->Location = System::Drawing::Point(0, 378);
             this->statusStrip1->Name = L"statusStrip1";
             this->statusStrip1->RightToLeft = System::Windows::Forms::RightToLeft::No;
-            this->statusStrip1->Size = System::Drawing::Size(528, 22);
+            this->statusStrip1->Size = System::Drawing::Size(658, 22);
             this->statusStrip1->TabIndex = 3;
             this->statusStrip1->Text = L"statusStrip1";
             // 
@@ -934,12 +865,11 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             this->AllowDrop = true;
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->ClientSize = System::Drawing::Size(528, 379);
+            this->ClientSize = System::Drawing::Size(658, 400);
             this->Controls->Add(this->statusStrip1);
             this->Controls->Add(this->splitContainer1);
-            this->Controls->Add(this->menuStrip1);
             this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-            this->MainMenuStrip = this->menuStrip1;
+            this->Menu = this->menuStrip1;
             this->Name = L"MainForm";
             this->Text = L"LilithPort";
             this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MainForm::MainForm_FormClosing);
@@ -948,15 +878,11 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
             this->Shown += gcnew System::EventHandler(this, &MainForm::MainForm_Shown);
             this->DragDrop += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::MainForm_DragDrop);
             this->DragEnter += gcnew System::Windows::Forms::DragEventHandler(this, &MainForm::MainForm_DragEnter);
-            this->menuStrip1->ResumeLayout(false);
-            this->menuStrip1->PerformLayout();
             this->splitContainer1->Panel1->ResumeLayout(false);
             this->splitContainer1->Panel2->ResumeLayout(false);
             this->splitContainer1->Panel2->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
             this->splitContainer1->ResumeLayout(false);
-            this->contextMenuStripMember->ResumeLayout(false);
-            this->contextMenuStripLog->ResumeLayout(false);
             this->statusStrip1->ResumeLayout(false);
             this->statusStrip1->PerformLayout();
             this->ResumeLayout(false);
@@ -2690,16 +2616,16 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 			String^ tmpIP = ConnectIP;
 			UINT tmpInt = MTOPTION.BOOKMARK_COUNT;
 
-			toolStripMenuItemBookMark = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			toolStripMenuItemBookMarkMenu->DropDownItems->Add(toolStripMenuItemBookMark);
+			toolStripMenuItemBookMark = (gcnew System::Windows::Forms::MenuItem());
+			toolStripMenuItemBookMarkMenu->MenuItems->Add(toolStripMenuItemBookMark);
 			toolStripMenuItemBookMark->Text = ServerName;
 			toolStripMenuItemBookMark->Name = L"toolStripMenuItemBookMark" + MTOPTION.BOOKMARK_COUNT;
 			toolStripMenuItemBookMark->Tag = MTOPTION.BOOKMARK_COUNT;
 			toolStripMenuItemBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemBookMark_Click);
 
 			// 削除メニュー
-			toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			toolStripMenuItemBookMark->DropDownItems->Add(toolStripMenuItemDelBookMark);
+			toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::MenuItem());
+			toolStripMenuItemBookMark->MenuItems->Add(toolStripMenuItemDelBookMark);
 			toolStripMenuItemDelBookMark->Text = L"&Delete";
 			toolStripMenuItemDelBookMark->Tag = L"toolStripMenuItemBookMark" + MTOPTION.BOOKMARK_COUNT;
 			toolStripMenuItemDelBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelBookMark_Click);
@@ -2721,9 +2647,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		}
 		// ブックマーク接続
 		System::Void toolStripMenuItemBookMark_Click(System::Object^ sender, System::EventArgs^ e) {
-			UINT tmpInt = (UINT)((ToolStripMenuItem^)sender)->Tag;
+			UINT tmpInt = (UINT)((MenuItem^)sender)->Tag;
 
-			if(MessageBox::Show(L"Connect to "+((ToolStripMenuItem^)sender)->Text+ L"?\n", L"Connect from Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+			if(MessageBox::Show(L"Connect to "+((MenuItem^)sender)->Text+ L"?\n", L"Connect from Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 			}else{
 				return;
 			}
@@ -2737,10 +2663,10 @@ private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItemWordWrap;
 		// ブックマーク削除
 		System::Void toolStripMenuItemDelBookMark_Click(System::Object^ sender, System::EventArgs^ e) {
 			Object^ tmpTag;
-			tmpTag = ((ToolStripMenuItem^)sender)->Tag;
-			UINT tmpInt = (UINT)toolStripMenuItemBookMarkMenu->DropDownItems[(String^)tmpTag]->Tag;
-			if(MessageBox::Show((String^)toolStripMenuItemBookMarkMenu->DropDownItems[(String^)tmpTag]->Text+ L" will be deleted.\nContinue?", L"Delete Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
-				toolStripMenuItemBookMarkMenu->DropDownItems->Remove(toolStripMenuItemBookMarkMenu->DropDownItems[(String^)tmpTag]);
+			tmpTag = ((MenuItem^)sender)->Tag;
+			UINT tmpInt = (UINT)toolStripMenuItemBookMarkMenu->MenuItems[(String^)tmpTag]->Tag;
+			if(MessageBox::Show((String^)toolStripMenuItemBookMarkMenu->MenuItems[(String^)tmpTag]->Text+ L" will be deleted.\nContinue?", L"Delete Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+				toolStripMenuItemBookMarkMenu->MenuItems->Remove(toolStripMenuItemBookMarkMenu->MenuItems[(String^)tmpTag]);
 				MTOPTION.BOOKMARK_DELETED_COUNT++;
 
 				ZeroMemory(MTOPTION.BOOKMARK_SERVER_NAME[tmpInt], sizeof(MTOPTION.BOOKMARK_SERVER_NAME[tmpInt]));
