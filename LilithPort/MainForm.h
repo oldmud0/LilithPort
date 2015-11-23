@@ -265,12 +265,12 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->toolStripMenuItemPing = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripSeparator12 = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripMenuItemKick = (gcnew System::Windows::Forms::MenuItem());
+            this->textBoxInput = (gcnew System::Windows::Forms::TextBox());
             this->richTextBoxLog = (gcnew System::Windows::Forms::RichTextBox());
             this->contextMenuStrip2 = (gcnew System::Windows::Forms::ContextMenu());
             this->contextMenuItemCopy = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripSeparator6 = (gcnew System::Windows::Forms::MenuItem());
             this->contxtMenuItemSaveLog = (gcnew System::Windows::Forms::MenuItem());
-            this->textBoxInput = (gcnew System::Windows::Forms::TextBox());
             this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
             this->toolTipMember = (gcnew System::Windows::Forms::ToolTip(this->components));
             this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
@@ -770,16 +770,29 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->toolStripMenuItemKick->Text = L"Kick";
             this->toolStripMenuItemKick->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemKick_Click);
             // 
+            // textBoxInput
+            // 
+            this->textBoxInput->BackColor = System::Drawing::SystemColors::Window;
+            this->textBoxInput->Dock = System::Windows::Forms::DockStyle::Bottom;
+            this->textBoxInput->Location = System::Drawing::Point(0, 353);
+            this->textBoxInput->MaxLength = 255;
+            this->textBoxInput->Name = L"textBoxInput";
+            this->textBoxInput->Size = System::Drawing::Size(554, 20);
+            this->textBoxInput->TabIndex = 0;
+            this->textBoxInput->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::textBoxInput_KeyDown);
+            // 
             // richTextBoxLog
             // 
+            this->richTextBoxLog->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->richTextBoxLog->BackColor = System::Drawing::SystemColors::Window;
             this->richTextBoxLog->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->richTextBoxLog->ContextMenu = this->contextMenuStrip2;
-            this->richTextBoxLog->Dock = System::Windows::Forms::DockStyle::Fill;
             this->richTextBoxLog->Location = System::Drawing::Point(0, 0);
             this->richTextBoxLog->Name = L"richTextBoxLog";
             this->richTextBoxLog->ReadOnly = true;
-            this->richTextBoxLog->Size = System::Drawing::Size(554, 373);
+            this->richTextBoxLog->Size = System::Drawing::Size(554, 353);
             this->richTextBoxLog->TabIndex = 0;
             this->richTextBoxLog->TabStop = false;
             this->richTextBoxLog->Text = L"";
@@ -811,17 +824,6 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->contxtMenuItemSaveLog->Shortcut = System::Windows::Forms::Shortcut::CtrlS;
             this->contxtMenuItemSaveLog->Text = L"&Save log";
             this->contxtMenuItemSaveLog->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSaveLog_Click);
-            // 
-            // textBoxInput
-            // 
-            this->textBoxInput->BackColor = System::Drawing::SystemColors::Window;
-            this->textBoxInput->Dock = System::Windows::Forms::DockStyle::Bottom;
-            this->textBoxInput->Location = System::Drawing::Point(0, 353);
-            this->textBoxInput->MaxLength = 255;
-            this->textBoxInput->Name = L"textBoxInput";
-            this->textBoxInput->Size = System::Drawing::Size(554, 20);
-            this->textBoxInput->TabIndex = 0;
-            this->textBoxInput->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::textBoxInput_KeyDown);
             // 
             // openFileDialog1
             // 

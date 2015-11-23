@@ -2411,6 +2411,9 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(openFileDialog1->FileName);
 
+                if (MTINFO.DEBUG)
+                    MessageBox::Show(info->Language + "\n" + info->FileDescription, "Debug: File version info");
+
 				if(info->FileDescription == L"２Ｄ格闘ツクール2nd." || info->FileDescription == L"２Ｄ格闘ツクール９５"){
 					textBoxGameExe->Text = openFileDialog1->FileName;
 				}
