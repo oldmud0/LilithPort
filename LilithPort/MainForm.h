@@ -170,7 +170,6 @@ private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime30;
 private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime60;
 private: System::Windows::Forms::MenuItem^  toolStripMenuItemAutoRestTime120;
 private: System::Windows::Forms::MenuItem^  toolStripMenuItemWordWrap;
-private: System::Windows::Forms::ContextMenu^  contextMenuStrip1;
 private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 
 
@@ -258,7 +257,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->toolStripMenuItemVersion = (gcnew System::Windows::Forms::MenuItem());
             this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
             this->listBoxMember = (gcnew System::Windows::Forms::ListBox());
-            this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenu());
+            this->contextMenuStripMember = (gcnew System::Windows::Forms::ContextMenu());
             this->toolStripMenuItemVS = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripMenuItemWatch = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripMenuItemSeek = (gcnew System::Windows::Forms::MenuItem());
@@ -715,7 +714,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             // listBoxMember
             // 
             this->listBoxMember->BorderStyle = System::Windows::Forms::BorderStyle::None;
-            this->listBoxMember->ContextMenu = this->contextMenuStrip1;
+            this->listBoxMember->ContextMenu = this->contextMenuStripMember;
             this->listBoxMember->Dock = System::Windows::Forms::DockStyle::Fill;
             this->listBoxMember->DrawMode = System::Windows::Forms::DrawMode::OwnerDrawFixed;
             this->listBoxMember->FormattingEnabled = true;
@@ -728,12 +727,13 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->listBoxMember->DrawItem += gcnew System::Windows::Forms::DrawItemEventHandler(this, &MainForm::listBoxMember_DrawItem);
             this->listBoxMember->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseDoubleClick);
             // 
-            // contextMenuStrip1
+            // contextMenuStripMember
             // 
-            this->contextMenuStrip1->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(6) {
+            this->contextMenuStripMember->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(6) {
                 this->toolStripMenuItemVS,
                     this->toolStripMenuItemWatch, this->toolStripMenuItemSeek, this->toolStripMenuItemPing, this->toolStripSeparator12, this->toolStripMenuItemKick
             });
+            this->contextMenuStripMember->Popup += gcnew System::EventHandler(this, &MainForm::contextMenuStripMember_Opening);
             // 
             // toolStripMenuItemVS
             // 
@@ -3036,7 +3036,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			
 		}
 
-		System::Void contextMenuStripMember_Opening(System::Object^  sender, System::ComponentModel::CancelEventArgs^  e) {
+		System::Void contextMenuStripMember_Opening(System::Object^  sender, System::EventArgs^  e) {
 			
 			toolStripMenuItemKick->Enabled     = false;
 
@@ -3056,6 +3056,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			if(( ( state == MS_FREE || state == MS_SEEK) && ( MemberList[0]->STATE == MS_FREE || MemberList[0]->STATE == MS_SEEK )) || ListView == LV_BLIND){
 				toolStripMenuItemVS->Enabled       = true;
 			}
+
 			if(listBoxMember->SelectedIndex == 0){
 				if(state != MS_WATCH && state != MS_COUCH){
 					toolStripMenuItemWatch->Enabled = false;
