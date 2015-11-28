@@ -44,13 +44,18 @@ namespace LilithPort {
 					toolStripMenuItemBookMark->Text = tmpName;
 					toolStripMenuItemBookMark->Name = L"toolStripMenuItemBookMark" + i;
 					toolStripMenuItemBookMark->Tag = i;
-					toolStripMenuItemBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemBookMark_Click);
 					
 					toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::MenuItem());
 					toolStripMenuItemBookMark->MenuItems->Add(toolStripMenuItemDelBookMark);
                     toolStripMenuItemDelBookMark->Text = L"&Delete";
 					toolStripMenuItemDelBookMark->Tag = L"toolStripMenuItemBookMark" + i;
 					toolStripMenuItemDelBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelBookMark_Click);
+
+                    toolStripMenuItemConnectToBookmark = gcnew System::Windows::Forms::MenuItem();
+                    toolStripMenuItemBookMark->MenuItems->Add(toolStripMenuItemConnectToBookmark);
+                    toolStripMenuItemConnectToBookmark->Text = L"&Connect";
+                    toolStripMenuItemConnectToBookmark->Tag = i;
+                    toolStripMenuItemConnectToBookmark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemConnectToBookMark_Click);
 				}
 			}
 
@@ -134,6 +139,7 @@ namespace LilithPort {
 	private: System::Windows::Forms::MenuItem^  toolStripMenuItemAddBookMark;
 	private: System::Windows::Forms::MenuItem^  toolStripMenuItemBookMark;
 	private: System::Windows::Forms::MenuItem^  toolStripMenuItemDelBookMark;
+    private: System::Windows::Forms::MenuItem^  toolStripMenuItemConnectToBookmark;
     private: System::Windows::Forms::MenuItem^  toolStripSeparator8;
 
     private: System::Windows::Forms::MenuItem^  CommandToolStripMenuItem;
@@ -2623,7 +2629,6 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			toolStripMenuItemBookMark->Text = ServerName;
 			toolStripMenuItemBookMark->Name = L"toolStripMenuItemBookMark" + MTOPTION.BOOKMARK_COUNT;
 			toolStripMenuItemBookMark->Tag = MTOPTION.BOOKMARK_COUNT;
-			toolStripMenuItemBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemBookMark_Click);
 
 			// 削除メニュー
 			toolStripMenuItemDelBookMark = (gcnew System::Windows::Forms::MenuItem());
@@ -2632,6 +2637,12 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			toolStripMenuItemDelBookMark->Tag = L"toolStripMenuItemBookMark" + MTOPTION.BOOKMARK_COUNT;
 			toolStripMenuItemDelBookMark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemDelBookMark_Click);
 			
+            toolStripMenuItemConnectToBookmark = gcnew System::Windows::Forms::MenuItem();
+            toolStripMenuItemBookMark->MenuItems->Add(toolStripMenuItemConnectToBookmark);
+            toolStripMenuItemConnectToBookmark->Text = L"&Connect";
+            toolStripMenuItemConnectToBookmark->Tag = MTOPTION.BOOKMARK_COUNT;
+            toolStripMenuItemConnectToBookmark->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemConnectToBookMark_Click);
+
 			BookMarkServerName = Runtime::InteropServices::Marshal::StringToHGlobalAuto(tmpName);
 			_tcscpy_s(MTOPTION.BOOKMARK_SERVER_NAME[tmpInt], static_cast<PTCHAR>(BookMarkServerName.ToPointer()));
 			Runtime::InteropServices::Marshal::FreeHGlobal(BookMarkServerName);
@@ -2648,10 +2659,11 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			SaveMTOption();
 		}
 		// ブックマーク接続
-		System::Void toolStripMenuItemBookMark_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Void toolStripMenuItemConnectToBookMark_Click(System::Object^ sender, System::EventArgs^ e) {
 			UINT tmpInt = (UINT)((MenuItem^)sender)->Tag;
+            String^ tmpName = gcnew String(MTOPTION.BOOKMARK_SERVER_NAME[tmpInt]);
 
-			if(MessageBox::Show(L"Connect to "+((MenuItem^)sender)->Text+ L"?\n", L"Connect from Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
+			if(MessageBox::Show(L"Connect to "+ tmpName + L"?\n", L"Connect from Bookmark", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == ::DialogResult::Yes){
 			}else{
 				return;
 			}
