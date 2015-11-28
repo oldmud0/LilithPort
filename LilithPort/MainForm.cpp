@@ -3566,7 +3566,7 @@ void MainForm::ChangeSeek() {
 		ChangeState((BYTE)MS_SEEK);
 		WriteMessage(L"Seek mode set to ON.\n", SystemMessageColor);
 		WriteTime(0, SystemMessageColor);
-		WriteMessage(String::Format(L"{0} is now accepting new matches.\n", MemberList[0]->NAME), SystemMessageColor);
+		WriteMessage(String::Format(L"{0} is now in seek mode.\n", MemberList[0]->NAME), SystemMessageColor);
 	}
 	else if(MemberList[0]->STATE == MS_SEEK){
 		if(GameThread != nullptr && GameThread->IsAlive){
@@ -3577,7 +3577,7 @@ void MainForm::ChangeSeek() {
 		
 		WriteMessage(L"Seek mode set to OFF.\n", SystemMessageColor);
 		WriteTime(0, SystemMessageColor);
-		WriteMessage(String::Format(L"{0} has stopped accepting new matches.\n", MemberList[0]->NAME), SystemMessageColor);
+		WriteMessage(String::Format(L"{0} has left seek mode.\n", MemberList[0]->NAME), SystemMessageColor);
 	}
 }
 void MainForm::ChangeLogWordWrap() {
