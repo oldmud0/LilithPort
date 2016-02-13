@@ -654,7 +654,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 		case PH_NOTICE:
 			if(UDP != nullptr){
-				form->WriteMessage(L"[Message of the Day]-------------------\n", SystemMessageColor);
+				form->WriteMessage(L"[Notice]-------------------\n", SystemMessageColor);
 				form->WriteNotice(Encoding::Unicode->GetString(rcv, 2, (rcv->Length)-2));
 				form->WriteMessage(L"-------------------------------\n", SystemMessageColor);
 			}
