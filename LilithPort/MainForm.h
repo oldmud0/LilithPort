@@ -781,7 +781,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->textBoxInput->BackColor = System::Drawing::SystemColors::Window;
             this->textBoxInput->Dock = System::Windows::Forms::DockStyle::Bottom;
             this->textBoxInput->Location = System::Drawing::Point(0, 353);
-            this->textBoxInput->MaxLength = 255;
+            this->textBoxInput->MaxLength = 127;
             this->textBoxInput->Name = L"textBoxInput";
             this->textBoxInput->Size = System::Drawing::Size(554, 20);
             this->textBoxInput->TabIndex = 0;
@@ -1493,7 +1493,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 				}
 			}
 			// 発言でウィンドウ点滅
-			if(MemberList[0]->ID != id && !inname) {
+			if(MemberList[0]->ID != id && !inname && UDP == nullptr) {
 				if(MTOPTION.TALK_FLASH) {
 					WindowFlash();
 				}
@@ -2439,7 +2439,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 
 						PacketSendAllMember(msg, 0);
 	
-						WriteMessage(L"[Message of the Day]-------------------\n", SystemMessageColor);
+						WriteMessage(L"[Notice]-------------------\n", SystemMessageColor);
 						WriteNotice(textBoxInput->Text);
 						WriteMessage(L"-------------------------------\n", SystemMessageColor);
 					}
