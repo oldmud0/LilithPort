@@ -1654,7 +1654,8 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 				L"/list:    Displays the player list.\n"
 				L"/leave:   Exits the server and enters Free Play mode.\n"
 				L"/exit:    Exits the program.\n"
-                L"LilithPort also supports drag-and-drop for replay files and for locating the FM executable.", SystemMessageColor);
+                L"LilithPort also supports drag-and-drop for replay files and for locating the FM executable.\n"
+				L"More information can be found at https://github.com/oldmud0/LilithPort/blob/master/README.md \n", SystemMessageColor);
 		}
 
 		void RandomVersus(){
