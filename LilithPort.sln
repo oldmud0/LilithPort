@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LilithPort", "LilithPort\LilithPort.vcxproj", "{9057AFAF-D9A2-4F09-8D35-C39084BA2A87}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LilithPortDS", "LilithPortCLI\LilithPortCLI.vcxproj", "{9A8A6A2E-D775-4F42-A817-F1F176E6892E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{9057AFAF-D9A2-4F09-8D35-C39084BA2A87}.Debug|Win32.Build.0 = Debug|Win32
 		{9057AFAF-D9A2-4F09-8D35-C39084BA2A87}.Release|Win32.ActiveCfg = Release|Win32
 		{9057AFAF-D9A2-4F09-8D35-C39084BA2A87}.Release|Win32.Build.0 = Release|Win32
+		{9A8A6A2E-D775-4F42-A817-F1F176E6892E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9A8A6A2E-D775-4F42-A817-F1F176E6892E}.Debug|Win32.Build.0 = Debug|Win32
+		{9A8A6A2E-D775-4F42-A817-F1F176E6892E}.Release|Win32.ActiveCfg = Release|Win32
+		{9A8A6A2E-D775-4F42-A817-F1F176E6892E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
