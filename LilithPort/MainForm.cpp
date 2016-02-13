@@ -1124,11 +1124,10 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 
 			// 格ツクじゃないよ
 			try{
-                //TODO: change FM exe check
 				String^ exe = gcnew String(MTOPTION.GAME_EXE);
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(exe);
 
-				if(info->FileDescription != L"２Ｄ格闘ツクール2nd." && info->FileDescription != L"２Ｄ格闘ツクール９５"){
+				if(!IsCompatibleFMExecutable(info->FileDescription)){
 					throw gcnew Exception;
 				}
 				/*
@@ -1143,7 +1142,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					if((INT32)(Path::GetFileNameWithoutExtension(exe)->GetHashCode()) != BitConverter::ToInt32(rcv, 3)){
 						send[1] = 0xFE;
 					}
-					if(info->FileDescription == L"２Ｄ格闘ツクール2nd."){
+					if(IsCompatibleFM2KExecutable(info->FileDescription)){
 						MTINFO.KGT2K = true;
 					}
 					else{
@@ -1154,7 +1153,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 			catch(Exception^){
 				send[1] = 0xFF;
 				form->WriteMessage(L"ERROR: This is not a valid 2D Fighter Maker executable.\n", ErrorMessageColor);
-				form->WriteMessage(L"Please go to the settings menu and set it.\n", ErrorMessageColor);
+				form->WriteMessage(L"Please go to the settings menu and set the path to a compatible game executable.\n", ErrorMessageColor);
 			}
 
 			UDP->BeginSend(send, send->Length, ep, gcnew AsyncCallback(SendPackets), UDP);

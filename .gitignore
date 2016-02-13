@@ -32,3 +32,4 @@ ipch*/
 *.ipch
 LilithPort.sdf
 LilithPortCLI/
+*.VC.opendb

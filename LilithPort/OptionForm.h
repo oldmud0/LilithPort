@@ -2407,14 +2407,13 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			openFileDialog1->Title  = gcnew String(L"Select a Fighter Maker executable file");
 			openFileDialog1->Filter = gcnew String(L"Executable file (*.exe)|*.exe");
 
-            //TODO: Again, detecting whether it is supported should NOT be dependent on the file description.
 			if(openFileDialog1->ShowDialog() == ::DialogResult::OK){
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(openFileDialog1->FileName);
 
                 if (MTINFO.DEBUG)
                     MessageBox::Show(info->Language + "\n" + info->FileDescription, "Debug: File version info");
 
-				if(info->FileDescription == L"２Ｄ格闘ツクール2nd." || info->FileDescription == L"２Ｄ格闘ツクール９５"){
+				if(IsCompatibleFMExecutable(info->FileDescription)){
 					textBoxGameExe->Text = openFileDialog1->FileName;
 				}
 				else{
@@ -2628,8 +2627,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 				String^ extension = Path::GetExtension(file[0])->ToLower();
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(file[0]);
 
-                //TODO: game file detection
-				if(extension == ".exe" && (info->FileDescription == L"２Ｄ格闘ツクール2nd." || info->FileDescription == L"２Ｄ格闘ツクール９５")){
+				if(extension == ".exe" && (IsCompatibleFMExecutable(info->FileDescription))) {
 					e->Effect = DragDropEffects::All;
 				}
 			}

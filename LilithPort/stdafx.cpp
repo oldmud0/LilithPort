@@ -606,6 +606,22 @@ void SetCaption()
 	LeaveCriticalSection(&CS_CAPTION);
 }
 
+bool IsCompatibleFM2KExecutable(String ^ fileDesc)
+{
+	return fileDesc == L"２Ｄ格闘ツクール2nd." ||
+		fileDesc == L"2D Fighter Maker 2015";
+}
+
+bool IsCompatibleFM95Executable(String ^ fileDesc)
+{
+	return fileDesc == L"２Ｄ格闘ツクール９５";
+}
+
+bool IsCompatibleFMExecutable(String ^ fileDesc)
+{
+	return IsCompatibleFM2KExecutable(fileDesc) || IsCompatibleFM95Executable(fileDesc);
+}
+
 // 暗号復号用乱数
 UINT CipherRand(UINT32 seed)
 {

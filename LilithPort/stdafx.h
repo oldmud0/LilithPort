@@ -35,6 +35,10 @@ void DeleteSection(TCHAR* obj);
 void ChangeStageValue();
 void SetCaption();
 
+bool IsCompatibleFM2KExecutable(String^ fileDesc);
+bool IsCompatibleFM95Executable(String^ fileDesc);
+bool IsCompatibleFMExecutable(String^ fileDesc);
+
 String^ EncryptionIP(String^ ip);
 String^ MTEncryptionIP(String^ ip);
 _int64 DecryptionIP(String^ cipher_ip, bool enc);
