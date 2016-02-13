@@ -1032,14 +1032,13 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 		void StartGame(UINT type){
 			// 格ツクじゃないよ
 			try{
-                //TODO: Quite frankly, I think this is a really bad way of detecting "supported" FM files. Case in point: FM15.
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(gcnew String(MTOPTION.GAME_EXE));
 
-				if(info->FileDescription != L"２Ｄ格闘ツクール2nd." && info->FileDescription != L"２Ｄ格闘ツクール９５"){
+				if(!IsCompatibleFMExecutable(info->FileDescription)){
 					throw gcnew Exception;
 				}
 				else{
-					if(info->FileDescription == L"２Ｄ格闘ツクール2nd."){
+					if(IsCompatibleFM2KExecutable(info->FileDescription)){
 						MTINFO.KGT2K = true;
 					}
 					else{
@@ -3086,13 +3085,12 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 		System::Void MainForm_DragEnter(System::Object^  sender, System::Windows::Forms::DragEventArgs^  e) {
 			e->Effect = DragDropEffects::None;
 
-            //TODO: change FM exe check
 			if(e->Data->GetDataPresent(DataFormats::FileDrop)){
 				array<String^>^ file = safe_cast<array<String^>^>(e->Data->GetData(DataFormats::FileDrop, false));
 				String^ extension = Path::GetExtension(file[0])->ToLower();
 				FileVersionInfo^ info = FileVersionInfo::GetVersionInfo(file[0]);
 
-				if(extension == ".mtr" || (extension == ".exe" && (info->FileDescription == L"２Ｄ格闘ツクール2nd." || info->FileDescription == L"２Ｄ格闘ツクール９５"))){
+				if(extension == ".mtr" || (extension == ".exe" && (IsCompatibleFMExecutable(info->FileDescription)))) {
 					e->Effect = DragDropEffects::All;
 				}
 			}
@@ -3121,7 +3119,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 
 						_tsplitpath_s(MTOPTION.GAME_EXE, drive, _MAX_DRIVE, dir, _MAX_DIR, NULL, 0, NULL, 0);
 
-						if(info->FileDescription == L"２Ｄ格闘ツクール2nd."){
+						if(IsCompatibleFM2KExecutable(info->FileDescription)){
 							b2nd = true;
 							_stprintf_s(ini, _T("%s%sgame.ini"), drive, dir);
 						}
