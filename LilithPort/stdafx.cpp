@@ -62,7 +62,8 @@ void LoadMTOption()
 		tmpType[MAX_TITLE], tmpPort[MAX_TITLE], bufSection[MAX_ARRAY];
 	TCHAR* iniSection = _T("LilithPort");
 	UINT iniVersion;
-	_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	//_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	PathCombine(ini, MTOPTION.PATH, L"LilithPort.ini");
 	// stdafx.hに記述
 	TCHAR iniSystem[MAX_NAME], iniState[MAX_NAME], iniColor[MAX_NAME];
 
@@ -287,7 +288,8 @@ void SaveMTOption()
 	_tcscpy_s(iniColor, static_cast<PTCHAR>(mp.ToPointer()));
 	Runtime::InteropServices::Marshal::FreeHGlobal(mp);
 
-	_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	//_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	PathCombine(ini, MTOPTION.PATH, L"LilithPort.ini");
 
 	// グローバルセクション書き込み
 	_itot_s(LP_VERSION, buf, 10);
@@ -475,13 +477,15 @@ void SaveMTOption()
 // プロファイルセクション削除
 void DeleteSection(TCHAR* obj){
 	TCHAR ini[_MAX_PATH];
-	_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	//_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	PathCombine(ini, MTOPTION.PATH, L"LilithPort.ini");
 	WritePrivateProfileStruct(obj, NULL, NULL, 0, ini);
 }
 // プロファイル関連のみ書き出し
 void SaveProfileOption(){
 	TCHAR ini[_MAX_PATH];
-	_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	//_stprintf_s(ini, _T("%sLilithPort.ini"), MTOPTION.PATH);
+	PathCombine(ini, MTOPTION.PATH, L"LilithPort.ini");
 
 	IntPtr mp;
 	TCHAR iniSystem[MAX_NAME];

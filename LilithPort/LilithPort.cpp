@@ -26,7 +26,8 @@ int main(array<System::String ^> ^args)
 
 	GetModuleFileName(NULL, MTOPTION.PATH, _MAX_PATH);
 	_tsplitpath_s(MTOPTION.PATH, drive, _MAX_DRIVE, dir, _MAX_DIR, NULL, 0, NULL, 0);
-	_stprintf_s(MTOPTION.PATH, _T("%s%s"), drive, dir);
+	//_stprintf_s(MTOPTION.PATH, _T("%s%s"), drive, dir);
+	PathCombine(MTOPTION.PATH, drive, dir);
 
 	// コマンドライン引数
 	if(args->Length > 0){

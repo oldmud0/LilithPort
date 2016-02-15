@@ -720,7 +720,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             // listBoxMember
             // 
             this->listBoxMember->BorderStyle = System::Windows::Forms::BorderStyle::None;
-            this->listBoxMember->ContextMenu = this->contextMenuStripMember;
+            //this->listBoxMember->ContextMenu = this->contextMenuStripMember;
             this->listBoxMember->Dock = System::Windows::Forms::DockStyle::Fill;
             this->listBoxMember->DrawMode = System::Windows::Forms::DrawMode::OwnerDrawFixed;
             this->listBoxMember->FormattingEnabled = true;
@@ -729,7 +729,8 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->listBoxMember->Name = L"listBoxMember";
             this->listBoxMember->Size = System::Drawing::Size(94, 373);
             this->listBoxMember->TabIndex = 2;
-            this->listBoxMember->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseClick);
+            this->listBoxMember->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseDown);
+			this->listBoxMember->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseUp);
             this->listBoxMember->DrawItem += gcnew System::Windows::Forms::DrawItemEventHandler(this, &MainForm::listBoxMember_DrawItem);
             this->listBoxMember->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseDoubleClick);
             // 
@@ -2558,9 +2559,9 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			}
 		}
 
-		System::Void listBoxMember_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		System::Void listBoxMember_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 			int index = listBoxMember->IndexFromPoint(e->X, e->Y);
-
+			
 			if(index == -1 || MTOPTION.CONNECTION_TYPE == CT_FREE || ListView == LV_BLIND){
 				toolTipMember->Active = false;
 				return;
@@ -2582,6 +2583,16 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			}
 			toolTipMember->SetToolTip(listBoxMember, cap);
 		}
+
+		System::Void listBoxMember_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+			int index = listBoxMember->IndexFromPoint(e->X, e->Y);
+
+			if (index != -1 && e->Button == ::MouseButtons::Right) {
+				listBoxMember->SelectedIndex = index;
+				this->contextMenuStripMember->Show(listBoxMember, e->Location);
+			}
+		}
+
 		System::Void toolStripMenuItemSetting_Click(System::Object^  sender, System::EventArgs^  e) {
 			if(Option == nullptr || Option->IsDisposed){
 				toolStripDropDownButtonProfile->Enabled = false;
@@ -3122,11 +3133,13 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 
 						if(IsCompatibleFM2KExecutable(info->FileDescription)){
 							b2nd = true;
-							_stprintf_s(ini, _T("%s%sgame.ini"), drive, dir);
+							//_stprintf_s(ini, _T("%s%sgame.ini"), drive, dir);
+							PathCombine(ini, PathCombine(ini, drive, dir), L"game.ini");
 						}
 						else{
 							b2nd = false;
-							_stprintf_s(ini, _T("%s%s２Ｄ格闘ツクール９５.ini"), drive, dir);
+							//_stprintf_s(ini, _T("%s%s２Ｄ格闘ツクール９５.ini"), drive, dir);
+							PathCombine(ini, PathCombine(ini, drive, dir), L"２Ｄ格闘ツクール９５.ini");
 						}
 
 						if(File::Exists(gcnew String(ini))){

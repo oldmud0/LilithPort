@@ -6,6 +6,7 @@
 
 // TODO: プログラムに必要な追加ヘッダーをここで参照してください。
 #include <windows.h>
+#include <Shlwapi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

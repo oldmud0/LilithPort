@@ -2252,7 +2252,8 @@ void MainForm::RunGame(Object^ obj)
 
 		// 作業ディレクトリ
 		_tsplitpath_s(MTOPTION.GAME_EXE, drive, _MAX_DRIVE, buf, _MAX_DIR, NULL, 0, NULL, 0);
-		_stprintf_s(wdir, _T("%s%s"), drive, buf);
+		//_stprintf_s(wdir, _countof(drive)+_countof(buf), _T("%s%s"), drive, buf);
+		PathCombine(wdir, drive, buf);
 		
 		if(CreateProcess(MTOPTION.GAME_EXE, NULL, NULL, NULL, false, DEBUG_PROCESS, NULL, wdir, &si, &pi)){
 			if(run_type == RT_PLAYBACK){
@@ -2822,7 +2823,8 @@ void MainForm::RunGame(Object^ obj)
 					if(MTOPTION.CHANGE_WINDOW_SIZE){
 						TCHAR val[32];
 
-						_stprintf_s(buf, _T("%sgame.ini"), wdir);
+						//_stprintf_s(buf, _T("%sgame.ini"), wdir);
+						PathCombine(buf, wdir, L"game.ini");
 
 						if(File::Exists(gcnew String(buf))){
 							_itot_s(640, val, 10);
