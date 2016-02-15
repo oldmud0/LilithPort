@@ -1014,7 +1014,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 		void RunSonar();
 		void RunGame(Object^ obj);
 		void RunVersus();
-		void RunSpectacle();
+		void RunSpectator();
 		UINT16 LocalInput(UINT16 eax);
 		UINT16 RemoteInput();
 		UINT16 ReadReplayData(BinaryReader^ br, REPLAY_INFO& ri);

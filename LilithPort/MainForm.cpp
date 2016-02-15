@@ -2233,7 +2233,7 @@ void MainForm::RunGame(Object^ obj)
 		AllowWatch = false;
 		InputFrame = 0;
 
-		SpectacleThread = gcnew Thread(gcnew ThreadStart(this, &MainForm::RunSpectacle));
+		SpectacleThread = gcnew Thread(gcnew ThreadStart(this, &MainForm::RunSpectator));
 		SpectacleThread->Start();
 	}
 
@@ -3145,7 +3145,7 @@ void MainForm::RunVersus()
 	}
 }
 
-void MainForm::RunSpectacle()
+void MainForm::RunSpectator()
 {
 	int i, d;
 	UINT32 frame = 0, s_frame;
