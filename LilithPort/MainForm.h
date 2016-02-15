@@ -263,6 +263,12 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->toolStripMenuItemVersion = (gcnew System::Windows::Forms::MenuItem());
             this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
             this->listBoxMember = (gcnew System::Windows::Forms::ListBox());
+            this->textBoxInput = (gcnew System::Windows::Forms::TextBox());
+            this->richTextBoxLog = (gcnew System::Windows::Forms::RichTextBox());
+            this->contextMenuStrip2 = (gcnew System::Windows::Forms::ContextMenu());
+            this->contextMenuItemCopy = (gcnew System::Windows::Forms::MenuItem());
+            this->toolStripSeparator6 = (gcnew System::Windows::Forms::MenuItem());
+            this->contxtMenuItemSaveLog = (gcnew System::Windows::Forms::MenuItem());
             this->contextMenuStripMember = (gcnew System::Windows::Forms::ContextMenu());
             this->toolStripMenuItemVS = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripMenuItemWatch = (gcnew System::Windows::Forms::MenuItem());
@@ -270,12 +276,6 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->toolStripMenuItemPing = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripSeparator12 = (gcnew System::Windows::Forms::MenuItem());
             this->toolStripMenuItemKick = (gcnew System::Windows::Forms::MenuItem());
-            this->textBoxInput = (gcnew System::Windows::Forms::TextBox());
-            this->richTextBoxLog = (gcnew System::Windows::Forms::RichTextBox());
-            this->contextMenuStrip2 = (gcnew System::Windows::Forms::ContextMenu());
-            this->contextMenuItemCopy = (gcnew System::Windows::Forms::MenuItem());
-            this->toolStripSeparator6 = (gcnew System::Windows::Forms::MenuItem());
-            this->contxtMenuItemSaveLog = (gcnew System::Windows::Forms::MenuItem());
             this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
             this->toolTipMember = (gcnew System::Windows::Forms::ToolTip(this->components));
             this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
@@ -720,7 +720,6 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             // listBoxMember
             // 
             this->listBoxMember->BorderStyle = System::Windows::Forms::BorderStyle::None;
-            //this->listBoxMember->ContextMenu = this->contextMenuStripMember;
             this->listBoxMember->Dock = System::Windows::Forms::DockStyle::Fill;
             this->listBoxMember->DrawMode = System::Windows::Forms::DrawMode::OwnerDrawFixed;
             this->listBoxMember->FormattingEnabled = true;
@@ -729,53 +728,10 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->listBoxMember->Name = L"listBoxMember";
             this->listBoxMember->Size = System::Drawing::Size(94, 373);
             this->listBoxMember->TabIndex = 2;
-            this->listBoxMember->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseDown);
-			this->listBoxMember->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseUp);
             this->listBoxMember->DrawItem += gcnew System::Windows::Forms::DrawItemEventHandler(this, &MainForm::listBoxMember_DrawItem);
             this->listBoxMember->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseDoubleClick);
-            // 
-            // contextMenuStripMember
-            // 
-            this->contextMenuStripMember->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(6) {
-                this->toolStripMenuItemVS,
-                    this->toolStripMenuItemWatch, this->toolStripMenuItemSeek, this->toolStripMenuItemPing, this->toolStripSeparator12, this->toolStripMenuItemKick
-            });
-            this->contextMenuStripMember->Popup += gcnew System::EventHandler(this, &MainForm::contextMenuStripMember_Opening);
-            // 
-            // toolStripMenuItemVS
-            // 
-            this->toolStripMenuItemVS->Index = 0;
-            this->toolStripMenuItemVS->Text = L"Fight";
-            this->toolStripMenuItemVS->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemVS_Click);
-            // 
-            // toolStripMenuItemWatch
-            // 
-            this->toolStripMenuItemWatch->Index = 1;
-            this->toolStripMenuItemWatch->Text = L"Spectate";
-            this->toolStripMenuItemWatch->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemWatch_Click);
-            // 
-            // toolStripMenuItemSeek
-            // 
-            this->toolStripMenuItemSeek->Index = 2;
-            this->toolStripMenuItemSeek->Text = L"Seek/Challenge";
-            this->toolStripMenuItemSeek->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSeek_Click);
-            // 
-            // toolStripMenuItemPing
-            // 
-            this->toolStripMenuItemPing->Index = 3;
-            this->toolStripMenuItemPing->Text = L"Ping";
-            this->toolStripMenuItemPing->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemPing_Click);
-            // 
-            // toolStripSeparator12
-            // 
-            this->toolStripSeparator12->Index = 4;
-            this->toolStripSeparator12->Text = L"-";
-            // 
-            // toolStripMenuItemKick
-            // 
-            this->toolStripMenuItemKick->Index = 5;
-            this->toolStripMenuItemKick->Text = L"Kick";
-            this->toolStripMenuItemKick->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemKick_Click);
+            this->listBoxMember->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseDown);
+            this->listBoxMember->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::listBoxMember_MouseUp);
             // 
             // textBoxInput
             // 
@@ -831,6 +787,49 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
             this->contxtMenuItemSaveLog->Shortcut = System::Windows::Forms::Shortcut::CtrlS;
             this->contxtMenuItemSaveLog->Text = L"&Save log";
             this->contxtMenuItemSaveLog->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSaveLog_Click);
+            // 
+            // contextMenuStripMember
+            // 
+            this->contextMenuStripMember->MenuItems->AddRange(gcnew cli::array< System::Windows::Forms::MenuItem^  >(6) {
+                this->toolStripMenuItemVS,
+                    this->toolStripMenuItemWatch, this->toolStripMenuItemSeek, this->toolStripMenuItemPing, this->toolStripSeparator12, this->toolStripMenuItemKick
+            });
+            this->contextMenuStripMember->Popup += gcnew System::EventHandler(this, &MainForm::contextMenuStripMember_Opening);
+            // 
+            // toolStripMenuItemVS
+            // 
+            this->toolStripMenuItemVS->Index = 0;
+            this->toolStripMenuItemVS->Text = L"Fight";
+            this->toolStripMenuItemVS->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemVS_Click);
+            // 
+            // toolStripMenuItemWatch
+            // 
+            this->toolStripMenuItemWatch->Index = 1;
+            this->toolStripMenuItemWatch->Text = L"Spectate";
+            this->toolStripMenuItemWatch->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemWatch_Click);
+            // 
+            // toolStripMenuItemSeek
+            // 
+            this->toolStripMenuItemSeek->Index = 2;
+            this->toolStripMenuItemSeek->Text = L"Seek/Challenge";
+            this->toolStripMenuItemSeek->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemSeek_Click);
+            // 
+            // toolStripMenuItemPing
+            // 
+            this->toolStripMenuItemPing->Index = 3;
+            this->toolStripMenuItemPing->Text = L"Ping";
+            this->toolStripMenuItemPing->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemPing_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this->toolStripSeparator12->Index = 4;
+            this->toolStripSeparator12->Text = L"-";
+            // 
+            // toolStripMenuItemKick
+            // 
+            this->toolStripMenuItemKick->Index = 5;
+            this->toolStripMenuItemKick->Text = L"Kick";
+            this->toolStripMenuItemKick->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItemKick_Click);
             // 
             // openFileDialog1
             // 
