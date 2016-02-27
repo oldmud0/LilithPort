@@ -1493,7 +1493,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 				}
 			}
 			// 発言でウィンドウ点滅
-			if(MemberList[0]->ID != id && !inname && UDP == nullptr) {
+			if(MemberList[0]->ID != id && !inname && MemberList[0]->STATE != MEMBER_STATE::MS_VS) {
 				if(MTOPTION.TALK_FLASH) {
 					WindowFlash();
 				}
