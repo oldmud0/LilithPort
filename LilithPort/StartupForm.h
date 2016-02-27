@@ -442,6 +442,7 @@ namespace LilithPort {
                 textBoxWelcome->Text    = gcnew String(MTOPTION.WELCOME);
             }
             catch (Exception^ e) {
+                WriteErrorLog(e->ToString(), "StartupForm_Load");
                 error = true;
             }
 			
@@ -454,6 +455,7 @@ namespace LilithPort {
                 numericUpDownOpenPort->Value = 7500;
                 numericUpDownOpenPort->Value = 7500;
                 numericUpDownMaxConnection->Value = 4;
+                WriteErrorLog(e->ToString(), "StartupForm_Load");
                 error = true;
             }
 
