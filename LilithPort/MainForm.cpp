@@ -1567,7 +1567,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 				si->IP_EP = ep;
 				si->FRAME = 0;
 
-				if(SpectacleThread != nullptr && SpectacleThread->IsAlive && AllowWatch){
+				if(SpectatorThread != nullptr && SpectatorThread->IsAlive && AllowWatch){
 					// 既にはじめてる
 					send = gcnew array<BYTE>(14);
 					send[0] = PH_RES_WATCH;
@@ -2233,8 +2233,8 @@ void MainForm::RunGame(Object^ obj)
 		AllowWatch = false;
 		InputFrame = 0;
 
-		SpectacleThread = gcnew Thread(gcnew ThreadStart(this, &MainForm::RunSpectator));
-		SpectacleThread->Start();
+		SpectatorThread = gcnew Thread(gcnew ThreadStart(this, &MainForm::RunSpectator));
+		SpectatorThread->Start();
 	}
 
 	// 対戦中通知
@@ -2993,7 +2993,7 @@ void MainForm::RunGame(Object^ obj)
 
 		if(allow_spectator){
 			AllowWatch = false;
-			SpectacleThread->Join();
+			SpectatorThread->Join();
 		}
 
 		if(AfterCloseUDP){

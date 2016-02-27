@@ -990,7 +990,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			UINT32      FRAME;
 		};
 
-		static Thread^ SpectacleThread;
+		static Thread^ SpectatorThread;
 		static Generic::List<SpectatorInfo^>^ SpectatorList;
 		static bool           AllowWatch;      // スレッド制御
 		static UINT           WaitingWatch;    // パケット待ち 1:開始待ち 2:データ待ち
