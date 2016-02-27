@@ -418,35 +418,49 @@ namespace LilithPort {
 			textBoxComment->MaxLength         = MAX_NAME;
 
 			switch(MTOPTION.CONNECTION_TYPE){
-			case CT_SERVER:
-			default:
-				radioButtonServer->Checked = true;
-
-				numericUpDownPort->Enabled = false;
-				break;
-			case CT_HOST:
-				radioButtonHost->Checked = true;
-
-				break;
-			case CT_CLIENT:
-				radioButtonClient->Checked = true;
-
-				numericUpDownOpenPort->Enabled = false;
-				break;
+			    case CT_SERVER:
+			    default:
+				    radioButtonServer->Checked = true;
+				    numericUpDownPort->Enabled = false;
+				    break;
+			    case CT_HOST:
+				    radioButtonHost->Checked = true;
+				    break;
+			    case CT_CLIENT:
+				    radioButtonClient->Checked = true;
+				    numericUpDownOpenPort->Enabled = false;
+				    break;
 			}
 
-			textBoxServerName->Text = gcnew String(MTOPTION.SERVER_NAME);
-			textBoxIP->Text = gcnew String(MTOPTION.CONNECTION_IP);
+            bool error = false;
+
+            try {
+                textBoxServerName->Text = gcnew String(MTOPTION.SERVER_NAME);
+                textBoxIP->Text         = gcnew String(MTOPTION.CONNECTION_IP);
+                textBoxName->Text       = gcnew String(MTOPTION.NAME);
+                textBoxComment->Text    = gcnew String(MTOPTION.COMMENT);
+                textBoxWelcome->Text    = gcnew String(MTOPTION.WELCOME);
+            }
+            catch (Exception^ e) {
+                error = true;
+            }
 			
+            try {
+                numericUpDownOpenPort->Value      = MTOPTION.OPEN_PORT;
+                numericUpDownPort->Value          = MTOPTION.PORT;
+                numericUpDownMaxConnection->Value = MTOPTION.MAX_CONNECTION;
+            }
+            catch (Exception^ e) {
+                numericUpDownOpenPort->Value = 7500;
+                numericUpDownOpenPort->Value = 7500;
+                numericUpDownMaxConnection->Value = 4;
+                error = true;
+            }
 
-			numericUpDownOpenPort->Value = MTOPTION.OPEN_PORT;
+            if (error) {
+                MessageBox::Show(L"Some options could not be loaded correctly from the settings file. Their default values have been loaded instead.", L"Settings File Corrupt", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            }
 
-			textBoxName->Text = gcnew String(MTOPTION.NAME);
-			numericUpDownPort->Value = MTOPTION.PORT;
-			numericUpDownMaxConnection->Value = MTOPTION.MAX_CONNECTION;
-
-			textBoxComment->Text = gcnew String(MTOPTION.COMMENT);
-			textBoxWelcome->Text = gcnew String(MTOPTION.WELCOME);
 		}
 
 		System::Void StartupForm_Shown(System::Object^  sender, System::EventArgs^  e) {

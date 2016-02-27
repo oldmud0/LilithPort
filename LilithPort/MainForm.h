@@ -1520,6 +1520,9 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 		}
 
 		void WriteMessage(String^ msg, Color color){
+            //Prevents an error writing to the chat log when you are closing the program
+            if (richTextBoxLog->IsDisposed) return;
+
 			if(richTextBoxLog->InvokeRequired){
 				WriteMessageDelegate^ wmd = gcnew WriteMessageDelegate(this, &MainForm::WriteMessage);
 				richTextBoxLog->Invoke(wmd, msg, color);
