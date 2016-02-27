@@ -345,7 +345,7 @@ void MainForm::Begin()
 						}
 						else if(ServerName[0] == '#'){
 							ServerMode = SM_NORA;
-							WriteMessage(L"Whoa! A Nora server!\n", SystemMessageColor); //fixme: hard translation (野良サーバ)
+							WriteMessage(L"Anonymous server: chat and names are invisible.\n", SystemMessageColor); //fixme: hard translation (野良サーバ)
 
 							ListView = LV_BLIND;
 							listBoxMember->Items[0] = gcnew String(L"Open Match"); //fixme: hard translation (野試合会場)
@@ -1634,7 +1634,7 @@ void MainForm::ReceivePackets(IAsyncResult^ asyncResult)
 					break;
 
 				case 4:
-					form->WriteMessage(L"You are already watching the opponent!\n", SystemMessageColor); //fixme: hard translation: 既に相手がこちらを観戦対象にしていました。
+					form->WriteMessage(L"This person is already watching you!\n", SystemMessageColor); //fixme: hard translation: 既に相手がこちらを観戦対象にしていました。
 					break;
 				}
 
