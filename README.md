@@ -13,7 +13,9 @@ Any game that uses 2D Fighter Maker (95/2002) will work. LilithPort is also back
  - and many more...
  
 ## Public Servers
-Currently, no servers are being advertised for general use. Please visit your game's website for multiplayer information.
+This 24/7 server is run by Vick, for Vanguard Princess and Pokémon Type: Wild players:
+
+    alavanguard.ddns.net:7500
 
 ## Instructions
 Sorry for everyone who has been waiting for so long for proper instructions on how to use LilithPort.
