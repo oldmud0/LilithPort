@@ -105,7 +105,7 @@ Player 2 calculates the delay and passes it to Player 1. If Player 1 has a great
 By dragging and dropping your game executable on the main window, the game path is automatically changed without having to enter the options menu. If a profile was configured for that specific game, then that profile will automatically be opened as well.
 
 ## Joystick Warning
-If you are playing an FM95 game, the joystick is disabled due to compatibility reasons. Please use JoyToKey or [AntiMicro](https://github.com/Ryochan7/antimicro/releases).
+If you are playing an FM95 game, the joystick is disabled due to compatibility reasons. Please use JoyToKey or [AntiMicro](https://github.com/AntiMicro/antimicro/releases).
 
 In addition, there is a massive performance penalty for turning on joystick support in 2DFM in most cases. 
 The reason is that 2DFM will silently error out when a joystick is expected but is not detected. In order to mitigate this, please have at least two controllers plugged in.
