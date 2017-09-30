@@ -72,6 +72,7 @@ void OptionForm::SaveOption(bool apply){
 	MTOPTION.GET_IP_ENABLE        = checkBoxGetIP->Checked;
 	MTOPTION.SHOW_GAME_OPTION     = checkBoxShowGameOption->Checked;
 	MTOPTION.SHOW_RESULT          = checkBoxShowResult->Checked;
+	MTOPTION.LOG_CLEAR_WITHOUT_WELCOME = checkBoxLogClearWithoutWelcome->Checked;
 
 	// コメント
 	if(textBoxComment->Text != gcnew String(MTOPTION.COMMENT)){
@@ -127,6 +128,9 @@ void OptionForm::SaveOption(bool apply){
 	}
 
 	// 詳細設定
+	// ログファイル保存形式
+	MTOPTION.LOG_FORMAT_RTF = radioButtonLogRTF->Checked;
+
 	// 発言でウィンドウを点滅
 	MTOPTION.TALK_FLASH = checkBoxTalkFlash->Checked;
 	// 名前が呼ばれたらウィンドウを点滅

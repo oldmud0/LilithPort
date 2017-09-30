@@ -1023,6 +1023,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 		void ChangeSeek();
 		void ChangeLogWordWrap();
 		void ClearLog();
+		void SaveLog();
 
 		void PacketSendAllMember(array<BYTE>^% datagram, UINT received_id);
 		static void SendPackets(IAsyncResult^ asyncResult);
@@ -1673,7 +1674,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 				Monitor::Enter(MemberList);
 				try{
 					for(int i = 1; i < MemberList->Count; i++){
-						if(MemberList[i]->STATE == MS_FREE && MemberList[i]->TYPE != CT_CLIENT){
+						if(MemberList[i]->STATE == MS_FREE || MemberList[i]->STATE == MS_SEEK) {
 							list->Add(i);
 						}
 					}
@@ -1704,22 +1705,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 				ClearLog();
 			}
 			else if(textBoxInput->Text->StartsWith("/log", StringComparison::OrdinalIgnoreCase)){
-				String^ path = gcnew String(MTOPTION.PATH);
-				String^ file = String::Format(L"MT_{0}.rtf", DateTime::Now.ToString("yyMMdd-HHmmss"));
-				path += file;
-
-				Monitor::Enter(richTextBoxLog);
-				try{
-					richTextBoxLog->SaveFile(path, RichTextBoxStreamType::RichText);
-				}
-				catch(Exception ^e){
-					WriteErrorLog(e->ToString(), "SaveLog");
-				}
-				finally{
-					Monitor::Exit(richTextBoxLog);
-				}
-
-				WriteMessage(String::Format(L"Log saved to \"{0}\".\n", file), SystemMessageColor);
+				SaveLog();
 			}
 			else if(textBoxInput->Text->StartsWith("/debug", StringComparison::OrdinalIgnoreCase)){
 				MTINFO.DEBUG ^= 1;
@@ -1839,56 +1825,6 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 				//Thread::Sleep(100 * 1000);
 
 				//ChangeState((BYTE)MS_FREE);
-
-				/*
-				richTextBoxLog->SelectionStart = richTextBoxLog->Text->Length;
-				richTextBoxLog->SelectionColor = ErrorMessageColor;
-				richTextBoxLog->AppendText("hogehoge\n");
-				*/
-				
-				
-
-				
-				// 強制キック
-				//array<BYTE>^ send = gcnew array<BYTE>(3){ PH_LOST, 0xFF, 0xFF };
-				//IPEndPoint^ ep = gcnew IPEndPoint(IPAddress::Parse("221.79.20.188")->Address, 7500);
-				//UDP->BeginSend(send, send->Length, ep, gcnew AsyncCallback(SendPackets), UDP);
-
-				// ping
-				//IPEndPoint^ ep = gcnew IPEndPoint(IPAddress::Parse("220.147.87.48")->Address, 4040);
-				//array<BYTE>^ ping = gcnew array<BYTE>(1){ PH_PING };
-				//Ping = timeGetTime();
-				//UDP->BeginSend(ping, 1, ep, gcnew AsyncCallback(SendPackets), UDP);
-
-				// なりきり
-				/*
-				IPEndPoint^ ep = gcnew IPEndPoint(IPAddress::Parse("220.147.87.48")->Address, 4040);
-				BYTE len = (BYTE)(16);
-				array<BYTE>^ msg = gcnew array<BYTE>(4 + len);
-
-				msg[0] = PH_MESSAGE;
-				Array::Copy(BitConverter::GetBytes(207), 0, msg, 1, 2);
-				msg[3] = len;
-				Array::Copy(Encoding::Unicode->GetBytes("それほどでもない"), 0, msg, 4, len);
-
-				UDP->BeginSend(msg, msg->Length, ep, gcnew AsyncCallback(SendPackets), UDP);
-				*/
-				
-				
-				/*// MTSPアドレスデコード
-				IPEndPoint^ ep = gcnew IPEndPoint(MTDecryptionIP(""), 7500);
-				WriteMessage(String::Format(L"{0}", ep), DebugMessageColor);
-				//*/
-
-				/*// LilithPortアドレスデコード
-				IPEndPoint^ ep = gcnew IPEndPoint(DecryptionIP("", true), 7500);
-				WriteMessage(String::Format(L"{0}", ep), DebugMessageColor);
-				//*/
-
-				/*// メンバーリスト手動削除
-				MemberList->RemoveAt(listBoxMember->SelectedIndex);
-				listBoxMember->Items->RemoveAt(listBoxMember->SelectedIndex);
-				//*/
 			}
 		}
 
@@ -2048,7 +1984,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 			Array::Copy(BitConverter::GetBytes(0), 0, send, 1, 2);
 			UDP->Send(send, 3, MemberList[1]->IP_EP);
 
-			WriteMessage(L"Manually updated the players list. (The list is usually updated continuously as manual requests place a load on the server.)\n", SystemMessageColor);
+			WriteMessage(L"Manually updated the players list. (The list is usually updated as players join, since manual requests place a load on the server.)\n", SystemMessageColor);
 		}
 		void WriteStatus(String^ msg){
 			toolStripStatusLabel->Text = msg;
@@ -2356,21 +2292,8 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 				TimerGetIPThread->Join();
 			}
 
-			if(MTINFO.DEBUG){
-				String^ path = gcnew String(MTOPTION.PATH);
-				path += "log.rtf";
-
-				Monitor::Enter(richTextBoxLog);
-				try{
-					richTextBoxLog->SaveFile(path, RichTextBoxStreamType::RichText);
-				}
-				catch(Exception ^e){
-					WriteErrorLog(e->ToString(), "SaveLog");
-				}
-				finally{
-					Monitor::Exit(richTextBoxLog);
-				}
-			}
+			// "Just in case," he said...
+			Thread::Sleep(500);
 		}
 
 		System::Void MainForm_FormClosed(System::Object^  sender, System::Windows::Forms::FormClosedEventArgs^  e) {
@@ -2615,7 +2538,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 		}
 
 		System::Void toolStripMenuItemVersion_Click(System::Object^  sender, System::EventArgs^  e) {
-			WriteMessage(L"LilithPort v1.07\nEnglish translation by longbyte1\n", SystemMessageColor);
+			WriteMessage(L"LilithPort v1.08\nEnglish translation by longbyte1\n", SystemMessageColor);
 		}
 
 		System::Void toolStripMenuItemExit_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -2805,22 +2728,7 @@ private: System::Windows::Forms::ContextMenu^  contextMenuStrip2;
 		}
 
 		System::Void toolStripMenuItemSaveLog_Click(System::Object^  sender, System::EventArgs^  e) {
-			String^ path = gcnew String(MTOPTION.PATH);
-			String^ file = String::Format(L"LilithPort_{0}.log", DateTime::Now.ToString("yyMMdd-HHmmss"));
-			path += file;
-
-			Monitor::Enter(richTextBoxLog);
-			try{
-				richTextBoxLog->SaveFile(path, RichTextBoxStreamType::PlainText);
-			}
-			catch(Exception ^e){
-				WriteErrorLog(e->ToString(), "SaveLog");
-			}
-			finally{
-				Monitor::Exit(richTextBoxLog);
-			}
-
-			WriteMessage(String::Format(L"Saved log to \"{0}\".\n", file), SystemMessageColor);
+			SaveLog();
 		}
 
 		System::Void toolStripMenuItemReplay_Click(System::Object^  sender, System::EventArgs^  e) {

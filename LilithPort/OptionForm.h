@@ -2239,6 +2239,7 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			checkBoxGetIP->Checked            = MTOPTION.GET_IP_ENABLE;
 			checkBoxShowGameOption->Checked   = MTOPTION.SHOW_GAME_OPTION;
 			checkBoxShowResult->Checked       = MTOPTION.SHOW_RESULT;
+			checkBoxLogClearWithoutWelcome->Checked = MTOPTION.LOG_CLEAR_WITHOUT_WELCOME;
 
 			numericUpDownMaxConnection->Value = MTOPTION.MAX_CONNECTION;
 			trackBarBGM->Value                = MTOPTION.BGM_VOLUME / 5;
@@ -2255,6 +2256,10 @@ private: System::Windows::Forms::CheckBox^  checkBoxShowResult;
 			checkBoxRand->Checked             = MTOPTION.DISPLAY_RAND;
 			checkBoxDivide->Checked           = MTOPTION.REPLAY_DIVIDE;
 			checkBoxWindowSize->Checked       = MTOPTION.CHANGE_WINDOW_SIZE;
+
+			radioButtonLogRTF->Checked = MTOPTION.LOG_FORMAT_RTF;
+			radioButtonLogTXT->Checked = !MTOPTION.LOG_FORMAT_RTF;
+
 			checkBoxTalkFlash->Checked        = MTOPTION.TALK_FLASH;
 			checkBoxNameFlash->Checked        = MTOPTION.NAME_FLASH;
 			checkBoxTeamRoundHP->Checked      = MTOPTION.TEAM_ROUND_HP;
